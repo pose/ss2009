@@ -22,7 +22,7 @@ function [t2 x1 x2] = combat_simulator(forces, time, r1,r2)
     global R
     R = [r1;r2];
 
-    res = lsode("lsodee", forces, (t = linspace(0,time,900))');
+    res = lsode("lsodee", forces, (t = linspace(0,time,1000))');
     
     t2 = t';
     x1 = res(:,1);
