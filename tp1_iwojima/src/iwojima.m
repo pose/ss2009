@@ -58,3 +58,11 @@ ylabel ("Cantidad de tropas");
 grid("on");
 
 print -dpng  real_vs_sim.png -mono -dashed -S640
+
+# Duración de la batalla: Poner que si bien idealmente sería hasta que la 
+# fuerza enemiga sea 0 habría que tener en cuenta también en la organización
+# militar hay ciertos mínimos a partir de los cuales no se puede luchar más,
+# tanto por deserciones, propaganda, etc. 
+#
+# Quizás podés mecharlo con esto:
+# http://es.wikipedia.org/wiki/Unidad_militar
