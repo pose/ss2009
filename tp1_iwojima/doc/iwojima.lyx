@@ -36,9 +36,86 @@
 \tracking_changes false
 \output_changes false
 \author "" 
+\author "" 
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Introducci
+\backslash
+'on}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+En el presente art
+\backslash
+'iculo se explica la realizaci
+\backslash
+'on de la simulaci
+\backslash
+'on del sistema correspondiente a un combate entre dos fuerzas, en particular,
+ rememorando la batalla de Iwo jima, entre los Estados Unidos de Am
+\backslash
+'erica y Jap
+\backslash
+'on.
+ Para ello, en la primer secci
+\backslash
+'on se presenta el modelo utilizado para realizar dicha simulaci
+\backslash
+'on.
+ En la segunda secci
+\backslash
+'on se demuestra un resultado matem
+\backslash
+'atico-f
+\backslash
+'isico cuya consecuencia se explica en la misma secci
+\backslash
+'on.
+ En la tercer secci
+\backslash
+'on se detallan cuestiones de implementaci
+\backslash
+'on del modelo.
+ En la secci
+\backslash
+'on cuatro se presentan los resultados obtenidos a partir de la simulaci
+\backslash
+'on y por 
+\backslash
+'ultimo, en la secci
+\backslash
+'on cinco se agrupan las conclusiones obtenidas durante la realizaci
+\backslash
+'on del trabajo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Standard
 En el primer punto, pide encontrar la siguiente relación: 
