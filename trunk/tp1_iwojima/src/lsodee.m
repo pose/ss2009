@@ -4,7 +4,7 @@
 # X es el vector que contiene x1 y x2
 # Xpunto es el vector que contiene xpunto1 y xpunto2
 #
-function Xpunto = lsodee(X, t)
+function Xpunto = lsodee(t, X)
     global a
     global b
     global c21
