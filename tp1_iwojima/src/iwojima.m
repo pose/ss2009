@@ -41,6 +41,7 @@ ylabel ("Cantidad de tropas");
 
 grid("on");
 
+print -dpng jap_vs_usa.png -mono -dashed -S640
 
 # --------------------------------------------------
 # Gráfico de fuerzas norteamericanas reales contra simuladas
@@ -55,3 +56,5 @@ xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
 ylabel ("Cantidad de tropas");
 
 grid("on");
+
+print -dpng  real_vs_sim.png -mono -dashed -S640
