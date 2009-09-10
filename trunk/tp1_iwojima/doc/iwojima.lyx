@@ -175,7 +175,7 @@ reference "eq:obtenida"
 
 \end_inset
 
- son distintas.
+ son distintas en cuanto al orden de las constantes (están invertidas).
  ¿Me equivoqué en algún paso o debería ser 
 \begin_inset CommandInset ref
 LatexCommand ref
