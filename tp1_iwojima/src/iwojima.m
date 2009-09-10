@@ -104,7 +104,7 @@ print -dpng  real_vs_sim.png -mono -dashed -S640
 
 [t x1 x2] = combat_simulator(
         [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
-        20,             
+        30,             
         "zeroreinforcement",    #política de refuerzos de la primera fuerza
         "reinforcement2");       #política de refuerzos de la segunda fuerza
 
