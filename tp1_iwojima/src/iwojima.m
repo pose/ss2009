@@ -104,7 +104,7 @@ print -dpng  real_vs_sim.png -mono -dashed -S640
 
 [t x1 x2] = combat_simulator(
         [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
-        30,             
+        50,             
         "zeroreinforcement",    #política de refuerzos de la primera fuerza
         "reinforcement2");       #política de refuerzos de la segunda fuerza
 
@@ -130,7 +130,7 @@ print -dpng reinforce2.png -mono -dashed -S640
 
 [t x1 x2] = combat_simulator(
         [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
-        20,             
+        30,             
         "zeroreinforcement",    #política de refuerzos de la primera fuerza
         "reinforcement3");       #política de refuerzos de la segunda fuerza
 
@@ -141,7 +141,7 @@ reinforce3.usa = x2;
 figure(3);
 
 plot (reinforce3.t, reinforce3.japan,"+;j;", reinforce3.t, reinforce3.usa,"*;u;");
-title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (I) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
+title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (II) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
 ylabel ("Cantidad de tropas");
