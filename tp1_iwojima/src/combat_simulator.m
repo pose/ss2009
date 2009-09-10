@@ -14,7 +14,7 @@
 # Parámetros de la función: r1 y r2, o sea la función de refuerzo de los
 # ejercitos en disputa.
 #
-function [t2 x1 x2] = combat_simulator(forces, time, r1,r2)
+function [t2 x1 x2] = combat_simulator(forces, trex, r1,r2)
     global a
     global b
     global c21
@@ -22,7 +22,7 @@ function [t2 x1 x2] = combat_simulator(forces, time, r1,r2)
     global R
     R = [r1;r2];
 
-    res = lsode("lsodee", forces, (t = linspace(0,time,1000))');
+    res = lsode("lsodee", forces, (t = linspace(0,trex,100))');
     
     t2 = t';
     x1 = res(:,1);
