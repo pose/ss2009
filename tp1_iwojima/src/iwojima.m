@@ -26,7 +26,26 @@ days = 36; #duración en días de la batalla
 res = [t,                       #días simulados
         x1,                     #cantidad de tropas primera fuerza
         x2];                     #cantidad de tropas segunda fuerza
+# --------------------------------------------------
+# --------------------------------------------------
+#                       Punto (a)
+# --------------------------------------------------
+# --------------------------------------------------
+#
+# (incluir mi ecuación)
+# El valor de K, como se puede observar es una constante de integración. 
+# Depende de las condiciones iniciales, en este caso particular es la diferencia
+# de tropas entre una fuerza y otra. En el caso que sea negativa, quiere decir 
+# que la fuerza caracterizada por x (???? No sé, estoy en blanco mal)
+#
+#
+#
 
+# --------------------------------------------------
+# --------------------------------------------------
+#                       Punto (b)
+# --------------------------------------------------
+# --------------------------------------------------
 
 # --------------------------------------------------
 # Gráfico de x(t) e y(t) versus t
@@ -66,3 +85,10 @@ print -dpng  real_vs_sim.png -mono -dashed -S640
 #
 # Quizás podés mecharlo con esto:
 # http://es.wikipedia.org/wiki/Unidad_militar
+
+
+# --------------------------------------------------
+# --------------------------------------------------
+#                       Punto (c)
+# --------------------------------------------------
+# --------------------------------------------------
