@@ -74,7 +74,7 @@ figure(2);
 
 other_t = linspace(1,days,40);
 plot(japan_vs_usa.t, japan_vs_usa.usa,"-;Unidades simuladas;",other_t,american(other_t)',"+;Unidades reales;","markersize",10);
-title (strcat("Comparaci",sprintf("%c",243),"n de fuerzas reales contra simuladas en la batalla de Iwo Jima"));
+title (strcat("Comparaci",sprintf("%c",243),"n de fuerzas reales contra simuladas en la batalla de Iwo Jima para Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
 ylabel ("Cantidad de tropas");
