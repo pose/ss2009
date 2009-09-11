@@ -57,7 +57,7 @@ japan_vs_usa.usa = x2;
 # --------------------------------------------------
 figure(1);
 
-plot (japan_vs_usa.t, japan_vs_usa.japan,strcat(";Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), japan_vs_usa.t, japan_vs_usa.usa,strcat("*;Fuerzas de Estados Unidos;"));
+plot (japan_vs_usa.t, japan_vs_usa.japan,strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), japan_vs_usa.t, japan_vs_usa.usa,strcat("*;Fuerzas de Estados Unidos;"));
 title (strcat("Simulaci",sprintf("%c",243),"n num",sprintf("%c",233),"rica de la batalla de Iwo Jima"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
@@ -72,9 +72,9 @@ print -dpng jap_vs_usa.png -mono -dashed -S640
 # --------------------------------------------------
 figure(2);
 
-other_t = linspace(1,days,40);
-plot(japan_vs_usa.t, japan_vs_usa.usa,"-;Unidades simuladas;",other_t,american(other_t)',"+;Unidades reales;","markersize",10);
-title (strcat("Comparaci",sprintf("%c",243),"n de fuerzas reales contra simuladas en la batalla de Iwo Jima para Estados Unidos"));
+plot(japan_vs_usa.t, japan_vs_usa.usa,"*;Unidades simuladas;",[7,9,12,19,24],[66000, 62000, 58500, 56200, 54000],strcat("+;Unidades hist",sprintf("%c",243),"ricas;"),"markersize",10);
+
+title (strcat("Comparaci",sprintf("%c",243),"n de datos hist",sprintf("%c",243),"ricos contra datos simulados (Estados Unidos)"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
 ylabel ("Cantidad de tropas");
@@ -104,7 +104,7 @@ print -dpng  real_vs_sim.png -mono -dashed -S640
 
 [t x1 x2] = combat_simulator(
         [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
-        50,             
+        70,             
         "zeroreinforcement",    #política de refuerzos de la primera fuerza
         "reinforcement2");       #política de refuerzos de la segunda fuerza
 
@@ -114,7 +114,7 @@ reinforce2.usa = x2;
 
 figure(3);
 
-plot (reinforce2.t, reinforce2.japan,"+;j;", reinforce2.t, reinforce2.usa,"*;u;");
+plot (reinforce2.t, reinforce2.japan,strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce2.t, reinforce2.usa,"*;Fuerzas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (I) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
@@ -130,7 +130,7 @@ print -dpng reinforce2.png -mono -dashed -S640
 
 [t x1 x2] = combat_simulator(
         [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
-        30,             
+        16,             
         "zeroreinforcement",    #política de refuerzos de la primera fuerza
         "reinforcement3");       #política de refuerzos de la segunda fuerza
 
@@ -140,7 +140,7 @@ reinforce3.usa = x2;
 
 figure(3);
 
-plot (reinforce3.t, reinforce3.japan,"+;j;", reinforce3.t, reinforce3.usa,"*;u;");
+plot (reinforce3.t, reinforce3.japan, strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce3.t, reinforce3.usa,"*;Fuerzas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (II) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
