@@ -22,14 +22,10 @@ function [t2 x1 x2] = combat_simulator(forces, trex, r1,r2)
     global R
     R = [r1;r2];
 
-    #lsode way:
-    #res = lsode('lsodee', forces, (t = linspace(0,trex,100))');
-    #t2 = t';
-
-    #ode45 way
-    vopt = odeset ("RelTol", 1e-3, "AbsTol", 1e-3, "NormControl", "on",
-        "MaxStep",1e-1, "Events", @zero_crossing, "InitialStep", 1e-3);
-    [t2, res] = ode45(@lsodee, [0,trex], forces, vopt);
+    vopt = odeset ("RelTol", 1e-3, "AbsTol", 1e-3, 
+    "NormControl", "on",
+        "MaxStep",1, "Events", @zero_crossing, "InitialStep", 1e-1);
+    [t2, res] = ode45(@lsodee, linspace(0,trex,40), forces, vopt);
     
     x1 = res(:,1);
     x2 = res(:,2);
