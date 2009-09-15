@@ -1,43 +1,46 @@
-% \documentclass{sig-alternate}
-\documentclass[a4paper,10pt]{article}
+\documentclass{sig-alternate}
+%\documentclass[a4paper,10pt]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, activeacute]{babel}
+%El template pincha con spanish babel
+%\usepackage[spanish, activeacute]{babel}
 \usepackage{graphicx}
 \usepackage{fancybox}
 \usepackage[table]{xcolor}
 
 \title{La batalla de Iwo Jima}
 
-% \numberofauthors{4}
-% \author{
-% \alignauthor
-% Pose, Alberto Miguel\\
-%        \affaddr{ITBA}\\
-%        \affaddr{Madero 399}\\
-%        \affaddr{Buenos Aires, Argentina}\\
-%        \email{apose@alu.itba.edu.ar}
-% \alignauthor
-% Catalano, Juan Ignacio\\
-%        \affaddr{ITBA}\\
-%        \affaddr{Madero 399}\\
-%        \affaddr{Buenos Aires, Argentina}\\
-%        \email{jcatalan@alu.itba.edu.ar}
-% \alignauthor 
-% Palombo, Martín\\
-%        \affaddr{ITBA}\\
-%        \affaddr{Madero 399}\\
-%        \affaddr{Buenos Aires, Argentina}\\
-%        \email{mpalombo@alu.itba.edu.ar}
-% \alignauthor 
-% Vázquez, Santiago Luis\\
-%        \affaddr{ITBA}\\
-%        \affaddr{Madero 399}\\
-%        \affaddr{Buenos Aires, Argentina}\\
-%        \email{savazque@alu.itba.edu.ar}
-% }
+\numberofauthors{4}
+\author{
+\alignauthor
+Pose, Alberto Miguel\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{apose@alu.itba.edu.ar}
+\alignauthor
+Catalano, Juan Ignacio\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{jcatalan@alu.itba.edu.ar}
+\and
+\alignauthor 
+Palombo, Martín\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{mpalombo@alu.itba.edu.ar}
+\alignauthor 
+Vázquez, Santiago Luis\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{savazque@alu.itba.edu.ar}
+}
 
-\author{Catalano, Juan Ignacio \crcr Palombo, Martín \crcr Pose, Alberto Miguel \crcr Vázquez, Santiago Luis}
+%Viejo author
+%\author{Catalano, Juan Ignacio \crcr Palombo, Martín \crcr Pose, Alberto Miguel \crcr Vázquez, Santiago Luis}
 
 \date{}
 
@@ -62,7 +65,8 @@ consecuencia se explica en la misma secci\'on. En la secci\'on tres se presentan
 por \'ultimo, en la secci\'on cuatro se agrupan las conclusiones obtenidas durante la realizaci\'on del trabajo.
 
 \section{``La mejor victoria es vencer sin combatir''}
-Para modelar este sistema se considerab dos fuerzas ($x^1(t), x^2(t)$) cuya medida representa el poderío de ambas partes del combate. El vector definido como:
+Para modelar este sistema se considerab dos fuerzas ($x^1(t), x^2(t)$) cuya medida representa el poderío de ambas partes del combate. 
+El vector definido como:
 
 \begin{equation}
 x(t) = ( x^1(t), x^2(t) )^T \label{eq:state_vector}
@@ -194,14 +198,14 @@ por las bajas producidas durante el asentamiento de las tropas en el área de ba
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{jap_vs_usa.png}
+\includegraphics[width=8cm]{jap_vs_usa.png}
 \caption{\label{fig:trays}Resultados del combate simulado.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{real_vs_sim.png}
+\includegraphics[width=8cm]{real_vs_sim.png}
 \caption{\label{fig:realvssim}Comparación entre resultados reales y los simulados.}
 \end{center}
 \end{figure}
@@ -240,14 +244,14 @@ aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente 
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{reinforce2.png}
+\includegraphics[width=8cm]{reinforce2.png}
 \caption{\label{fig:reinforce2}Resultados del combate simulado usando la primer política de refuerzos alternativa.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=12cm]{reinforce3.png}
+\includegraphics[width=8cm]{reinforce3.png}
 \caption{\label{fig:reinforce3}Resultados del combate simulado usando la segunda política de refuerzos alternativa.}
 \end{center}
 \end{figure}
