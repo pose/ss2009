@@ -65,7 +65,7 @@ ylabel ("Cantidad de tropas");
 
 grid("on");
 
-print -dpng jap_vs_usa.png -mono -dashed -S640
+print -dpng jap_vs_usa.png 
 
 # --------------------------------------------------
 # Gráfico de fuerzas norteamericanas reales contra simuladas
@@ -81,7 +81,7 @@ ylabel ("Cantidad de tropas");
 
 grid("on");
 
-print -dpng  real_vs_sim.png -mono -dashed -S640
+print -dpng  real_vs_sim.png
 
 # Duración de la batalla: Poner que si bien idealmente sería hasta que la 
 # fuerza enemiga sea 0 habría que tener en cuenta también en la organización
@@ -122,7 +122,7 @@ ylabel ("Cantidad de tropas");
 
 grid("on");
 
-print -dpng reinforce2.png -mono -dashed -S640
+print -dpng reinforce2.png 
 
 # --------------------------------------------------
 # Política con reinforcement (3)
@@ -148,4 +148,4 @@ ylabel ("Cantidad de tropas");
 
 grid("on");
 
-print -dpng reinforce3.png -mono -dashed -S640
+print -dpng reinforce3.png
