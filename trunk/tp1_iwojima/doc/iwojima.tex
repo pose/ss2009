@@ -102,7 +102,7 @@ f(t) = \left\{
     6000 & \quad 2 \leq t < 3\\
     0 & \quad 3 \leq t < 5\\
     13000 & \quad 5 \leq t < 6\\
-    0 & \quad t \leq 6\\
+    0 & \quad t \geq 6\\
     \end{array} \right.
 \end{equation}
 Siendo $f$ la función que describe la llegada de refuerzos de los Estados Unidos. Como se considera que Japón no envía refuerzos durante este
@@ -216,7 +216,7 @@ por las bajas producidas durante el asentamiento de las tropas en el área de ba
 
 ¿Qué hubiese sucedido si la política de envío de refuerzos de Estados Unidos hubiese sido distinta?. En esta sección, analizamos como 
 responde el sistema si variamos estas políticas, probando con distintas opciones y analizando los resultados.\\
-Las dos políticas analizadas, que denominamos $g$ y $h$ son:
+Las tres políticas analizadas, que denominamos $g$, $h$ y $k$  son:
 
 \begin{equation}
 g(t) = \left\{ 
@@ -226,7 +226,7 @@ g(t) = \left\{
     \end{array} \right.
     \end{equation}
 
-y
+,
 
 \begin{equation}
 h(t) = \left\{ 
@@ -234,10 +234,34 @@ h(t) = \left\{
     54000 - \lfloor 9000t \rfloor & \quad 0 \leq t \leq 6 \\
     0 & \quad t > 6\\
     \end{array} \right.
-    \end{equation}
+\end{equation}
 
-Si observamos la gráfica presentada en la Figura \ref{fig:reinforce2} podemos ver que esta política resulta en un comportamiento del sistema
-que equipara la cantidad de unidades de una y otra fuerza en cierto punto del tiempo $t$. Esto muestra que dicha planificación hubiese sido
+y
+
+\begin{equation}
+k(t) = \left\{ 
+    \begin{array}{l l}
+    54000 & \quad 0 \leq t < 1 \\
+    0 & \quad 1 \leq t < 20\\
+    6000 & \quad 20 \leq t < 21\\
+    0 & \quad 21 \leq t < 35\\
+    13000 & \quad 35 \leq t < 36\\
+    0 & \quad t \geq 36\\
+    \end{array} \right.
+\end{equation}
+
+
+Notamos que la política de refuerzo $k$ es una variación de la política original, pero extendiendo la cantidad de días entre refuerzos. Si observamos la gráfica presentada en la Figura \ref{fig:reinforce2} podemos ver que esta política resulta en un comportamiento del sistema
+que equipara la cantidad de unidades de una y otra fuerza en cierto punto del tiempo $t$.
+
+LOS GRAFICOS CAMBIARON TODOS NOSE PORQUE ASIQUE LAS CONCLUSIONES HAY QUE REPLATNEARLAS
+
+AGREGUE UNA POLITICA MAS QUE EL JUGO QUE TIENE (PARA MI) ES VER COMO QUEDAN DOS RECTAS PERO LA PENDIENTE DE LA YANQUI
+BAJA MUCHO MAS RAPIDO, QUE SI BIEN GANARON SE PUEDE NOTAR LO JUGOSO DE LAS CONSTANTES C12 Y C21.
+
+HAY QUE VOLVER A SACAR JUGOSS, ESTARIA BUENO CAMBIAR LA SEGUNDA POR UNA QUE LA COMA USA
+
+Esto muestra que dicha planificación hubiese sido
 menos conveniente que la que asumió EEUU en ese momento de la historia. Por otro lado, si vemos el comportamiento del sistema al elegir $h$
 como política de refuerzos, presentado en la Figura \ref{fig:reinforce3}, podemos ver como la preponderancia de las tropas estadounidenses
 aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente que la elegida originalmente.
@@ -245,17 +269,24 @@ aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{reinforce2.png}
-\caption{\label{fig:reinforce2}Resultados del combate simulado usando la primer política de refuerzos alternativa.}
+\caption{\label{fig:reinforce2}Resultados del combate simulado usando la política de refuerzos alternativa $h$.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{reinforce3.png}
-\caption{\label{fig:reinforce3}Resultados del combate simulado usando la segunda política de refuerzos alternativa.}
+\caption{\label{fig:reinforce3}Resultados del combate simulado usando la política de refuerzos alternativa $g$.}
 \end{center}
 \end{figure}
 
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{reinforce4.png}
+\caption{\label{fig:reinforce4}Resultados del combate simulado usando la política de refuerzos alternativa $k$.}
+\end{center}
+\end{figure}
 
 
 \section{Conclusiones}
