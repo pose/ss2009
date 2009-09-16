@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{fancybox}
 \usepackage[table]{xcolor}
+\usepackage{soul}
 
 \title{La batalla de Iwo Jima}
 
@@ -48,24 +49,31 @@ Vázquez, Santiago Luis\\
 
 \maketitle
 
-\abstract{En el presente artículo se modela un combate guerra-guerra, considerando las fuerzas como medida del poderío de ambas partes y 
-analizando el modelo construído para obtener conclusiones mediante su observación. De dicho análisis se desprende que el uso del modelo planteado
-resulta adecuado para simular esta batalla, obteniendose resultados similares a los reales. También se analiza el comportamiento del sistema,
-mediante la observación del modelo, variando las funciones de refuerzos enviados a la batalla. Además se realiza una deducción analítica que
-concluye en una interesante descripción de la relación de efectividad de combate entre ambas fuerzas.}
+\abstract{\hl{En el presente art\'iculo se modela un combate guerra-guerra, considerando las fuerzas como medida del poder\'io de ambas partes y 
+analizando el modelo constru\'ido para obtener conclusiones mediante su observaci\'on. De dicho an\'alisis se desprende que el uso del modelo planteado
+resulta adecuado para simular esta batalla, obteniendose resultados similares a los reales. Tambi\'en se analiza el comportamiento del sistema,
+mediante la observaci\'on del modelo, variando las funciones de refuerzos enviados a la batalla. Adem\'as se realiza una deducci\'on anal\'itica que
+concluye en una interesante descripci\'on de la relaci\'on de efectividad de combate entre ambas fuerzas. CAMBIAR}}
 
 \newpage
 
 \section{Introducci\'on}
 
-En el presente art\'iculo se explica la realizaci\'on de la simulaci\'on del sistema correspondiente a un combate entre dos fuerzas, 
-en particular, rememorando la batalla de Iwo jima, entre los Estados Unidos de Am\'erica y Jap\'on. Para ello, en la primer secci\'on se 
-presenta el modelo utilizado para realizar dicha simulaci\'on. En la segunda secci\'on se demuestra un resultado matem\'atico-f\'isico cuya 
-consecuencia se explica en la misma secci\'on. En la secci\'on tres se presentan los resultados obtenidos a partir de la simulaci\'on y 
-por \'ultimo, en la secci\'on cuatro se agrupan las conclusiones obtenidas durante la realizaci\'on del trabajo.
+El 16 de febrero de 1945, durante la segunda guerra mundial, se libra la batalla de Iwo Jima en la isla de nombre homónimo. 
+Siend sin duda uno de los acontecimientos bélicos más sangrientos y lamentables de la historia. La ubicación geográfica estratégica de dicha
+isla otorga gran importancia histórica a esta batalla y es por ello que nos interesa nos interesa estudiarla como un sistema, modelándola y 
+pudiendo extraer conclusiones a partir de dicho modelo. Se pretende verificar el modelo utilizado,
+computando y analizando los resultados obtenidos de la simulación y variando parámetros del mismo. Se pueden encontrar antecedentes a este 
+trabajo, como por ejemplo el llevado acabo por Christine Lind titulado ``Verifying Lanchester’s Combat Model Battle of Iwo Jima''. \\ 
+En la siguiente secci\'on se presenta el modelo utilizado para realizar dicha simulaci\'on. En la tercer secci\'on se adapta el modelo genérico,
+previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección cuatro se presenta un resultado matem\'atico-f\'isico cuya 
+importancia se explica en la misma secci\'on. En la secci\'on cinco se presentan los resultados obtenidos a partir de la simulaci\'on. En la
+sexta sección se modela nuevamente la batalla pero utilizando distintas funciones de refuerzo para las fuerzas militares estadounidenses.
+Por \'ultimo, en la secci\'on siete se agrupan las conclusiones obtenidas durante la realizaci\'on del trabajo.
 
 \section{``La mejor victoria es vencer sin combatir''}
-Para modelar este sistema se considerab dos fuerzas ($x^1(t), x^2(t)$) cuya medida representa el poderío de ambas partes del combate. 
+Para modelar este sistema se consideran las dos fuerzas militares representadas por ($x^1(t), x^2(t)$) siendo la primera correspondiente a Estados
+Unidos y la segunda al Imperio de Japón. La medida de estas variables representa el poderío de ambas partes del combate. 
 El vector definido como:
 
 \begin{equation}
@@ -84,8 +92,8 @@ siguiente manera:
 \begin{equation}
 \dot{x}^2(t) = -bx^2(t) - c_{12} x^1(t)\end{equation}
 
-Siendo $a$ y $b$ constantes positivas que representan las tasas unitarias de pérdidas operativas y $c_{12}, c_{21}$ tambien constantes positivas
-que representan las tasas de efectividad de ataque de la fuerza 1 sobre la 2 y de la fuerza 2 sobre la 1 respectivamente.
+Siendo $a$ y $b$ constantes positivas que representan las tasas unitarias de pérdidas operativas. Teniendo también $c_{12}, c_{21}$ 
+constantes positivas que representan las tasas de efectividad de ataque de la fuerza 1 sobre la 2 y de la fuerza 2 sobre la 1 respectivamente.
 
 \section{Recordando la historia}
 
@@ -108,19 +116,17 @@ f(t) = \left\{
 Siendo $f$ la función que describe la llegada de refuerzos de los Estados Unidos. Como se considera que Japón no envía refuerzos durante este
 combate, el modelo resulta descripto por:
 
-\begin{equation}
- \dot{x}^1 = -\alpha x^2 + f(t)
-\end{equation}
 
-\begin{equation}
-\dot{x}^2 = -\beta x^1
-\end{equation}
+\begin{eqnarray}
+\dot{x}^1 &=& -\alpha x^2 + f(t)                              \\
+\dot{x}^2 &=& -\beta x^1
+\end{eqnarray}
+
 
 \section{Poder K}
 
 El primer resultado obtenido, es meramente analítico y es presentado en esta sección. A partir de una demostración matemática
 obtenemos una relación entre las fuerzas de combate y una constante (constante de integración) que determina y controla dicho nexo. 
-A continuación se presenta la deducción realizada y luego se detallan las conclusiones obtenidas.
 
 Tenemos
 
@@ -129,13 +135,13 @@ Tenemos
 \dot{y} & = & -\beta x\end{eqnarray}
 
 
-Despejando, obtenemos la expresión
+Explicitando, obtenemos la expresión
 
 \begin{equation}
-\frac{\partial x}{\partial t}=-\alpha y\end{equation}
+\dot{x}=-\alpha y\end{equation}
 
 
-Como sabemos que $\frac{\partial x}{\partial t}=\frac{\partial x}{\partial y}\frac{\partial y}{\partial t}$:
+Como sabemos que $\dot{x}=\frac{\partial x}{\partial y}\frac{\partial y}{\partial t}$:
 
 \begin{equation}
 \frac{\partial x}{\partial y}\dot{y}=\frac{\partial x}{\partial y}\frac{\partial y}{\partial t}=-\alpha y\end{equation}
@@ -150,16 +156,16 @@ Reemplazando con la ecuación \ref{eq:ydot} resulta
 Reemplazando adecuadamente los diferenciales tenemos 
 
 \begin{equation}
--\beta\intop x\partial x=-\alpha\int y\partial y\end{equation}
+-\beta\intop x dx + C =-\alpha\int y dy + D\end{equation}
 
 
-De lo cual obtenemos
+Siendo $C$ y $D$ constantes de integración. Podemos considerar $D - C = k$. De lo cual deducimos
 
 \begin{equation}
 \alpha\frac{y^{2}}{2}-\beta\frac{x^{2}}{2}=k\end{equation}
 
 
-Que tomando $K=2k$ se puede reescribir de la siguiente manera:
+Considerando $K=2k$ se puede reescribir de la siguiente manera:
 
 \begin{equation}
 \alpha y^{2}-\beta x^{2}=K\label{eq:obtenida}\end{equation}
@@ -167,46 +173,44 @@ Que tomando $K=2k$ se puede reescribir de la siguiente manera:
 
 Como se puede observar claramente, se obtiene una relación entre ambas fuerzas de combate, regida por una constante a la cual denominamos $K$. 
 Esta constante resulta muy interesante para analizar. Es por ello que analizamos los tres casos de posibles rangos de valores de $K$, explicando
-su resultado en el comportamiento del sistema.
-\begin{itemize}
-\item Si $K>0$ la fuerza descripta por $y$ resulta claramente mayor a la descripta por $x$, resultando en una inclincación hacia la victoria
-del primero.
-\item Si $K<0$ ocurre lo opuesto a lo descritpo en el punto anterior.
-\item El caso que encontramos más interesante es cuando $K=0$. En este caso, la relación entre ambas fuerzas describe una recta, que determina
-el grado de efectividad de las unidades militares de una fuerza sobre la otra. Es decir, una vez fijada la pendiente, se puede establecer que
-cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas. Esto puede servir también
+su resultado en el comportamiento del sistema.\\
+\textbf{\textit{Caso 1.}} Si $K>0$ la fuerza descripta por $y$ resulta claramente mayor a la descripta por $x$, resultando en una inclincación hacia la victoria
+del primero.\\
+\textbf{\textit{Caso 2.}} Si $K<0$ ocurre lo opuesto a lo descritpo en el punto anterior.\\
+\textbf{\textit{Caso 3.}} El caso que encontramos más interesante es cuando $K=0$. En este, la relación entre ambas fuerzas describe una recta. 
+Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, se puede 
+establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas. Esto puede servir también
 para calcular y analizar estadísticas de efectividad de las unidades en combate contra determinado contrincante.
-\end{itemize}
 
 
 
 \section{Reviviendo la historia}
 
-En esta sección se presentan los resultados obtenidos al realizar la simulación del combate. Por un lado, se ejecutó la simulación para obtener las 
-trayectorias correspondientes a ambas fuerzas. En la gráfica presentada en la Figura \ref{fig:trays} se pueden ver ambas trayectorias. 
+Para poder realizar un análisis de lo acontecido en la batalla, se ejecutó la simulación para obtener las 
+trayectorias correspondientes a ambas fuerzas. En la Figura \ref{fig:trays} se pueden ver dichas trayectorias. 
 De este podemos observar como, si bien inicialmente las fuerzas militares del Japón eran ampliamente superiores, el hecho de no disponer de 
 refuerzos, como en el caso estadounidense, llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
 Estados Unidos, se vé como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
 se note una clara preponderancia de este país en el conflicto. También podemos observar un decaimiento lineal en el caso de las fuerzas japonesas,
 en contraparte con uno más exponencial (aunque bastante suavizado) por parte de las estadounidenses.\\
-Por otro lado, realizamos la gráfica mostrada en la Figura \ref{fig:realvssim} en la cual se presentan los resultados reales de la batalla 
-(presentados para la fuerza estadounidense),superpuesto con los resultados arrojados por la simulación. Aquí podemos observar que la función
-descripta por la simulación aproxima de manera bastante precisa los resultados reales. Podemos observar el desembarco, en la primer etapa, 
-donde vemos claramente como aumenta rápidamente la cantidad de unidades. A su vez, durante los primeros 5 días al recibirse los refuerzos, se
+Además, podemos verificar el uso del modelo elegido para la simulación. Para ello, comparamos los resultados obtenidos con los datos 
+recolectados a partir del hecho acontecido. Dicha comparación, correspondiente a la fuerza estadounidense, la graficamos en la Figura 
+\ref{fig:realvssim}.
+Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. A su vez, durante los primeros 5 días al recibirse los refuerzos, se
 puede ver como se producen picos, donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas
 por las bajas producidas durante el asentamiento de las tropas en el área de batalla.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{jap_vs_usa.png}
-\caption{\label{fig:trays}Resultados del combate simulado.}
+\caption{\label{fig:trays}Cantidad de tropas de ambas fuerzas en función del tiempo.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{real_vs_sim.png}
-\caption{\label{fig:realvssim}Comparación entre resultados reales y los simulados.}
+\caption{\label{fig:realvssim}Cantidad de tropas estadounidenses en función del tiempo. Datos correspondientes al hecho y a la simulación.}
 \end{center}
 \end{figure}
 
@@ -214,9 +218,10 @@ por las bajas producidas durante el asentamiento de las tropas en el área de ba
 
 \section{Haciendo historia}
 
-¿Qué hubiese sucedido si la política de envío de refuerzos de Estados Unidos hubiese sido distinta?. En esta sección, analizamos como 
-responde el sistema si variamos estas políticas, probando con distintas opciones y analizando los resultados.\\
-Las tres políticas analizadas, que denominamos $g$, $h$ y $k$  son:
+¿Qué hubiese sucedido si la política de envío de refuerzos de Estados Unidos hubiese sido distinta?. Para responder esta pregunta, veamos como
+reacciona el sistema al cambiar las políticas de envio de refuerzos estadounidenses.\\
+Se eligieron las tres políticas analizadas en base a la observación de su comportamiento y seleccionando las que nos arrojaron resultados
+más interesantes para su análisis. Dichas políticas, que denominamos $g$, $h$ y $k$  son:
 
 \begin{equation}
 g(t) = \left\{ 
@@ -291,8 +296,8 @@ aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente 
 
 \section{Conclusiones}
 
-La primera conclusión obtenida en este trabajo es que el modelo descripto en el mismo aproxima correctamente el comportamiento del sistema 
-que se desea observar. Como conclusión a los cambios de política de refuerzos realizados, se puede decir que EEUU podría haber considerado una
+Al realizar este trabajo se pudo verificar el modelo elegido, analizando los resultados para compararlos con los datos recolectados historicamente
+a partir del hecho acontecido. Como conclusión a los cambios de política de refuerzos realizados, se puede decir que EEUU podría haber considerado una
 mejor política de refuerzos, aunque requeriría un análisis socio-económico y político más profundo para poder determinar porque realmente no
 lo hizo.\\
 Puntos interesantes que se pueden observar de la primer simulación realizada, son los picos obtenidos al momento de la llegada de refuerzos
