@@ -138,7 +138,7 @@ reinforce3.t = t;
 reinforce3.japan = x1;
 reinforce3.usa = x2;
 
-figure(3);
+figure(4);
 
 plot (reinforce3.t, reinforce3.japan, strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce3.t, reinforce3.usa,"*;Fuerzas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (II) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
@@ -165,7 +165,7 @@ reinforce4.t = t;
 reinforce4.japan = x1;
 reinforce4.usa = x2;
 
-figure(4);
+figure(5);
 
 plot (reinforce4.t, reinforce4.japan, strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce4.t, reinforce4.usa,"*;Fuerzas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (III) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));

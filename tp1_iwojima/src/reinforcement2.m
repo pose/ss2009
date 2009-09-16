@@ -1,6 +1,12 @@
-function res = reinforcement2(t)
+function res = reinforcement(t)
     res = 0;
-    if ( t >= 0 && t <= 4.6 )
-        res = floor(exp(t*2.5)) + 2000;
+    if ( 0 <= t && 1 > t )
+        res = 30000;
+    end
+    if (4 <= t && 5 > t)
+       res = 3000;
+    end
+    if ( 7 <= t && 8 > t )
+        res = 1000;
     end
 endfunction
