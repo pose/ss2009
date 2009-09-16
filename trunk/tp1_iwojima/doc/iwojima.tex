@@ -16,7 +16,7 @@
 \alignauthor
 Pose, Alberto Miguel\\
        \affaddr{ITBA}\\
-       \affaddr{Mordor 399}\\
+       \affaddr{Madero 399}\\
        \affaddr{Buenos Aires, Argentina}\\
        \email{apose@alu.itba.edu.ar}
 \alignauthor
@@ -51,7 +51,7 @@ Vázquez, Santiago Luis\\
 
 \abstract{\hl{En el presente art\'iculo se modela un combate guerra-guerra, considerando las fuerzas como medida del poder\'io de ambas partes y 
 analizando el modelo constru\'ido para obtener conclusiones mediante su observaci\'on. De dicho an\'alisis se desprende que el uso del modelo planteado
-resulta adecuado para simular esta batalla, obteniendose resultados similares a los reales. Tambi\'en se analiza el comportamiento del sistema,
+resulta adecuado para simular esta batalla, obteniendose resultados similares a los sucedidos. Tambi\'en se analiza el comportamiento del sistema,
 mediante la observaci\'on del modelo, variando las funciones de refuerzos enviados a la batalla. Adem\'as se realiza una deducci\'on anal\'itica que
 concluye en una interesante descripci\'on de la relaci\'on de efectividad de combate entre ambas fuerzas. CAMBIAR}}
 
@@ -147,7 +147,7 @@ Como sabemos que $\dot{x}=\frac{\partial x}{\partial y}\frac{\partial y}{\partia
 \frac{\partial x}{\partial y}\dot{y}=\frac{\partial x}{\partial y}\frac{\partial y}{\partial t}=-\alpha y\end{equation}
 
 
-Reemplazando con la ecuación \ref{eq:ydot} resulta
+Reemplazando con la ecuación \eqref{eq:ydot} resulta
 
 \begin{equation}
 -\frac{\partial x}{\partial y}\beta x=-\alpha y\end{equation}
@@ -187,14 +187,14 @@ para calcular y analizar estadísticas de efectividad de las unidades en combate
 \section{Reviviendo la historia}
 
 Para poder realizar un análisis de lo acontecido en la batalla, se ejecutó la simulación para obtener las 
-trayectorias correspondientes a ambas fuerzas. En la Figura \ref{fig:trays} se pueden ver dichas trayectorias. 
+trayectorias correspondientes a ambas fuerzas. En la figura \ref{fig:trays} se pueden ver dichas trayectorias. 
 De este podemos observar como, si bien inicialmente las fuerzas militares del Japón eran ampliamente superiores, el hecho de no disponer de 
 refuerzos, como en el caso estadounidense, llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
 Estados Unidos, se vé como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
 se note una clara preponderancia de este país en el conflicto. También podemos observar un decaimiento lineal en el caso de las fuerzas japonesas,
 en contraparte con uno más exponencial (aunque bastante suavizado) por parte de las estadounidenses.\\
 Además, podemos verificar el uso del modelo elegido para la simulación. Para ello, comparamos los resultados obtenidos con los datos 
-recolectados a partir del hecho acontecido. Dicha comparación, correspondiente a la fuerza estadounidense, la graficamos en la Figura 
+recolectados a partir del hecho acontecido. Dicha comparación, correspondiente a la fuerza estadounidense, la graficamos en la figura 
 \ref{fig:realvssim}.
 Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. A su vez, durante los primeros 5 días al recibirse los refuerzos, se
 puede ver como se producen picos, donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas
@@ -221,17 +221,21 @@ por las bajas producidas durante el asentamiento de las tropas en el área de ba
 ¿Qué hubiese sucedido si la política de envío de refuerzos de Estados Unidos hubiese sido distinta?. Para responder esta pregunta, veamos como
 reacciona el sistema al cambiar las políticas de envio de refuerzos estadounidenses.\\
 Se eligieron las tres políticas analizadas en base a la observación de su comportamiento y seleccionando las que nos arrojaron resultados
-más interesantes para su análisis. Dichas políticas, que denominamos $g$, $h$ y $k$  son:
+más interesantes para su análisis. Dichas políticas, que denominamos $g$, $h$ y $k$ las podemos observar en las ecuaciones \eqref{eq:refuerzo_g}, 
+\eqref{eq:refuerzo_h} y \eqref{eq:refuerzo_k} respectivamente.
 
 \begin{equation}
 g(t) = \left\{ 
     \begin{array}{l l}
-    \lfloor e^{2.5t} \rfloor + 2000 & \quad 0 \leq t \leq 4.6 \\
-    0 & \quad t > 4.6\\
+    30000 & \quad 0 \leq t < 1 \\
+    0 & \quad 1 \leq t < 4\\
+    3000 & \quad 4 \leq t < 5\\
+    0 & \quad 5 \leq t < 7\\
+    1000 & \quad 7 \leq t < 8\\
+    0 & \quad t \geq 8\\
     \end{array} \right.
-    \end{equation}
-
-,
+\label{eq:refuerzo_g}
+\end{equation}
 
 \begin{equation}
 h(t) = \left\{ 
@@ -239,9 +243,8 @@ h(t) = \left\{
     54000 - \lfloor 9000t \rfloor & \quad 0 \leq t \leq 6 \\
     0 & \quad t > 6\\
     \end{array} \right.
+\label{eq:refuerzo_h}
 \end{equation}
-
-y
 
 \begin{equation}
 k(t) = \left\{ 
@@ -253,23 +256,22 @@ k(t) = \left\{
     13000 & \quad 35 \leq t < 36\\
     0 & \quad t \geq 36\\
     \end{array} \right.
+\label{eq:refuerzo_k}
 \end{equation}
 
 
-Notamos que la política de refuerzo $k$ es una variación de la política original, pero extendiendo la cantidad de días entre refuerzos. Si observamos la gráfica presentada en la Figura \ref{fig:reinforce2} podemos ver que esta política resulta en un comportamiento del sistema
-que equipara la cantidad de unidades de una y otra fuerza en cierto punto del tiempo $t$.
-
-LOS GRAFICOS CAMBIARON TODOS NOSE PORQUE ASIQUE LAS CONCLUSIONES HAY QUE REPLATNEARLAS
-
-AGREGUE UNA POLITICA MAS QUE EL JUGO QUE TIENE (PARA MI) ES VER COMO QUEDAN DOS RECTAS PERO LA PENDIENTE DE LA YANQUI
-BAJA MUCHO MAS RAPIDO, QUE SI BIEN GANARON SE PUEDE NOTAR LO JUGOSO DE LAS CONSTANTES C12 Y C21.
-
-HAY QUE VOLVER A SACAR JUGOSS, ESTARIA BUENO CAMBIAR LA SEGUNDA POR UNA QUE LA COMA USA
-
-Esto muestra que dicha planificación hubiese sido
-menos conveniente que la que asumió EEUU en ese momento de la historia. Por otro lado, si vemos el comportamiento del sistema al elegir $h$
-como política de refuerzos, presentado en la Figura \ref{fig:reinforce3}, podemos ver como la preponderancia de las tropas estadounidenses
-aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente que la elegida originalmente.
+Notamos que la política de refuerzo $k$ es una variación de la política original, pero extendiendo la cantidad de días entre refuerzos.
+Si observamos la gráfica presentada en la figura \ref{fig:reinforce2} podemos ver que esta política resulta en un comportamiento del sistema
+que equipara la cantidad de unidades de una y otra fuerza en cierto punto del tiempo $t$.\\
+Si vemos el resultado de la simulación para la política de refuerzo $g$, podemos observar que dado este escenario, el ejército estadounidense es derrotado por el japonés. Podemos 
+concluir que si EEUU hubiese este acercamiento, posiblemente el resultado hubiese sido distinto impactando fuertemente en el desarrollo de la Segunda Guerra Mundial.\\
+Por otro lado, si vemos el comportamiento del sistema al elegir $h$ como política de refuerzos, presentado en la figura \ref{fig:reinforce3}, 
+podemos ver como la preponderancia de las tropas estadounidenses aumenta y supera ampliamente a la japonesa de una manera mucho más conveniente que la elegida originalmente.\\
+Finalmente, analizamos la política de refuerzo $k$; siendo ésta una variación a la política original. Si observamos el resultado del combate en la figura \ref{fig:reinforce4}
+vemos que ambas fuerzas decrecen de una manera aproximadamente lineal en el tiempo(en el caso de EEUU, hasta que recibe refuerzos). Lo interesante es que la pendiente de la recta
+que modela las fuerzas estadounidenses es mucho más abrupta que la japonsa. Ésto implica que el ejército japonés era más eficiente en batalla y sirve para destacar lo
+importante del papel que juegan las constantes PONELE NOMBRE SON C12 C21 O ALFA BETA SER CONSISTENTEEES. Mediante el resultado de la siumulación podemos apreciar
+que los japoneses realmente lucharon hasta el final.
 
 \begin{figure}[h]
 \begin{center}
