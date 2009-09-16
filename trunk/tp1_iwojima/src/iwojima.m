@@ -66,7 +66,7 @@ endfunction
 #K = [0,5000,10000,-10000,-5000];
 #s = '-+^*ox';
 
-function draw_k(x, alpha, beta, K, s)
+function draw_k(x, alpha, beta, K, s, mt)
     
     for i=1:length(K)
         if K(i) != 0
@@ -85,23 +85,35 @@ function draw_k(x, alpha, beta, K, s)
 
     xlabel (sprintf("{/Helvetica}Efectivos de (1) \n {/Symbol a } = %g",alpha));
     ylabel (sprintf("{/Helvetica}Efectivos de (2) \n {/Symbol b } = %g",beta));
-    t = title (['{/Helvetica}Efectos de la variaci',243,'n de K']);
+    t = title (mt);
 
     grid("on");
 
 endfunction
 
 next_figure();
-draw_k(linspace(0,2500,50),0.01, 0.04, [0,10000,20000,-10000,-20000], '-+^*ox');
+draw_k(linspace(0,70000,100),c21, c12, [0,25000,50000,-50000,-25000], '-+^*ox',
+    ['{/Helvetica}Comportamiento asint',243,'tico para valores grandes (II)']);
+print -dpng power_areas_2b.png 
+return
+next_figure();
+draw_k(linspace(0,2500,50),0.01, 0.04, [0,10000,20000,-10000,-20000], '-+^*ox', 
+    ['{/Helvetica}Efectos de la variaci',243,'n de K para peque',241,'os valores (I)']);
 print -dpng power_areas_1.png 
 next_figure();
-draw_k(linspace(0,2500,50),0.01, 0.01, [0,10000,20000,-20000,-10000], '-+^*ox');
+draw_k(linspace(0,2500,50),0.01, 0.01, [0,10000,20000,-20000,-10000], '-+^*ox',
+    ['{/Helvetica}Efectos de la variaci',243,'n de K para prque',241,'os valores (II)']);
 print -dpng power_areas_2.png 
 next_figure();
-draw_k(logspace(0,3.85,25),0.01, 0.04, [0,25000,50000,-50000,-25000], '-+^*ox');
+
+# En los siguientes gráficos se puede observar el efecto que tiene 
+
+draw_k(logspace(0,3.85,25),0.01, 0.04, [0,25000,50000,-50000,-25000], '-+^*ox',
+    ['{/Helvetica}Comportamiento asint',243,'tico para valores grandes (I)']);
 print -dpng power_areas_1b.png 
 next_figure();
-draw_k(logspace(0,3.85,25),0.01, 0.01, [0,25000,50000,-50000,-25000], '-+^*ox');
+draw_k(logspace(0,3.85,25),0.01, 0.01, [0,25000,50000,-50000,-25000], '-+^*ox',
+    ['{/Helvetica}Comportamiento asint',243,'tico para valores grandes (II)']);
 print -dpng power_areas_2b.png 
 
 
