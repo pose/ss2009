@@ -79,7 +79,7 @@ representa el vector de estado, es decir, el poderío de ambas partes en el inst
 unidades de combate, considerando todo tipo de ellas (individuos, equipos, recursos, etc). Como es de esperarse, las entradas al sistema estan 
 dadas por los refuerzos enviados por cada uno de los países.\\
 Hasta aquí, la representación del modelo de combate. Pero en particular, nos referimos a un combate de tipo guerra-guerra, es decir, convencional.
-En este caso, las pérdidas en combate están solamenten dadas por el tamaño de la fuerza contraria, con lo cual nuestro modelo queda descripto de la
+En este caso, las pérdidas en combate están solamenten dadas por el tamaño de la fuerza militar contraria, con lo cual nuestro modelo queda descripto de la
 siguiente manera:
 
 \begin{equation}
@@ -88,7 +88,7 @@ siguiente manera:
 \dot{x}^2(t) = -bx^2(t) - \beta x^1(t)\end{equation}
 
 Siendo $a$ y $b$ constantes positivas que representan las tasas unitarias de pérdidas operativas. Teniendo también $\alpha, \beta$ 
-constantes positivas que representan las tasas de efectividad de ataque de la fuerza 1 sobre la 2 y de la fuerza 2 sobre la 1 respectivamente.
+constantes positivas que representan las tasas de efectividad de ataque de la fuerza militar 1 sobre la 2 y de la fuerza 2 sobre la 1 respectivamente.
 
 \section{Recordando la historia}
 \label{sec:remember}
@@ -210,8 +210,7 @@ combate balanceado.
 
 \textbf{\textit{Caso 1.}} En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
 sobre el eje de las ordenadas. En este caso quiere decir que la fuerza representada
-en el eje Y ganar\'ia el combate de no aumentarse la cantidad de tropas
-el contricante.
+en el eje Y ganar\'ia el combate de no aumentarse la cantidad de tropas del contricante.
 
 
 \textbf{\textit{Caso 2.}} Si $K<0$ tenemos hip\'erbolas que comienzan
@@ -225,7 +224,7 @@ Volviendo al caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip
 el vencedor el lado en el que encontramos la hip\'erbola, el costo
 podr\'ia ser muy alto. En cambio cuando se está lejos de la as\'intota
 quiere decir que se está ganado sin tantas bajas. \\
-La forma de alterar esto es por medio de la función de refuerzo. Dado que permite la modificación del K que describe la hipérbola donde transcurre la batalla. 
+La forma de alterar esto es por medio de la función de refuerzo. Dado que permite la modificación de la magnitud del $K$ que describe la hipérbola donde transcurre la batalla. 
 
 \section{Reviviendo la historia}
 \label{sec:reviving}
