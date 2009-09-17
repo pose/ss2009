@@ -55,7 +55,7 @@ constante que determina, entre otras cosas, la efectividad de combate entre amba
 
 El 16 de febrero de 1945, durante la Segunda Guerra Mundial, se libra la batalla de Iwo Jima en la isla de nombre homónimo. 
 Siendo sin duda uno de los acontecimientos bélicos más sangrientos y lamentables de la historia. La ubicación geográfica estratégica de dicha
-isla otorga gran importancia histórica a esta batalla y es por ello que nos interesa nos interesa estudiarla como un sistema, modelándola y 
+isla otorga gran importancia histórica a esta batalla y es por ello que nos interesa estudiarla como un sistema, modelándola y 
 pudiendo extraer conclusiones a partir de dicho modelo. Pretendemos verificar el modelo utilizado,
 computando y analizando los resultados obtenidos de la simulación y variando parámetros del mismo. Podemos encontrar antecedentes a este 
 trabajo, como por ejemplo el llevado acabo por Christine Lind titulado ``Verifying Lanchester’s Combat Model Battle of Iwo Jima''. \\ 
@@ -63,7 +63,7 @@ En la secci\'on \ref{sec:allyourbasearebelongtous} presentamos el modelo utiliza
 adaptamos el modelo genérico, previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección \ref{sec:kirchner} presentamos un resultado 
 matem\'atico-f\'isico cuya importancia se explica en la misma secci\'on. En la secci\'on \ref{sec:reviving} presentamos los resultados obtenidos a partir de la simulaci\'on. 
 En la sección \ref{sec:history} modelamos nuevamente la batalla pero utilizando distintas funciones de refuerzo para las fuerzas militares estadounidenses.
-Por \'ultimo, en la secci\'on \ref{sec:conclusiones} agrupamos las conclusiones obtenidas durante la realizaci\'on del trabajo.
+Por \'ultimo, en la secci\'on \ref{sec:conclusiones} agrupamos las conclusiones y resultados obtenidos durante la realizaci\'on del trabajo.
 
 \section{``La mejor victoria es vencer sin combatir''}
 \label{sec:allyourbasearebelongtous}
@@ -120,10 +120,8 @@ combate, el modelo resulta descripto por:
 
 \section{Poder K}
 \label{sec:kirchner}
-El primer resultado obtenido, es meramente analítico y lo presentamos en esta sección. A partir de una demostración matemática
-obtenemos una relación entre las fuerzas de combate y una constante (constante de integración) que determina y controla dicho nexo. 
-
-A partir de un modelo sin refuerzos y realizando una integración analítica obtenemos una relación entre las fuerzas de combate y una constante (constante de integración):
+El primer resultado obtenido, es analítico y lo presentamos en esta sección. A partir de un modelo sin refuerzos, demostracmos matemáticament
+una relación entre las fuerzas de combate y una constante (que surge de una integración) que determina y controla dicho nexo.
 
 Partimos de las ecuaciones \eqref{eq:xdot} y \eqref{eq:ydot}
 
@@ -198,14 +196,9 @@ Mientras que en el caso de $K = 0$ obtenemos la recta asíntota. En las figuras 
 \end{figure}
 
 El an\'alisis s\'olo tiene sentido cuando la cantidad de unidades son positivas.
-Por lo tanto, limitamos el an\'alisis al primer cuadrante del plano cartesiano como podemos observar en \ref{fig:powerarea1} y \ref{fig:powerarea2}.
-
-Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$.
-
-En el caso de $K = 0$ tenemos la recta asíntota a la familia de
-hipérbolas. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos
-encontrar la pendiente de esta recta como
-$\sqrt{\frac{\beta}{\alpha}}$. 
+Por lo tanto, limitamos el an\'alisis al primer cuadrante del plano cartesiano como podemos observar en 
+las figuras \ref{fig:powerarea1} y \ref{fig:powerarea2}.
+Veamos los distintos casos, determinados por los valores de $K$.
 
 \textbf{\textit{Caso 1.}} En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
 sobre el eje de las ordenadas. En este caso quiere decir que la fuerza representada
@@ -217,20 +210,20 @@ en el eje de las abcisas. Esto es igual que el caso anterior pero resultando ven
 
 \textbf{\textit{Caso 3.}} 
 En $K=0$ la relación entre los ejércitos describe una recta. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos encontrar la pendiente como $\sqrt{\frac{\beta}{\alpha}}$. Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, podemos 
-establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas.  \\
+establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas. 
 La interpretación f\'isica ser\'ia un combate balanceado. No quiere decir que tenemos la misma cantidad de efectivos desplegados. Sino que el poderío militar de los dos ej\'ercitos está equilibrado en función de $\alpha$ y $\beta$. Es decir, que en caso de no contar con una funci\'on de refuerzo terminar\'iamos con cero efectivos de ambos lados. \\
-Volviendo al caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as desgastantes para el ejercito. Esto es decir que aunque sea claramente
+Volviendo al caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as desgastantes para el ej\'ercito. Esto es decir que aunque sea claramente
 el vencedor el lado en el que encontramos la hip\'erbola, el costo
-podr\'ia ser muy alto. En cambio cuando se está lejos de la as\'intota
+podr\'ia ser muy alto. En cambio, cuando se está lejos de la as\'intota
 quiere decir que se está ganado sin tantas bajas. \\
-La forma de alterar esto es por medio de la función de refuerzo. Dado que permite la modificación de la magnitud del $K$ que describe la hipérbola donde transcurre la batalla. 
+La forma de alterar esto es por medio de la función de envío de refuerzos. Dado que permite la modificación de la magnitud del $K$ que describe la hipérbola donde transcurre la batalla. 
 
 \section{Reviviendo la historia}
 \label{sec:reviving}
 Para poder realizar un análisis de lo acontecido en la batalla, ejecutamos la simulación para obtener las 
 trayectorias correspondientes a ambas fuerzas. En la figura \ref{fig:trays} podemos ver dichas trayectorias. 
-De este podemos observar como, si bien inicialmente las fuerzas militares del Japón eran ampliamente superiores, el hecho de no disponer de 
-refuerzos, como en el caso estadounidense, llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
+En esta podemos observar como inicialmente las fuerzas militares del Japón eran ampliamente superiores. Sin embargo, el hecho de no disponer de 
+refuerzos llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
 Estados Unidos, vemos como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
 notemos una clara preponderancia de este país en el conflicto. También podemos observar un decaimiento lineal en el caso de las fuerzas japonesas,
 en contraparte con uno más exponencial (aunque bastante suavizado) por parte de las estadounidenses.\\
@@ -239,7 +232,7 @@ recolectados a partir del hecho acontecido. Dicha comparación, correspondiente 
 \ref{fig:realvssim}.
 Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. 
 A su vez, durante los primeros 5 días al recibirse los refuerzos, podemos ver como se producen picos, 
-donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas 
+donde los aumentos están dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas 
 por las bajas producidas durante el asentamiento de las tropas en el área de batalla.\\
 Otra gráfica realizada es la Figura \ref{fig:xvsy} en donde proyectamos la simulación, graficando las fuerzas militares
 estadounidenses, en funcion de las japonesas. Como podemos ver, observando el gráfico aproximadamente en el punto $20000$ de las ordenadas,
@@ -330,14 +323,14 @@ importante del papel que juegan las constantes $\alpha$ y $\beta$. Mediante el r
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{reinforce2.png}
-\caption{\label{fig:reinforce2}Resultados del combate simulado usando la política de refuerzos alternativa $h$.}
+\caption{\label{fig:reinforce2}Resultados del combate simulado usando la política de refuerzos alternativa $g$.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{reinforce3.png}
-\caption{\label{fig:reinforce3}Resultados del combate simulado usando la política de refuerzos alternativa $g$.}
+\caption{\label{fig:reinforce3}Resultados del combate simulado usando la política de refuerzos alternativa $h$.}
 \end{center}
 \end{figure}
 
@@ -360,13 +353,14 @@ lo hizo.\\
 Puntos interesantes que podemos observar de la primer simulación realizada, son los picos obtenidos al momento de la llegada de refuerzos
 estadounidenses y las pérdidas iniciales durante la etapa de asentamiento, que vemos claramente en las irregularidades iniciales de la curva 
 graficada.\\
-Dado un sistema sin funciones de refuerzo al incorporarse podemos:
+Dado un sistema sin funciones de refuerzo, al incorporarse alguna podemos:
 \begin{enumerate}
 \item reducir las bajas al alejarse de la recta asíntótica $K=0$
 \item modificar el resultado de una batalla al cruzar la recta asintótica
 \end{enumerate} 
 Otra conclusión importante es la relación obtenida entre las fuerzas en combate. Particularmente, resaltar que ante una relación lineal de las
-fuerzas, es decir, el caso en el que la constante $K$ es igual a $0$, la recta descripta nos proporciona bases de trabajo para estimar estadísticas \\
+fuerzas, es decir, el caso en el que la constante $K$ es igual a $0$, la recta descripta nos proporciona bases de trabajo para estimar estadísticas 
+como la efectividad de las tropas de una fuerza con respecto a las contrarias.\\
 La política de refuerzos permite variar el $K$ que describe la
 hip\'erbola que representa el combate, de manera de alterar el
 resultado. Podr\'ia pensarse el sistema sin refuerzos como a lazo
@@ -375,7 +369,7 @@ por la cantidad de tropas y las tazas de efectividades. Por otra
 parte, a lazo cerrado ser\'ia utilizando la funci\'on de refuerzos de
 manera de alterar el combate para que un lado sea el vencedor en menor
 cantidad de tiempo o sacrificando menos unidades. Un análisis interesante, aunque escapa al trabajo, sería tener dos funciones de refuerzos (una por cada ejército). \\
-El mayor inconveniente para lograr esto es la complicación de establecer a priori tanto $\alpha$ como $\beta$.
+El mayor inconveniente para lograr esto es la complicación de establecer a priori tanto $\alpha$ como $\beta$,
 como la efectividad de las unidades militares de cada fuerza, contra las enemigas.
 
 \end{document}
