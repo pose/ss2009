@@ -2,7 +2,7 @@
 %\documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 %El template pincha con spanish babel
-%\usepackage[spanish, activeacute]{babel}
+%\usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{fancybox}
 \usepackage[table]{xcolor}
@@ -128,8 +128,7 @@ combate, el modelo resulta descripto por:
 
 \section{Poder K}
 
-El primer resultado obtenido, es meramente analítico y es presentado en esta sección. A partir de una demostración matemática
-obtenemos una relación entre las fuerzas de combate y una constante (constante de integración) que determina y controla dicho nexo. 
+A partir de un modelo sin refuerzos y realizando una integración analítica obtenemos una relación entre las fuerzas de combate y una constante (constante de integración):
 
 Tenemos
 
@@ -173,46 +172,39 @@ Considerando $K=2k$ se puede reescribir de la siguiente manera:
 \begin{equation}
 \alpha y^{2}-\beta x^{2}=K\label{eq:obtenida}\end{equation}
 
+Si fijamos los parámetros del sistema $\alpha$ y $\beta$ se obtiene una relación entre ambas fuerzas de combate. Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$. Mientras que en el caso de $K = 0$ se obtiene la recta asíntota.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{power_areas_1}
+\caption{\label{fig:powerarea1} Gr\'afico obtenido de fijar $\alpha = 0.01$ y $\beta = 0.04$ en la ecuación \ref{eq:obtenida}. Se muestra el comportamiento del sistema sin políticas de refuerzos para distintos K.}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{power_areas_2}
+\caption{\label{fig:powerarea2} Gr\'afico obtenido de fijar $\alpha = 0.01$ y $\beta = 0.04$ en la ecuación \ref{eq:obtenida}. Se muestra el comportamiento del sistema sin políticas de refuerzos para distintos K.}
+\end{center}
+\end{figure}
 
-Como se puede observar claramente, se obtiene una relación entre ambas fuerzas de combate, regida por una constante a la cual denominamos $K$. 
-Esta constante resulta muy interesante para analizar. Es por ello que analizamos los tres casos de posibles rangos de valores de $K$, explicando
-su resultado en el comportamiento del sistema.\\
-\textbf{\textit{Caso 1.}} Si $K>0$ la fuerza descripta por $y$ resulta claramente mayor a la descripta por $x$, resultando en una inclincación hacia la victoria
-del primero.\\
-\textbf{\textit{Caso 2.}} Si $K<0$ ocurre lo opuesto a lo descritpo en el punto anterior.\\
-\textbf{\textit{Caso 3.}} El caso que encontramos más interesante es cuando $K=0$. En este, la relación entre ambas fuerzas describe una recta. 
-Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, se puede 
-establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas. Esto puede servir también
-para calcular y analizar estadísticas de efectividad de las unidades en combate contra determinado contrincante.
 
-El an\'alisis s\'olo tiene sentido cuando los valores son positivos, es
-decir, que limitaremos el an\'alisis al primer cuadrante del plano
-cartesiano:
+El an\'alisis s\'olo tiene sentido cuando la cantidad de unidades son positivas. Por lo tanto, limitaremos el an\'alisis al primer cuadrante del plano cartesiano como puede observarse en \ref{fig:powerarea1} y \ref{powerarea2}:
 
-\begin{equation}
-\alpha y - \beta x = K
-\end{equation}
 
-Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$.
-
-En el caso de $K = 0$ se tiene la recta asíntota a la familia de
-hipérbolas. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos
-encontrar la pendiente de esta recta como
-$\sqrt{\frac{\beta}{\alpha}}$. La interpretación f\'isica ser\'ia un
-combate balanceado. Esto \textbf{no} quiere decir que se tiene la misma
-cantidad de efectivos desplegados. La implicancia es que las fuerzas se equiparar\'ian en el largo plazo, es decir, que en caso de no contar con una
-funci\'on de refuerzo se terminar\'ia con cero efectivos de ambos lados.
-
-En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
+\textbf{\textit{Caso 1.}} En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
 sobre el eje de las ordenadas. En este caso quiere decir que la fuerza representada
 en el eje Y ganar\'ia el combate de no aumentarse la cantidad de tropas
 el contricante.
 
-Por el contrario, cuando $K < 0$ se tienen hip\'erbolas que comienzan
-en el eje de las abcisas. Esto es igual que el caso anterior pero la otra fuerza
-resultar\'ia vencedora.
 
-Cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as
+\textbf{\textit{Caso 2.}} Si $K<0$ se tienen hip\'erbolas que comienzan
+en el eje de las abcisas. Esto es igual que el caso anterior pero resultando vencedor el ejército del eje x.
+
+\textbf{\textit{Caso 3.}} 
+En $K=0$ la relación entre los ejércitos describe una recta. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos encontrar la pendiente como $\sqrt{\frac{\beta}{\alpha}}$. Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, se puede 
+establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas.  \\
+La interpretación f\'isica ser\'ia un combate balanceado. no quiere decir que se tiene la misma cantidad de efectivos desplegados. Sino que el poderío militar de los dos ej\'ercitos está equilibrado en función de $alpha$ y $beta$. Es decir, que en caso de no contar con una funci\'on de refuerzo se terminar\'ia con cero efectivos de ambos lados.
+
+Para el caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as
 desgastantes para el ejercito. Esto es decir que aunque sea claramente
 el vencedor el lado en el que se encuentra la hip\'erbola, el costo
 podr\'ia ser muy alto (en "unidades normalizadas", recordemos que no
