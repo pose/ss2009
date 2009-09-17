@@ -14,26 +14,33 @@
 \author{
 \alignauthor
 Pose, Alberto Miguel\\
-       \affaddr{Instituto Tecnológico de Buenos Aires}\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
        \affaddr{Buenos Aires, Argentina}\\
        \email{apose@alu.itba.edu.ar}
 \alignauthor
 Catalano, Juan Ignacio\\
-       \affaddr{Instituto Tecnológico de Buenos Aires}\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
        \affaddr{Buenos Aires, Argentina}\\
        \email{jcatalan@alu.itba.edu.ar}
 \and
 \alignauthor 
 Palombo, Martín\\
-       \affaddr{Instituto Tecnológico de Buenos Aires}\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
        \affaddr{Buenos Aires, Argentina}\\
        \email{mpalombo@alu.itba.edu.ar}
 \alignauthor 
 Vázquez, Santiago Luis\\
-       \affaddr{Instituto Tecnológico de Buenos Aires}\\
+       \affaddr{ITBA}\\
+       \affaddr{Madero 399}\\
        \affaddr{Buenos Aires, Argentina}\\
        \email{savazque@alu.itba.edu.ar}
 }
+
+%Viejo author
+%\author{Catalano, Juan Ignacio \crcr Palombo, Martín \crcr Pose, Alberto Miguel \crcr Vázquez, Santiago Luis}
 
 \date{}
 
@@ -42,39 +49,41 @@ Vázquez, Santiago Luis\\
 \maketitle
 
 \begin{abstract}
-\hl{En el presente art\'iculo modelamos y analizamos un combate guerra-guerra. De dicho an\'alisis observamos que el uso del modelo planteado
-resulta adecuado para simular esta batalla, y obtenemos resultados similares a los sucedidos. Tambi\'en analizamos el comportamiento del sistema,
-mediante la observaci\'on del modelo, variando las funciones de refuerzos enviados a la batalla. Adem\'as realizamos una deducci\'on anal\'itica que
-concluye en una interesante descripci\'on de la relaci\'on de efectividad de combate entre ambas fuerzas militares.}
+\hl{En el presente art\'iculo se modela un combate guerra-guerra, considerando las fuerzas como medida del poder\'io de ambas partes y 
+analizando el modelo constru\'ido para obtener conclusiones mediante su observaci\'on. De dicho an\'alisis se desprende que el uso del modelo planteado
+resulta adecuado para simular esta batalla, obteniendose resultados similares a los sucedidos. Tambi\'en se analiza el comportamiento del sistema,
+mediante la observaci\'on del modelo, variando las funciones de refuerzos enviados a la batalla. Adem\'as se realiza una deducci\'on anal\'itica que
+concluye en una interesante descripci\'on de la relaci\'on de efectividad de combate entre ambas fuerzas. CAMBIAR}
 \end{abstract} 
+
+
 
 \newpage
 
 \section{Introducci\'on}
 
-El 16 de febrero de 1945, durante la Segunda Guerra Mundial, se libra la batalla de Iwo Jima en la isla de nombre homónimo. 
-Siendo sin duda uno de los acontecimientos bélicos más sangrientos y lamentables de la historia. La ubicación geográfica estratégica de dicha
+El 16 de febrero de 1945, durante la segunda guerra mundial, se libra la batalla de Iwo Jima en la isla de nombre homónimo. 
+Siend sin duda uno de los acontecimientos bélicos más sangrientos y lamentables de la historia. La ubicación geográfica estratégica de dicha
 isla otorga gran importancia histórica a esta batalla y es por ello que nos interesa nos interesa estudiarla como un sistema, modelándola y 
-pudiendo extraer conclusiones a partir de dicho modelo. Pretendemos verificar el modelo utilizado,
-computando y analizando los resultados obtenidos de la simulación y variando parámetros del mismo. Podemos encontrar antecedentes a este 
+pudiendo extraer conclusiones a partir de dicho modelo. Se pretende verificar el modelo utilizado,
+computando y analizando los resultados obtenidos de la simulación y variando parámetros del mismo. Se pueden encontrar antecedentes a este 
 trabajo, como por ejemplo el llevado acabo por Christine Lind titulado ``Verifying Lanchester’s Combat Model Battle of Iwo Jima''. \\ 
-En la secci\'on \ref{sec:allyourbasearebelongtous} presentamos el modelo utilizado para realizar dicha simulaci\'on. En la secci\'on \ref{sec:remember} 
-adaptamos el modelo genérico, previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección \ref{sec:kirchner} se presenta un resultado 
-matem\'atico-f\'isico cuya importancia se explica en la misma secci\'on. En la secci\'on \ref{sec:reviving} se presentan los resultados obtenidos a partir de la simulaci\'on. 
-En la sección \ref{sec:history} modelamos nuevamente la batalla pero utilizando distintas funciones de refuerzo para las fuerzas militares estadounidenses.
-Por \'ultimo, en la secci\'on \ref{sec:conclusiones} agrupamos las conclusiones obtenidas durante la realizaci\'on del trabajo.
+En la siguiente secci\'on se presenta el modelo utilizado para realizar dicha simulaci\'on. En la tercer secci\'on se adapta el modelo genérico,
+previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección cuatro se presenta un resultado matem\'atico-f\'isico cuya 
+importancia se explica en la misma secci\'on. En la secci\'on cinco se presentan los resultados obtenidos a partir de la simulaci\'on. En la
+sexta sección se modela nuevamente la batalla pero utilizando distintas funciones de refuerzo para las fuerzas militares estadounidenses.
+Por \'ultimo, en la secci\'on siete se agrupan las conclusiones obtenidas durante la realizaci\'on del trabajo.
 
 \section{``La mejor victoria es vencer sin combatir''}
-\label{sec:allyourbasearebelongtous}
-Para modelar este sistema consideramos las dos fuerzas militares representadas por ($x^1(t), x^2(t)$) siendo la primera correspondiente a Estados
+Para modelar este sistema se consideran las dos fuerzas militares representadas por ($x^1(t), x^2(t)$) siendo la primera correspondiente a Estados
 Unidos y la segunda al Imperio de Japón. La medida de estas variables representa el poderío de ambas partes del combate. 
-El vector definido por \eqref{eq:state_vector}
+El vector definido como:
 
 \begin{equation}
 x(t) = ( x^1(t), x^2(t) )^T \label{eq:state_vector}
 \end{equation}
 
-representa el vector de estado, es decir, el poderío de ambas partes en el instante $t$. Consideramos el espacio de estados como la cantidad de 
+representa el vector de estado, es decir, el poderío de ambas partes en el instante $t$. El espacio de estados se considera como la cantidad de 
 unidades de combate, considerando todo tipo de ellas (individuos, equipos, recursos, etc). Como es de esperarse, las entradas al sistema estan 
 dadas por los refuerzos enviados por cada uno de los países.\\
 Hasta aquí, la representación del modelo de combate. Pero en particular, nos referimos a un combate de tipo guerra-guerra, es decir, convencional.
@@ -82,16 +91,16 @@ En este caso, las pérdidas en combate están solamenten dadas por el tamaño de
 siguiente manera:
 
 \begin{equation}
-\dot{x}^1(t) = -ax^1(t) - \alpha x^2(t)\end{equation}
+\dot{x}^1(t) = -ax^1(t) - c_{21} x^2(t)\end{equation}
 \begin{equation}
-\dot{x}^2(t) = -bx^2(t) - \beta x^1(t)\end{equation}
+\dot{x}^2(t) = -bx^2(t) - c_{12} x^1(t)\end{equation}
 
-Siendo $a$ y $b$ constantes positivas que representan las tasas unitarias de pérdidas operativas. Teniendo también $\alpha, \beta$ 
+Siendo $a$ y $b$ constantes positivas que representan las tasas unitarias de pérdidas operativas. Teniendo también $c_{12}, c_{21}$ 
 constantes positivas que representan las tasas de efectividad de ataque de la fuerza 1 sobre la 2 y de la fuerza 2 sobre la 1 respectivamente.
 
 \section{Recordando la historia}
-\label{sec:remember}
-En esta sección utilizamos una adaptación del modelo presentado anteriormente para simular el sistema dado por el combate entre Japón y 
+
+En esta sección se utiliza una adaptación del modelo presentado anteriormente para simular el sistema dado por el combate entre Japón y 
 Estados Unidos de América, en la ciudad de Iwo Jima en febrero de 1945. Inicialmente Japón cuenta con una fuerza de 21500 unidades 
 atrincheradas en el lugar, mientras que su enemigo incialmente no dispone de unidades en Iwo Jima y envía refuerzos siguiendo el siguiente 
 régimen:
@@ -107,7 +116,7 @@ f(t) = \left\{
     0 & \quad t \geq 6\\
     \end{array} \right.
 \end{equation}
-Siendo $f$ la función que describe la llegada de refuerzos de los Estados Unidos. Como consideramos que Japón no envía refuerzos durante este
+Siendo $f$ la función que describe la llegada de refuerzos de los Estados Unidos. Como se considera que Japón no envía refuerzos durante este
 combate, el modelo resulta descripto por:
 
 
@@ -118,54 +127,50 @@ combate, el modelo resulta descripto por:
 
 
 \section{Poder K}
-\label{sec:kirchner}
-El primer resultado obtenido, es meramente analítico y lo presentamos en esta sección. A partir de una demostración matemática
-obtenemos una relación entre las fuerzas de combate y una constante (constante de integración) que determina y controla dicho nexo. 
 
 A partir de un modelo sin refuerzos y realizando una integración analítica obtenemos una relación entre las fuerzas de combate y una constante (constante de integración):
 
-Partimos de las ecuaciones \eqref{eq:xdot} y \eqref{eq:ydot}
+Tenemos
 
 \begin{eqnarray}
-\dot{x} & = & -\alpha y\label{eq:xdot}\\
-\dot{y} & = & -\beta x\label{eq:ydot}
-\end{eqnarray}
+\dot{x} & = & -\alpha y\label{eq:ydot}\\
+\dot{y} & = & -\beta x\end{eqnarray}
 
-Como sabemos que $\dot{x}=\frac{dx}{dy}\frac{dy}{dt}$ podemos reescribir \eqref{eq:xdot} como \eqref{eq:xdot2}
 
-\begin{equation}
-\frac{dx}{dy}\dot{y}=\frac{dx}{dy}\frac{dy}{dt}=-\alpha y
-\label{eq:xdot2}
-\end{equation}
-
-Reemplazando con la ecuación \eqref{eq:ydot} resulta \eqref{eq:demo1}
+Explicitando, obtenemos la expresión
 
 \begin{equation}
--\frac{dx}{dy}\beta x=-\alpha y
-\label{eq:demo1}
-\end{equation}
+\dot{x}=-\alpha y\end{equation}
 
-Reemplazamos adecuadamente los diferenciales para obtener \eqref{eq:demo2}
 
-\begin{equation}
--\beta\intop x dx + C =-\alpha\int y dy + D
-\label{eq:demo2}
-\end{equation}
-
-Siendo $C$ y $D$ constantes de integración. Podemos considerar $D - C = k$. De lo cual deducimos \eqref{eq:demo3}
+Como sabemos que $\dot{x}=\frac{d x}{d y}\frac{d y}{d t}$:
 
 \begin{equation}
-\alpha\frac{y^{2}}{2}-\beta\frac{x^{2}}{2}=k
-\label{eq:demo3}
-\end{equation}
+\frac{d x}{d y}\dot{y}=\frac{d x}{d y}\frac{d y}{d t}=-\alpha y\end{equation}
 
 
-Considerando $K=2k$ se puede reescribir \eqref{eq:demo3} obteniendo finalmente \eqref{eq:obtenida}
+Reemplazando con la ecuación \eqref{eq:ydot} resulta
 
 \begin{equation}
-\alpha y^{2}-\beta x^{2}=K
-\label{eq:obtenida}
-\end{equation}
+-\frac{d x}{d y}\beta x=-\alpha y\end{equation}
+
+
+Reemplazando adecuadamente los diferenciales tenemos 
+
+\begin{equation}
+-\beta\intop x dx + C =-\alpha\int y dy + D\end{equation}
+
+
+Siendo $C$ y $D$ constantes de integración. Podemos considerar $D - C = k$. De lo cual deducimos
+
+\begin{equation}
+\alpha\frac{y^{2}}{2}-\beta\frac{x^{2}}{2}=k\end{equation}
+
+
+Considerando $K=2k$ se puede reescribir de la siguiente manera:
+
+\begin{equation}
+\alpha y^{2}-\beta x^{2}=K\label{eq:obtenida}\end{equation}
 
 Si fijamos los parámetros del sistema $\alpha$ y $\beta$ se obtiene una relación entre ambas fuerzas de combate. Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$. Mientras que en el caso de $K = 0$ se obtiene la recta asíntota. En los gráficos \ref{eq:asin1} y \ref{eq:asin2} se puede observar el caracter asintótico de la familia de hipérbolas.
 \begin{figure}[h]
@@ -193,16 +198,9 @@ Si fijamos los parámetros del sistema $\alpha$ y $\beta$ se obtiene una relaci�
 \end{center}
 \end{figure}
 
-El an\'alisis s\'olo tiene sentido cuando la cantidad de unidades son positivas.
-Por lo tanto, limitamos el an\'alisis al primer cuadrante del plano cartesiano como podemos observar en \ref{fig:powerarea1} y \ref{powerarea2}.
 
-Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$.
+El an\'alisis s\'olo tiene sentido cuando la cantidad de unidades son positivas. Por lo tanto, limitaremos el an\'alisis al primer cuadrante del plano cartesiano como puede observarse en \ref{fig:powerarea1} y \ref{fig:powerarea2}:
 
-En el caso de $K = 0$ tenemos la recta asíntota a la familia de
-hipérbolas. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos
-encontrar la pendiente de esta recta como
-$\sqrt{\frac{\beta}{\alpha}}$. La interpretación f\'isica ser\'ia un
-combate balanceado. 
 
 \textbf{\textit{Caso 1.}} En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
 sobre el eje de las ordenadas. En este caso quiere decir que la fuerza representada
@@ -210,7 +208,7 @@ en el eje Y ganar\'ia el combate de no aumentarse la cantidad de tropas
 el contricante.
 
 
-\textbf{\textit{Caso 2.}} Si $K<0$ tenemos hip\'erbolas que comienzan
+\textbf{\textit{Caso 2.}} Si $K<0$ se tienen hip\'erbolas que comienzan
 en el eje de las abcisas. Esto es igual que el caso anterior pero resultando vencedor el ejército del eje x.
 
 \textbf{\textit{Caso 3.}} 
@@ -218,62 +216,31 @@ En $K=0$ la relación entre los ejércitos describe una recta. Dado los parámet
 establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas.  \\
 La interpretación f\'isica ser\'ia un combate balanceado. no quiere decir que se tiene la misma cantidad de efectivos desplegados. Sino que el poderío militar de los dos ej\'ercitos está equilibrado en función de $\alpha$ y $\beta$. Es decir, que en caso de no contar con una funci\'on de refuerzo se terminar\'ia con cero efectivos de ambos lados. \\
 Volviendo al caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as desgastantes para el ejercito. Esto es decir que aunque sea claramente
-el vencedor el lado en el que encontramos la hip\'erbola, el costo
-<<<<<<< .mine
-podr\'ia ser muy alto (en "unidades normalizadas", recordemos que no
-siempre la pendiente vale 1, correspondiendo 1 efectivo de una fuerza
-con otro de otra). En cambio cuando estamos lejos de la as\'intota
-quiere decir que estamos ganado "f\'acil" y sin tantas bajas (esto est\'a
-estrictamente relacionado con la superioridad num\'erica).
-=======
+el vencedor el lado en el que se encuentra la hip\'erbola, el costo
 podr\'ia ser muy alto. En cambio cuando se está lejos de la as\'intota
 quiere decir que se está ganado sin tantas bajas. \\
-<<<<<<< .mine
->>>>>>> .r39
-=======
 La forma de alterar esto es por medio de la función de refuerzo. Dado que permite la modificación del K que describe la hipérbola donde transcurre la batalla. 
->>>>>>> .r41
 
-<<<<<<< .mine
-<<<<<<< .mine
-La política de refuerzos lo que permite es bajarse o subirse de la
-hip\'erbola que representa el combate, de manera de alterar el
-resultado. Podr\'iamos pensar el sistema sin refuerzos como a lazo
-abierto, donde el resultado del combate está \'unicamente determinado
-por la cantidad de tropas y las tazas de efectividades. Por otra
-parte, a lazo cerrado ser\'ia utilizando la funci\'on de refuerzos de
-manera de alterar el combate para que un lado sea el vencedor en menor
-cantidad de tiempo o sacrificando menos unidades.
-=======
-La función de refuerzo juega un rol importante en la batalla. Permite la modificación del K que describe la hipérbola donde transcurre la batalla. Esto permite:
-\begin{enumerate}
-\item reducir las bajas al alejarse de la recta asíntótica $K=0$
-\item modificar el resultado de una batalla en caso de
-\end{enumerate}
-=======
->>>>>>> .r41
->>>>>>> .r39
 
 \section{Reviviendo la historia}
-\label{sec:reviving}
-Para poder realizar un análisis de lo acontecido en la batalla, ejecutamos la simulación para obtener las 
+
+Para poder realizar un análisis de lo acontecido en la batalla, se ejecutó la simulación para obtener las 
 trayectorias correspondientes a ambas fuerzas. En la figura \ref{fig:trays} se pueden ver dichas trayectorias. 
 De este podemos observar como, si bien inicialmente las fuerzas militares del Japón eran ampliamente superiores, el hecho de no disponer de 
 refuerzos, como en el caso estadounidense, llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
-Estados Unidos, vemos como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
-notemos una clara preponderancia de este país en el conflicto. También podemos observar un decaimiento lineal en el caso de las fuerzas japonesas,
+Estados Unidos, se vé como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
+se note una clara preponderancia de este país en el conflicto. También podemos observar un decaimiento lineal en el caso de las fuerzas japonesas,
 en contraparte con uno más exponencial (aunque bastante suavizado) por parte de las estadounidenses.\\
 Además, podemos verificar el uso del modelo elegido para la simulación. Para ello, comparamos los resultados obtenidos con los datos 
 recolectados a partir del hecho acontecido. Dicha comparación, correspondiente a la fuerza estadounidense, la graficamos en la figura 
 \ref{fig:realvssim}.
-Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. 
-A su vez, durante los primeros 5 días al recibirse los refuerzos, podemos ver como se producen picos, 
-donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas 
+Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. A su vez, durante los primeros 5 días al recibirse los refuerzos, se
+puede ver como se producen picos, donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas
 por las bajas producidas durante el asentamiento de las tropas en el área de batalla.\\
 Otra gráfica realizada es la Figura \ref{fig:xvsy} en donde proyectamos la simulación, graficando las fuerzas militares
-estadounidenses, en funcion de las japonesas. Como podemos ver, observando el gráfico aproximadamente en el punto $20000$ de las ordenadas,
+estadounidenses, en funcion de las japonesas. Como se puede ver, observando el gráfico aproximadamente en el punto $20000$ de las ordenadas,
 encontramos que las fuerzas estadounidenses son cero. Este es el comienzo de la batalla. Luego, podemos ver como con la llegada de refuerzos 
-estadounidenses se va decrementando la cantidad de efectivos japoneses. Además, podemos observar como la función que representa la cantidad de
+estadounidenses se va decrementando la cantidad de efectivos japoneses. Además, se puede observar como la función que representa la cantidad de
 efectivos americanos se aproxima a una de las hipérbolas descriptas en la sección anterior. Esto ocurre a medida que se envían los refuerzos,
 para culminar en el momento donde ya no hay más envíos. La elección de la constante $K$ fue determinada de forma empírica.
 
@@ -301,10 +268,10 @@ para culminar en el momento donde ya no hay más envíos. La elección de la con
 \newpage
 
 \section{Haciendo historia}
-\label{sec:history}
+
 ¿Qué hubiese sucedido si la política de envío de refuerzos de Estados Unidos hubiese sido distinta?. Para responder esta pregunta, veamos como
 reacciona el sistema al cambiar las políticas de envio de refuerzos estadounidenses.\\
-Elegimos las tres políticas analizadas en base a la observación de su comportamiento y seleccionando las que nos arrojaron resultados
+Se eligieron las tres políticas analizadas en base a la observación de su comportamiento y seleccionando las que nos arrojaron resultados
 más interesantes para su análisis. Dichas políticas, que denominamos $g$, $h$ y $k$ las podemos observar en las ecuaciones \eqref{eq:refuerzo_g}, 
 \eqref{eq:refuerzo_h} y \eqref{eq:refuerzo_k} respectivamente.
 
@@ -354,7 +321,8 @@ podemos ver como la preponderancia de las tropas estadounidenses aumenta y super
 Finalmente, analizamos la política de refuerzo $k$; siendo ésta una variación a la política original. Si observamos el resultado del combate en la figura \ref{fig:reinforce4}
 vemos que ambas fuerzas decrecen de una manera aproximadamente lineal en el tiempo(en el caso de EEUU, hasta que recibe refuerzos). Lo interesante es que la pendiente de la recta
 que modela las fuerzas estadounidenses es mucho más abrupta que la japonsa. Ésto implica que el ejército japonés era más eficiente en batalla y sirve para destacar lo
-importante del papel que juegan las constantes $\alpha$ y $\beta$. Mediante el resultado de la siumulación podemos apreciar que los japoneses realmente lucharon hasta el final.
+importante del papel que juegan las constantes PONELE NOMBRE SON C12 C21 O ALFA BETA SER CONSISTENTEEES. Mediante el resultado de la siumulación podemos apreciar
+que los japoneses realmente lucharon hasta el final.
 
 \begin{figure}[h]
 \begin{center}
@@ -380,24 +348,19 @@ importante del papel que juegan las constantes $\alpha$ y $\beta$. Mediante el r
 
 
 \section{Conclusiones y Resultados}
-\label{sec:conclusiones}
 
 Al realizar este trabajo se pudo verificar el modelo elegido, analizando los resultados para compararlos con los datos recolectados historicamente
 a partir del hecho acontecido. Como conclusión a los cambios de política de refuerzos realizados, se puede decir que EEUU podría haber considerado una
 mejor política de refuerzos, aunque requeriría un análisis socio-económico y político más profundo para poder determinar porque realmente no
 lo hizo.\\
-Puntos interesantes que podemos observar de la primer simulación realizada, son los picos obtenidos al momento de la llegada de refuerzos
+Puntos interesantes que se pueden observar de la primer simulación realizada, son los picos obtenidos al momento de la llegada de refuerzos
 estadounidenses y las pérdidas iniciales durante la etapa de asentamiento, que se ven claramente en las irregularidades iniciales de la curva 
 graficada.\\
 Dado un sistema sin funciones de refuerzo al incorporarse se puede:
 \begin{enumerate}
 \item reducir las bajas al alejarse de la recta asíntótica $K=0$
 \item modificar el resultado de una batalla al cruzar la recta asintótica
-<<<<<<< .mine
 \end{enumerate} 
-=======
-\end{enumerate}
->>>>>>> .r42
 Otra conclusión importante es la relación obtenida entre las fuerzas en combate. Particularmente, resaltar que ante una relación lineal de las
 fuerzas, es decir, el caso en el que la constante $K$ es igual a $0$, la recta descripta nos proporciona bases de trabajo para estimar estadísticas \\
 La política de refuerzos permite variar el $K$ que describe la
