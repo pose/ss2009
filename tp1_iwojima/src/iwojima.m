@@ -92,10 +92,15 @@ function draw_k(x, alpha, beta, K, s, mt)
 endfunction
 
 next_figure();
-draw_k(linspace(0,70000,100),c21, c12, [0,25000,50000,-50000,-25000], '-+^*ox',
-    ['{/Helvetica}Comportamiento asint',243,'tico para valores grandes (II)']);
-print -dpng power_areas_2b.png 
-return
+draw_k(linspace(0,40000,100),c21, c12, [0,30000000], '-.',
+    ['{/Helvetica}Simulaci',243,'n del combate de Iwo Jima en diagrama de fases']);
+hold on
+xlabel (sprintf("{/Helvetica}Efectivos del Imperio del Jap%cn \n {/Symbol a } = %g",243,c12));
+ylabel (sprintf("{/Helvetica}Efectivos de Estados Unidos \n {/Symbol b } = %g",c21));
+plot(x1,x2,"+;;");
+hold off
+print -dpng power_area_iwo_jima.png 
+
 next_figure();
 draw_k(linspace(0,2500,50),0.01, 0.04, [0,10000,20000,-10000,-20000], '-+^*ox', 
     ['{/Helvetica}Efectos de la variaci',243,'n de K para peque',241,'os valores (I)']);
@@ -129,7 +134,7 @@ print -dpng power_areas_2b.png
 # --------------------------------------------------
 next_figure();
 
-plot (japan_vs_usa.t, japan_vs_usa.japan,strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), japan_vs_usa.t, japan_vs_usa.usa,strcat("*;Fuerzas de Estados Unidos;"));
+plot (japan_vs_usa.t, japan_vs_usa.japan,strcat("o;Tropas del Imperio del Jap",sprintf("%c",243),"n;"), japan_vs_usa.t, japan_vs_usa.usa,strcat("*;Tropas de Estados Unidos;"));
 title (strcat("Simulaci",sprintf("%c",243),"n num",sprintf("%c",233),"rica de la batalla de Iwo Jima"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
@@ -186,7 +191,7 @@ reinforce2.usa = x2;
 
 next_figure();
 
-plot (reinforce2.t, reinforce2.japan,strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce2.t, reinforce2.usa,"*;Fuerzas de Estados Unidos;");
+plot (reinforce2.t, reinforce2.japan,strcat("o;Tropas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce2.t, reinforce2.usa,"*;Tropas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (I) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
@@ -212,7 +217,7 @@ reinforce3.usa = x2;
 
 next_figure();
 
-plot (reinforce3.t, reinforce3.japan, strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce3.t, reinforce3.usa,"*;Fuerzas de Estados Unidos;");
+plot (reinforce3.t, reinforce3.japan, strcat("o;Tropas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce3.t, reinforce3.usa,"*;Tropas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (II) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
@@ -239,7 +244,7 @@ reinforce4.usa = x2;
 
 next_figure();
 
-plot (reinforce4.t, reinforce4.japan, strcat("o;Fuerzas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce4.t, reinforce4.usa,"*;Fuerzas de Estados Unidos;");
+plot (reinforce4.t, reinforce4.japan, strcat("o;Tropas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce4.t, reinforce4.usa,"*;Tropas de Estados Unidos;");
 title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa (III) para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
 
 xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
