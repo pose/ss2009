@@ -543,7 +543,7 @@
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
-\def\fnum@figure{Figure \thefigure}
+\def\fnum@figure{Figura \thefigure}
 \def\figure{\@float{figure}}
 \let\endfigure\end@float
 \@namedef{figure*}{\@dblfloat{figure}}
