@@ -182,6 +182,50 @@ Dicha recta determina el grado de efectividad de las unidades militares de una f
 establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas. Esto puede servir también
 para calcular y analizar estadísticas de efectividad de las unidades en combate contra determinado contrincante.
 
+El an\'alisis s\'olo tiene sentido cuando los valores son positivos, es
+decir, que limitaremos el an\'alisis al primer cuadrante del plano
+cartesiano:
+
+\begin{equation}
+\alpha y - \beta x = K
+\end{equation}
+
+Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$.
+
+En el caso de $K = 0$ se tiene la recta asíntota a la familia de
+hipérbolas. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos
+encontrar la pendiente de esta recta como
+$\sqrt{\frac{\beta}{\alpha}}$. La interpretación f\'isica ser\'ia un
+combate balanceado. Esto \textbf{no} quiere decir que se tiene la misma
+cantidad de efectivos desplegados. La implicancia es que las fuerzas se equiparar\'ian en el largo plazo, es decir, que en caso de no contar con una
+funci\'on de refuerzo se terminar\'ia con cero efectivos de ambos lados.
+
+En el caso donde $K > 0$ corresponden a hip\'erbolas que comienzan
+sobre el eje de las ordenadas. En este caso quiere decir que la fuerza representada
+en el eje Y ganar\'ia el combate de no aumentarse la cantidad de tropas
+el contricante.
+
+Por el contrario, cuando $K < 0$ se tienen hip\'erbolas que comienzan
+en el eje de las abcisas. Esto es igual que el caso anterior pero la otra fuerza
+resultar\'ia vencedora.
+
+Cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as
+desgastantes para el ejercito. Esto es decir que aunque sea claramente
+el vencedor el lado en el que se encuentra la hip\'erbola, el costo
+podr\'ia ser muy alto (en "unidades normalizadas", recordemos que no
+siempre la pendiente vale 1, correspondiendo 1 efectivo de una fuerza
+con otro de otra). En cambio cuando se está lejos de la as\'intota
+quiere decir que se está ganado "f\'acil" y sin tantas bajas (esto est\'a
+estrictamente relacionado con la superioridad num\'erica).
+
+La política de refuerzos lo que permite es bajarse o subirse de la
+hip\'erbola que representa el combate, de manera de alterar el
+resultado. Podr\'ia pensarse el sistema sin refuerzos como a lazo
+abierto, donde el resultado del combate está \'unicamente determinado
+por la cantidad de tropas y las tazas de efectividades. Por otra
+parte, a lazo cerrado ser\'ia utilizando la funci\'on de refuerzos de
+manera de alterar el combate para que un lado sea el vencedor en menor
+cantidad de tiempo o sacrificando menos unidades.
 
 
 \section{Reviviendo la historia}
@@ -290,7 +334,7 @@ que los japoneses realmente lucharon hasta el final.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=8cm]{reinforce4.png}
+\includegraphics[clip, width=8cm]{reinforce4.png}
 \caption{\label{fig:reinforce4}Resultados del combate simulado usando la política de refuerzos alternativa $k$.}
 \end{center}
 \end{figure}
