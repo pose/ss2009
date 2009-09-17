@@ -237,7 +237,13 @@ recolectados a partir del hecho acontecido. Dicha comparación, correspondiente 
 \ref{fig:realvssim}.
 Podemos observar el desembarco, en la primer etapa, donde vemos claramente como aumenta rápidamente la cantidad de unidades. A su vez, durante los primeros 5 días al recibirse los refuerzos, se
 puede ver como se producen picos, donde los aumentos estan dados por la llegada de nuevas unidades y las disminuciones más bruscas estan dadas
-por las bajas producidas durante el asentamiento de las tropas en el área de batalla.
+por las bajas producidas durante el asentamiento de las tropas en el área de batalla.\\
+Otra gráfica realizada es la Figura \ref{fig:xvsy} en donde proyectamos la simulación, graficando las fuerzas militares
+estadounidenses, en funcion de las japonesas. Como se puede ver, observando el gráfico aproximadamente en el punto $20000$ de las ordenadas,
+encontramos que las fuerzas estadounidenses son cero. Este es el comienzo de la batalla. Luego, podemos ver como con la llegada de refuerzos 
+estadounidenses se va decrementando la cantidad de efectivos japoneses. Además, se puede observar como la función que representa la cantidad de
+efectivos americanos se aproxima a una de las hipérbolas descriptas en la sección anterior. Esto ocurre a medida que se envían los refuerzos,
+para culminar en el momento donde ya no hay más envíos. La elección de la constante $K$ fue determinada de forma empírica.
 
 \begin{figure}[h]
 \begin{center}
@@ -250,6 +256,13 @@ por las bajas producidas durante el asentamiento de las tropas en el área de ba
 \begin{center}
 \includegraphics[width=8cm]{real_vs_sim.png}
 \caption{\label{fig:realvssim}Cantidad de tropas estadounidenses en función del tiempo. Datos correspondientes al hecho y a la simulación.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{power_area_iwo_jima.png}
+\caption{\label{fig:xvsy}Cantidad de tropas estadounidenses en función de las japonesas.}
 \end{center}
 \end{figure}
 
