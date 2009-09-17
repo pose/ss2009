@@ -43,9 +43,9 @@ Vázquez, Santiago Luis\\
 
 \begin{abstract}
 Nuestro objetivo principal es modelar un combate guerra-guerra, considerando las fuerzas militares como medida del poder\'io de ambas partes y 
-analizando el modelo constru\'ido para obtener conclusiones mediante su observaci\'on. De dicho an\'alisis se verifica el modelo planteado, obteniendose
-mediante la observaci\'on del mismo, resultados que se comparan con los datos recolectados historicamente. Tambi\'en se analiza el comportamiento del sistema, 
-variando las funciones de refuerzos enviados a la batalla. Adem\'as se realiza una deducci\'on anal\'itica que concluye en el análisis de una
+analizando el modelo constru\'ido para obtener conclusiones mediante su observaci\'on. De dicho an\'alisis verificamos el modelo planteado, obteniendose
+mediante la observaci\'on del mismo, resultados que se comparan con los datos recolectados historicamente. Tambi\'en analizamos el comportamiento del sistema, 
+variando las funciones de refuerzos enviados a la batalla. Adem\'as realizamos una deducci\'on anal\'itica que concluye en el análisis de una
 constante que determina, entre otras cosas, la efectividad de combate entre ambas fuerzas.
 \end{abstract} 
 
@@ -60,8 +60,8 @@ pudiendo extraer conclusiones a partir de dicho modelo. Pretendemos verificar el
 computando y analizando los resultados obtenidos de la simulación y variando parámetros del mismo. Podemos encontrar antecedentes a este 
 trabajo, como por ejemplo el llevado acabo por Christine Lind titulado ``Verifying Lanchester’s Combat Model Battle of Iwo Jima''. \\ 
 En la secci\'on \ref{sec:allyourbasearebelongtous} presentamos el modelo utilizado para realizar dicha simulaci\'on. En la secci\'on \ref{sec:remember} 
-adaptamos el modelo genérico, previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección \ref{sec:kirchner} se presenta un resultado 
-matem\'atico-f\'isico cuya importancia se explica en la misma secci\'on. En la secci\'on \ref{sec:reviving} se presentan los resultados obtenidos a partir de la simulaci\'on. 
+adaptamos el modelo genérico, previamente mostrado, al caso particular de la batalla de Iwo Jima. En la sección \ref{sec:kirchner} presentamos un resultado 
+matem\'atico-f\'isico cuya importancia se explica en la misma secci\'on. En la secci\'on \ref{sec:reviving} presentamos los resultados obtenidos a partir de la simulaci\'on. 
 En la sección \ref{sec:history} modelamos nuevamente la batalla pero utilizando distintas funciones de refuerzo para las fuerzas militares estadounidenses.
 Por \'ultimo, en la secci\'on \ref{sec:conclusiones} agrupamos las conclusiones obtenidas durante la realizaci\'on del trabajo.
 
@@ -161,14 +161,17 @@ Siendo $C$ y $D$ constantes de integración. Podemos considerar $D - C = k$. De 
 \end{equation}
 
 
-Considerando $K=2k$ se puede reescribir \eqref{eq:demo3} obteniendo finalmente \eqref{eq:obtenida}
+Considerando $K=2k$ podemos reescribir \eqref{eq:demo3} obteniendo finalmente \eqref{eq:obtenida}
 
 \begin{equation}
 \alpha y^{2}-\beta x^{2}=K
 \label{eq:obtenida}
 \end{equation}
 
-Si fijamos los parámetros del sistema $\alpha$ y $\beta$ se obtiene una relación entre ambas fuerzas de combate. Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$. Mientras que en el caso de $K = 0$ se obtiene la recta asíntota. En los gráficos \ref{eq:asin1} y \ref{eq:asin2} se puede observar el caracter asintótico de la familia de hipérbolas.
+Si fijamos los parámetros del sistema $\alpha$ y $\beta$ obtenemos una relación entre ambas fuerzas de combate. 
+La ecuación \eqref{eq:obtenida} representa una familia de hip\'erbolas cuando $K \ne 0$. 
+Mientras que en el caso de $K = 0$ obtenemos la recta asíntota. En las figuras \ref{fig:asin1} y \ref{fig:asin2} podemos observar el caracter asintótico de la familia de hipérbolas.
+
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{power_areas_1b}
@@ -195,7 +198,7 @@ Si fijamos los parámetros del sistema $\alpha$ y $\beta$ se obtiene una relaci�
 \end{figure}
 
 El an\'alisis s\'olo tiene sentido cuando la cantidad de unidades son positivas.
-Por lo tanto, limitamos el an\'alisis al primer cuadrante del plano cartesiano como podemos observar en \ref{fig:powerarea1} y \ref{powerarea2}.
+Por lo tanto, limitamos el an\'alisis al primer cuadrante del plano cartesiano como podemos observar en \ref{fig:powerarea1} y \ref{fig:powerarea2}.
 
 Esta ecuación representa una familia de hip\'erbolas cuando $K \ne 0$.
 
@@ -215,9 +218,9 @@ el contricante.
 en el eje de las abcisas. Esto es igual que el caso anterior pero resultando vencedor el ejército del eje x.
 
 \textbf{\textit{Caso 3.}} 
-En $K=0$ la relación entre los ejércitos describe una recta. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos encontrar la pendiente como $\sqrt{\frac{\beta}{\alpha}}$. Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, se puede 
+En $K=0$ la relación entre los ejércitos describe una recta. Dado los parámetros del sistema $\alpha$ y $\beta$ podemos encontrar la pendiente como $\sqrt{\frac{\beta}{\alpha}}$. Dicha recta determina el grado de efectividad de las unidades militares de una fuerza sobre la otra. Una vez fijada la pendiente, podemos 
 establecer qué cantidad de unidades son necesarias de una fuerza, ante la presencia de determinada cantidad de unidades enemigas.  \\
-La interpretación f\'isica ser\'ia un combate balanceado. no quiere decir que se tiene la misma cantidad de efectivos desplegados. Sino que el poderío militar de los dos ej\'ercitos está equilibrado en función de $\alpha$ y $\beta$. Es decir, que en caso de no contar con una funci\'on de refuerzo se terminar\'ia con cero efectivos de ambos lados. \\
+La interpretación f\'isica ser\'ia un combate balanceado. No quiere decir que tenemos la misma cantidad de efectivos desplegados. Sino que el poderío militar de los dos ej\'ercitos está equilibrado en función de $\alpha$ y $\beta$. Es decir, que en caso de no contar con una funci\'on de refuerzo terminar\'iamos con cero efectivos de ambos lados. \\
 Volviendo al caso $K \ne 0$, cuanto m\'as cerca est\'en de la as\'intota las hip\'erbolas son m\'as desgastantes para el ejercito. Esto es decir que aunque sea claramente
 el vencedor el lado en el que encontramos la hip\'erbola, el costo
 podr\'ia ser muy alto. En cambio cuando se está lejos de la as\'intota
@@ -227,7 +230,7 @@ La forma de alterar esto es por medio de la función de refuerzo. Dado que permi
 \section{Reviviendo la historia}
 \label{sec:reviving}
 Para poder realizar un análisis de lo acontecido en la batalla, ejecutamos la simulación para obtener las 
-trayectorias correspondientes a ambas fuerzas. En la figura \ref{fig:trays} se pueden ver dichas trayectorias. 
+trayectorias correspondientes a ambas fuerzas. En la figura \ref{fig:trays} podemos ver dichas trayectorias. 
 De este podemos observar como, si bien inicialmente las fuerzas militares del Japón eran ampliamente superiores, el hecho de no disponer de 
 refuerzos, como en el caso estadounidense, llevó a una rápida extinción del poderío militar presente en la zona. Por parte de los 
 Estados Unidos, vemos como si bien su fuerza fue decreyendo a un ritmo similar a la japonesa, la mayor presencia militar llevó a que finalmente
@@ -352,14 +355,14 @@ importante del papel que juegan las constantes $\alpha$ y $\beta$. Mediante el r
 \section{Conclusiones y Resultados}
 \label{sec:conclusiones}
 
-Al realizar este trabajo se pudo verificar el modelo elegido, analizando los resultados para compararlos con los datos recolectados historicamente
-a partir del hecho acontecido. Como conclusión a los cambios de política de refuerzos realizados, se puede decir que EEUU podría haber considerado una
+Al realizar este trabajo pudimos verificar el modelo elegido, analizando los resultados para compararlos con los datos recolectados historicamente
+a partir del hecho acontecido. Como conclusión a los cambios de política de refuerzos realizados, podemos decir que EEUU podría haber considerado una
 mejor política de refuerzos, aunque requeriría un análisis socio-económico y político más profundo para poder determinar porque realmente no
 lo hizo.\\
 Puntos interesantes que podemos observar de la primer simulación realizada, son los picos obtenidos al momento de la llegada de refuerzos
-estadounidenses y las pérdidas iniciales durante la etapa de asentamiento, que se ven claramente en las irregularidades iniciales de la curva 
+estadounidenses y las pérdidas iniciales durante la etapa de asentamiento, que vemos claramente en las irregularidades iniciales de la curva 
 graficada.\\
-Dado un sistema sin funciones de refuerzo al incorporarse se puede:
+Dado un sistema sin funciones de refuerzo al incorporarse podemos:
 \begin{enumerate}
 \item reducir las bajas al alejarse de la recta asíntótica $K=0$
 \item modificar el resultado de una batalla al cruzar la recta asintótica
