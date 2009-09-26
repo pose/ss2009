@@ -1,0 +1,25 @@
+{
+    title: 'Política de refuerzo (III)',
+    axis: {
+        x: 'Tiempo (días)',
+        y: 'Cantidad de tropas'
+    },
+
+    grid: true,
+
+    references:  [{
+        id: 'jap',
+        name: 'Tropas del Imperio del Japón',
+        symbol: '-*'
+    },
+    {   
+        id: 'usa',
+        name: "Tropas de Estados Unidos",
+        symbol: '-+'
+    }],
+
+    output: {
+        type: 'png',
+        filename: 'politica_3.png'
+    }
+}
