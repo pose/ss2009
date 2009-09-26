@@ -19,7 +19,7 @@ s = '+o^*-';
 #for K=0.001:.0509:1
 for K=logspace(0.001,.5,5)-1
     [t units sales_rate] = deposit_simulator(20000, 100, 4);
-    plot(t,units, sprintf("%c;K = %g;",s(j),K));
+    plot(t,units, sprintf("%c3-;K = %g;",s(j),K));
     j++;
     hold on
 endfor
