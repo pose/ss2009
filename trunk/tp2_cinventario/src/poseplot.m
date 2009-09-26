@@ -3,9 +3,9 @@ function res = poseplot(data, config)
     figure();
     parsed_config = load_json(config);
 
-    hold off
     
    
+    hold on
     if (isfield(parsed_config, 'references'))
         for i=parsed_config.references
             s = '';
@@ -22,14 +22,20 @@ function res = poseplot(data, config)
             else
                 continue;
             endif
+
             if (isfield(i{1},'symbol'))
                 s = i{1}.symbol;
             endif
             if ( isfield(i{1}, 'name') )
-                s = strcat(s, ';', i{1}.name , ';');
+                if ( isfield(getfield(data,id), 'label')  )
+                    s = strcat(s, ';', sprintf(i{1}.name, getfield(data,id).label ) , ';');
+                else
+                    s = strcat(s, ';', i{1}.name, ';');
+                endif
+            elseif ( isfield(getfield(data,id), 'label')  )
+                s = strcat(s, ';', getfield(data,id).label , ';');
             endif 
             plot (x, y, s);
-            hold on
         endfor
     endif
     hold off

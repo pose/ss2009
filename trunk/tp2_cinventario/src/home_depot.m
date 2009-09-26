@@ -17,11 +17,17 @@ u = 'u_not_so_dummy';
 j = 1;
 s = '+o^*-';
 #for K=0.001:.0509:1
+k_plot.k_1.x = 0:5;
+
 for K=logspace(0.001,.5,5)-1
     [t units sales_rate] = deposit_simulator(20000, 100, 4);
-    plot(t,units, sprintf("%c3-;K = %g;",s(j),K));
+    k_plot = setfield(k_plot, sprintf('k_%d', j),'x',t);
+    k_plot = setfield(k_plot, sprintf('k_%d', j),'y',units);
+    label = sprintf("K = %g",K);
+    k_plot = setfield(k_plot, sprintf('k_%d', j),'label',label);
     j++;
     hold on
 endfor
+poseplot(k_plot, 'k_plot.json');
 
 hold off
