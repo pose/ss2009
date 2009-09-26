@@ -1,0 +1,36 @@
+{
+    title: 'Análisis de diferentes valores de K',
+    axis: {
+        x: 'Tiempo (días)',
+        y: 'Cantidad de existencias en stock'
+    },
+
+    grid: true,
+
+    references:  [{
+        id: 'k_1',
+        symbol: '-'
+    },
+    {   
+        id: 'k_2',
+        symbol: '-+'
+    },
+    {   
+        id: 'k_3',
+        symbol: '-o'
+    },
+    {   
+        id: 'k_4',
+        symbol: '-^'
+    },
+    {   
+        id: 'k_5',
+        symbol: '-*'
+    }
+    ],
+
+    output: {
+        type: 'png',
+        filename: 'k_plot.png'
+    }
+}
