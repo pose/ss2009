@@ -8,8 +8,8 @@
 #   xpunto2 = -K * u(t)
 #
 function Xpunto = lsodee(t, X)
-    global u
-    global K
+    global u;
+    global K;
     
     x1 = X(1); x2 = X(2);
     
