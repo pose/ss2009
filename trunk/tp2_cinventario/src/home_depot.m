@@ -69,6 +69,9 @@ for K=logspace(0.001,.5,5)-1
 endfor
 poseplot(k_plot2, 'k_plot2.json');
 
-
-
+    
+# Cata experiment
+#K = 10;
+[t units sales_rate] = deposit_simulator2(20000, 100, 19);
+plot(t, units, t, sales_rate);
 
