@@ -8,7 +8,7 @@
 \usepackage[table]{xcolor}
 \usepackage{soul}
 
-\title{Banzai Totsugeki} 
+\title{Inventario Modelo} 
 
 \numberofauthors{4}
 \author{
@@ -37,12 +37,76 @@ Vázquez, Santiago José\\
 
 \date{}
 
-\begin{document}
 
+
+
+\begin{document}
 \maketitle
 
 \begin{abstract}
-\write18{ chdir ../src/ && octave home_depot.m }
+
 \end{abstract}
+
+\section{Introducción}
+En nuestro país las huelgas a empresas se realizan mediante el abandono de las actividades correspondientes a los empleados en protesta. Por otro
+lado, si observamos las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
+en lugar de suspender su actividad, sobreproducen. Esto genera un exceso de inventario en los depósitos que se torna imposible de almacenar,
+resultando en una pérdida mayor para la empresa. La importancia del control de la cantidad de productos en inventario se manifiesta en este
+ejemplo y es nuestra motivación principal de estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
+F. Siviero titulado ``Sistema de Control de Inventario''.\\ %\cite{ilucianeee}
+
+\section{Modelo}
+Como se detalla en se plantea un sistema de control
+de inventario sigue una dinámica que cumple las siguientes propiedades:
+\begin{enumerate}
+\item Los productos son homogéneos
+\item La cantidad de productos manipulada en cada ejercicio es muy grande
+\end{enumerate}
+Recordando la notación introducida se define: $x_{1}$como el nivel
+de inventario y $x_{2}$como la tasa de ventas del producto. Además,
+se especifica la siguiente relación:
+
+\begin{equation}
+\frac{dx_{2}}{dt}(t)=-Ku(t)\label{eq:la_k}\end{equation}
+
+
+donde K > 0.
+
+A modo de extensión de esta propuesta se define a $\dot{x_{1}}$de
+la siguiente manera:
+
+\begin{equation}
+\dot{x_{1}}=u(t)-x_{2}\label{eq:dotx1}\end{equation}
+
+
+Donde $u(t)$ es la tasa de producción de la empresa. Esto sería equivalente
+a decir que la variación de la cantidad de productos depende de lo
+que se produce (entra) y de lo que se vende (sale):
+\begin{enumerate}
+\item Si $x_{2}<u(t)$ el nivel de inventario va a aumentar: $\dot{x_{1}}>0$.
+Esto se debe a que se produce más de lo que se vende.
+\item Mientras que cuando $x_{2}>u(t)$ el inventario disminuye más rápido
+que se repone: $\dot{x_{1}}<0$. Esto es causado a que se vende más
+de lo que se produce.
+\item Cuando $x_{2}=u(t)$, por lo tanto$\dot{x_{1}}=0$, la cantidad de
+elementos en el inventario permanece igual. Esto puede atribuirse
+a que se vende tanto como lo que se produce o a que no se vende ni
+se produce.
+\end{enumerate}
+
+\section{Controlando el inventario}
+
+Se desea controlar el nivel del inventario tomando como output $y(t)=x_{1}(t)$
+siendo $r(t)$ el setpoint de referencia. Esto es decir:
+
+\begin{equation}
+u(t)=r(t)-y(t)\end{equation}
+
+
+Rango de valores K donde el sistema es asintóticamente estable
+
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{references}
 
 \end{document}
