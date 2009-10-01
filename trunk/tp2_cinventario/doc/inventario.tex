@@ -50,12 +50,13 @@ de ventas.
 \end{abstract}
 
 \section{Introducción}
+\label{intro_section}
 En nuestro país las huelgas a empresas se realizan mediante el abandono de las actividades correspondientes a los empleados en protesta. Por otro
 lado, si observamos las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
 en lugar de suspender su actividad, sobreproducen. Esto genera un exceso de inventario en los depósitos que se torna imposible de almacenar,
 resultando en una pérdida mayor para la empresa. La importancia del control de la cantidad de productos en inventario se manifiesta en este
 ejemplo y es nuestra motivación principal en el estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
-F. Siviero titulado ``Sistema de Control de Inventario''[1].\\ 
+F. Siviero titulado ``Sistema de Control de Inventario''\cite{iluciani}.\\ 
 En la sección \ref{model_section} se presenta el modelo base utilizado para realizar la simulación. En la sección \ref{inventary_control_section} presenta una alternativa, 
 agregando un set de referencia para controlar la cantidad de productos en inventario. En la sección \ref{salesrate_control_section} se controla
 la tasa de ventas y se analizan los resultados obtenidos de realizar la simulación con dicho control. En la sección \ref{results_and_conclusions_section}
@@ -127,11 +128,15 @@ Resultando en la adaptación del modelo, ahora a lazo cerrado que se muestra en 
 
 A fines de regular el inventario de manera tal que la cantidad de productos tienda a mantenerse constante, definimos $r(t)$ como una función
 constante.
-Como se puede ver, esta adaptación del modelo queda completamente controlada por la constante $K$ definida en la sección anterior. Empíricamente se llega al resultado que muestra que cuando $0.799 < K < 5.687$ el modelo se comporta de forma estable, alcanzando el comportamiento
-que se desea obtener mediante la regulación impuesta. El valor alcanzado en el regimen estable
+Como se puede ver, esta adaptación del modelo queda completamente controlada por la constante $K$ definida en la sección anterior.  El valor alcanzado en el regimen estable
 es el valor tomado como set point de referencia, en nuestro caso $r(t) = 1000$.\\
 Podemos ver entonces que existe relación entre lo que se vende y lo que se produce y que dicha relación se encuentra gobernada por el valor de
-$K$. La definición de dicho parámetro lleva a que el sistema sobreproduzca o no.
+$K$. La definición de dicho parámetro lleva a que el sistema sobreproduzca o no. Como podemos ver en la figura (taka) para varios valores de $K$, 
+el sistema se estabiliza en la cantidad de productos deseada. Sin embargo existe diferencia en el caso en el que $K$ tiende a cero, y en el que
+tiende a aumentar. En el primer caso, el sistema no sobreproduce en ningún momento. En el segundo caso, vemos que a medida que $K$ aumenta
+cada vez se sobreproduce más durante los primeros días de producción. Si bien finalmente se estabiliza, esta es una situación no deseada y
+que puede llevar a un perjuicio para la empresa productora. Si el deposito tiene una capacidad limitada, estamos hablando de una cantidad
+de productos que no se pueden almacenar. Se refleja el caso análogo a la modalidad de huelga comentada en la sección \ref{intro_section}.
     % Poner más jugos con el gráfico.
     
 \section{Controlando la tasa de ventas}
@@ -145,7 +150,8 @@ vendidas depende de que se disponga de dichos bienes para su venta. Por ende, $\
  \frac{dx_{2}}{dt}(t) = 6x_1(t) - Ku(t)
 \end{equation}
 Como podemos ver, el comportamiento del modelo sigue regido por el valor de $K$. En la figura vemos que para determinados valores de $K$ el sistema
-oscila inestablemente, mientras que para otros valores logra estabilizarse en el set point de referencia.\\
+oscila inestablemente, mientras que para otros valores logra estabilizarse en el set point de referencia. Empíricamente se muestra que cuando $0.799 < K < 5.687$ el modelo se comporta de forma estable. 
+Es decir, se alcanza el comportamiento que se desea obtener mediante la regulación impuesta.\\
 En la figura \ref{fig:lazo_cerrado_var_tventas} vemos como para valores de $K$ fuera del rango de estabilidad, el modelo oscila de
 forma inestable y si tomamos los valores dentro de dicho rango, el modelo se comporta de manera estable. Dentro de dicho rango, aumentar el 
 valor de $K$ lleva a que el sistema se estabilice en valores mayores al utilizado como referencia. Por otro lado, si utilizamos un $K$ menor podemos ver como el 
