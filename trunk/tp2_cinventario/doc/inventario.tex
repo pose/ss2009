@@ -51,16 +51,17 @@ de ventas.
 
 \section{Introducción}
 \label{intro_section}
-En nuestro país las huelgas a empresas se realizan mediante el abandono de las actividades correspondientes a los empleados en protesta. Por otro
+En nuestro país las huelgas a empresas se realizan median\-te el abandono de las actividades correspondientes a los empleados en protesta. Por otro
 lado, si observamos las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
 en lugar de suspender su actividad, sobreproducen. Esto genera un exceso de inventario en los depósitos que se torna imposible de almacenar,
 resultando en una pérdida mayor para la empresa. La importancia del control de la cantidad de productos en inventario se manifiesta en este
 ejemplo y es nuestra motivación principal en el estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
 F. Siviero titulado ``Sistema de Control de Inventario''\cite{iluciani}.\\ 
-En la sección \ref{model_section} se presenta el modelo base utilizado para realizar la simulación. En la sección \ref{inventary_control_section} presenta una alternativa, 
-agregando un set de referencia para controlar la cantidad de productos en inventario. En la sección \ref{salesrate_control_section} se controla
-la tasa de ventas y se analizan los resultados obtenidos de realizar la simulación con dicho control. En la sección \ref{results_and_conclusions_section}
-se presentan los resultados y conclusiones obtenidas en todo el análisis realizado para este artículo.
+En la sección \ref{model_section} se presenta el modelo base (a lazo abierto) utilizado para realizar la simulación inicial. En la sección \ref{inventary_control_section} 
+presenta una alternativa (a lazo cerrado), agregando un set de referencia para controlar la cantidad de productos en inventario. En la sección 
+\ref{salesrate_control_section} se controla la tasa de ventas y se analizan los resultados obtenidos de realizar la simulación con dicho 
+control. En la sección \ref{results_and_conclusions_section} se presentan los resultados y conclusiones obtenidas en todo el análisis 
+realizado para este artículo.
 
 \section{Modelo base}
 \label{model_section}
@@ -104,13 +105,13 @@ se produce ningún producto.
 Para realizar la simulación, consideramos $x_{2} = C$, una constante. Es decir, asumiendo que la tasa de ventas se mantiene fija en el tiempo.\\
 El modelo planteado en esta sección se denomina a lazo abierto, ya que no se propone realimentación alguna para la entrada del sistema. 
 En la figura \ref{fig:lazo_abierto} podemos observar como evoluciona en este caso la cantidad de productos para distintos valores de $K$. 
-Se puede notar que al aumentarel valor de dicha constante, el depósito se vacía más rápidamente que si consideramos valores de $K$ cercanos a
+Se puede notar que al aumentar el valor de dicha constante, el depósito se vacía más rápidamente que si consideramos valores de $K$ cercanos a
 cero.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{../src/k_plot.png}
-\caption{\label{fig:lazo_abierto} }
+\caption{\label{fig:lazo_abierto}Cantidad de unidades almacenadas en función del tiempo para distintos valores de $K$. Simulación del modelo a lazo abierto.}
 \end{center}
 \end{figure}
 
@@ -121,7 +122,7 @@ un set point de referencia $r(t)$. Es decir, que $u(t)$ queda explicitado como s
 
 \begin{equation}
 u(t)= Ke(t) = K(r(t)-y(t))\label{eq:ut}\end{equation}
-Resultando en la adaptación del modelo, ahora a lazo cerrado que se muestra en \eqref{eq:lazo_cerrado}
+Resultando en la adaptación del modelo, ahora a lazo cerrado que se muestra en \eqref{eq:lazo_cerrado}.
 
 \begin{equation}
 \dot{x}_1(t) = K(r(t) - x_{1}(t)) - C\label{eq:lazo_cerrado}\end{equation}
@@ -155,14 +156,17 @@ Es decir, se alcanza el comportamiento que se desea obtener mediante la regulaci
 En la figura \ref{fig:lazo_cerrado_var_tventas} vemos como para valores de $K$ fuera del rango de estabilidad, el modelo oscila de
 forma inestable y si tomamos los valores dentro de dicho rango, el modelo se comporta de manera estable. Dentro de dicho rango, aumentar el 
 valor de $K$ lleva a que el sistema se estabilice en valores mayores al utilizado como referencia. Por otro lado, si utilizamos un $K$ menor podemos ver como el 
-modelo se estabiliza cada vez más cercano al set point de referencia.
+modelo se estabiliza cada vez más cercano al establecido por la función de control.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=8cm]{../src/k_plot2.png}
-\caption{\label{fig:lazo_cerrado_var_tventas} }
+\caption{\label{fig:lazo_cerrado_var_tventas}Cantidad de productos en función del tiempo para distintos valores de $K$, simulando un sistema
+a lazo cerrado. Controlando la variación de la tasa de ventas.}
 \end{center}
 \end{figure}
+
+\newpage
 
 \section{Resultados y Conclusiones}
 \label{results_and_conclusions_section}
