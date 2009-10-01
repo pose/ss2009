@@ -227,7 +227,6 @@ grid("on");
 
 print -dpng reinforce3.png
 
-
 # --------------------------------------------------
 # Política con reinforcement (4)
 # --------------------------------------------------
@@ -253,3 +252,29 @@ ylabel ("Cantidad de tropas");
 grid("on");
 
 print -dpng reinforce4.png
+
+# --------------------------------------------------
+# Política con reinforcement (5) - Para el pepete
+# --------------------------------------------------
+
+[t x1 x2] = combat_simulator(
+        [21500,0],              #Cantidad de fuerzas en combate: ej: [japon usa]
+        36,             
+        "zeroreinforcement",    #política de refuerzos de la primera fuerza
+        "reinforcement5");       #política de refuerzos de la segunda fuerza
+
+reinforce5.t = t;
+reinforce5.japan = x1;
+reinforce5.usa = x2;
+
+next_figure();
+
+plot (reinforce5.t, reinforce5.japan, strcat("o;Tropas del Imperio del Jap",sprintf("%c",243),"n;"), reinforce5.t, reinforce5.usa,"*;Tropas de Estados Unidos;");
+title (strcat("Pol",sprintf("%c",237),"tica de refuerzo alternativa para el ej",sprintf("%c",233),"rcito de Estados Unidos"));
+
+xlabel (strcat("Tiempo (d",sprintf("%c",237),"as)"));
+ylabel ("Cantidad de tropas");
+
+grid("on");
+
+print -dpng reinforce5.png
