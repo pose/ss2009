@@ -2,7 +2,7 @@
 %\documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 %El template pincha con spanish babel
-\usepackage[spanish]{babel}
+%\usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{fancybox}
 \usepackage[table]{xcolor}
@@ -44,7 +44,8 @@ Vázquez, Santiago José\\
 \maketitle
 
 \begin{abstract}
-
+Se estudia el comportamiento del sistema correspondiente al inventario de producción de una empresa. Se plantean los modelos a lazo abierto y
+lazo cerrado y se estudian condiciones de estabilidad de los mismos.
 \end{abstract}
 
 \section{Introducción}
@@ -52,59 +53,94 @@ En nuestro país las huelgas a empresas se realizan mediante el abandono de las 
 lado, si observamos las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
 en lugar de suspender su actividad, sobreproducen. Esto genera un exceso de inventario en los depósitos que se torna imposible de almacenar,
 resultando en una pérdida mayor para la empresa. La importancia del control de la cantidad de productos en inventario se manifiesta en este
-ejemplo y es nuestra motivación principal de estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
-F. Siviero titulado ``Sistema de Control de Inventario''.\\ %\cite{ilucianeee}
+ejemplo y es nuestra motivación principal en el estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
+F. Siviero titulado ``Sistema de Control de Inventario''[1].\\ 
+En la sección \ref{model_section} se presenta el modelo base utilizado para realizar la simulación. En la sección \ref{inventary_control_section} presenta una alternativa, 
+agregando un set de referencia para controlar la cantidad de productos en inventario. En la sección \ref{salesrate_control_section} se controla
+la tasa de ventas y se analizan los resultados obtenidos de realizar la simulación con dicho control. En la sección \ref{results_and_conclusions_section}
+se presentan los resultados y conclusiones obtenidas en todo el análisis realizado para este artículo.
 
-\section{Modelo}
-Como se detalla en se plantea un sistema de control
-de inventario sigue una dinámica que cumple las siguientes propiedades:
+\section{Modelo base}
+\label{model_section}
+
+Para nuestro análisis consideramos una empresa que vende productos manufacturados los cuales son almacenados en un depósito.
+El inventario de dichos bienes sigue una dinámica que cumple las siguientes propiedades:
 \begin{enumerate}
-\item Los productos son homogéneos
-\item La cantidad de productos manipulada en cada ejercicio es muy grande
+\item Los productos son homogéneos. Esto permite poder realizar un mismo proceso para todos ellos.
+\item La cantidad de productos manipulada en cada ejercicio es muy grande. Esta condición nos permite aproximar como continuo, este sistema de
+naturaleza discreta.
 \end{enumerate}
-Recordando la notación introducida se define: $x_{1}$como el nivel
-de inventario y $x_{2}$como la tasa de ventas del producto. Además,
-se especifica la siguiente relación:
+Para proponer el modelo se define $x_{1}$ como el nivel
+de inventario y $x_{2}$ como la tasa de ventas del producto. Además,
+se establece la velocidad de variación de la tasa de ventas como proporcional a $u(t)$, el flujo de entrada. Dicha relación queda explicitada en
+\eqref{eq:la_k}.
 
 \begin{equation}
 \frac{dx_{2}}{dt}(t)=-Ku(t)\label{eq:la_k}\end{equation}
 
 
-donde K > 0.
-
-A modo de extensión de esta propuesta se define a $\dot{x_{1}}$de
-la siguiente manera:
+Donde K > 0.\\
+Luego, definimos la velocidad de variación del inventario $\dot{x_{1}}$ como se muestra en \eqref{eq:dotx1}.
 
 \begin{equation}
-\dot{x_{1}}=u(t)-x_{2}\label{eq:dotx1}\end{equation}
+\dot{x}_{1}=u(t)-x_{2}\label{eq:dotx1}\end{equation}
 
-
-Donde $u(t)$ es la tasa de producción de la empresa. Esto sería equivalente
-a decir que la variación de la cantidad de productos depende de lo
-que se produce (entra) y de lo que se vende (sale):
+Esto significa que la variación de la cantidad de productos en inventario depende de lo
+que se produce (entra) y de lo que se vende (sale). Este comportamiento se puede detallar como sigue:
 \begin{enumerate}
-\item Si $x_{2}<u(t)$ el nivel de inventario va a aumentar: $\dot{x_{1}}>0$.
+\item Si $x_{2}<u(t)$ el nivel de inventario aumenta, $\dot{x}_{1}>0$.
 Esto se debe a que se produce más de lo que se vende.
-\item Mientras que cuando $x_{2}>u(t)$ el inventario disminuye más rápido
-que se repone: $\dot{x_{1}}<0$. Esto es causado a que se vende más
-de lo que se produce.
-\item Cuando $x_{2}=u(t)$, por lo tanto$\dot{x_{1}}=0$, la cantidad de
-elementos en el inventario permanece igual. Esto puede atribuirse
+\item Mientras que cuando $x_{2}>u(t)$ el inventario disminuye más rápidamente que lo que se repone mediante nueva producción, 
+$\dot{x}_{1}<0$. Es decir, se vende más de lo que se produce.
+\item Cuando $x_{2}=u(t)$, refleja que $\dot{x}_{1}=0$ y la cantidad de
+elementos en el inventario permanece constante. Esto puede atribuirse
 a que se vende tanto como lo que se produce o a que no se vende ni
-se produce.
+se produce ningún producto.
 \end{enumerate}
 
-\section{Controlando el inventario}
+El modelo planteado en esta sección se denomina a lazo abierto, ya que no se propone realimentación alguna para la entrada del sistema.
 
-Se desea controlar el nivel del inventario tomando como output $y(t)=x_{1}(t)$
-siendo $r(t)$ el setpoint de referencia. Esto es decir:
+\section{Controlando el inventario}
+\label{inventary_control_section} 
+Se desea controlar el nivel del inventario tomando como output $y(t)=x_{1}(t)$ y considerando
+un set point de referencia $r(t)$. Es decir, que $u(t)$ queda explicitado como se muestra en \eqref{eq:ut}.
 
 \begin{equation}
-u(t)=r(t)-y(t)\end{equation}
+u(t)=r(t)-y(t)\label{eq:ut}\end{equation}
 
+A fines de regular el inventario de manera tal que la cantidad de productos tienda a mantenerse constante, definimos $r(t)$ como una función
+constante.
+Como se puede ver, esta adaptación del modelo queda completamente controlada por la constante $K$ definida en la sección anterior.\\
+Empíricamente se llega al resultado que muestra que cuando $0.799 < K < 5.687$ el modelo se comporta de forma estable, alcanzando el comportamiento
+que se desea obtener mediante la regulación impuesta. En la figura vemos como para valores de $K$ fuera del rango de estabilidad, el modelo oscila de
+forma inestable y si tomamos los valores dentro de dicho rango, el modelo se comporta de manera estable. El valor alcanzado en el regimen estable
+es el valor tomado como set point de referencia, en nuestro caso $r(t) = 1000$.\\
+Podemos ver entonces que existe relación entre lo que se vende y lo que se produce y que dicha relación se encuentra gobernada por el valor de
+$K$. La definición de dicho parámetro lleva a que el sistema sobreproduzca o no.
+    
+\section{Controlando la tasa de ventas}
+\label{salesrate_control_section}
+Veamos de plantear una adaptación del modelo en donde se controle el variación de la tasa de ventas. Para ello proponemos una ecuación diferencial
+tal que $\dot{x}_{2}$ dependa de la cantidad de productos en inventario. Esto se sustenta en la idea de que la variación de la tasa de unidades
+vendidas depende de que se disponga de dichos bienes para su venta. Por ende, $\dot{x}_{2}$ resulta de la forma explicitada en \eqref{eq:x_2dot}.
 
-Rango de valores K donde el sistema es asintóticamente estable
+\begin{equation}
+ \label{eq:x_2dot}
+ \frac{dx_{2}}{dt} = 6x_1(t) - Ku(t)
+\end{equation}
+Como podemos ver, el comportamiento del modelo sigue regido por el valor de $K$. En la figura vemos que para determinados valores de $K$ el sistema
+oscila inestablemente, mientras que para otros valores logra estabilizarse en el set point de referencia.\\
+Como vemos en la figura aumentar el valor de $K$ lleva a que el sistema se estabilice en valores menores al utilizado como referencia. Por otro lado,
+si utilizamos un $K$ menor podemos ver como el modelo se estabiliza cada vez más cercano al set point de referencia.
 
+\section{Resultados y Conclusiones}
+\label{results_and_conclusions_section}
+% Se verifica el modelo tanto a lazo abierto como cerrado.
+
+% La variación del inventario, a lazo abierto, para determinados valores de K ( K -> 0 ) hace q el mismo disminuya de forma exponencial.
+
+% La variación de la tasa de ventas propuesta, para determinados valores de K ( K -> 0 ) hace q el sistema se estbilice en determinado valor
+% dado por el set point de referencia.
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{references}
