@@ -8,7 +8,7 @@
 \usepackage[table]{xcolor}
 \usepackage{soul}
 
-\title{Inventario Modelo} 
+\title{Controlando un sistema de producción de bienes} 
 
 \numberofauthors{4}
 \author{
@@ -168,11 +168,14 @@ modelo se estabiliza cada vez más cercano al set point de referencia.
 \label{results_and_conclusions_section}
 A lo largo del trabajo se verifican los modelos tanto a lazo cerrado como lazo abierto. Se puede ver el éxito de su uso para modelar un sistema
 de inventario de productos. Al variar el inventario utilizando un modelo a lazo abierto observamos como la cantidad de productos disminuye de
-forma exponencial ya que no ocurre aporte alguno a la producción.  Por otro lado, en el modelo a lazo cerrado, vemos como la producción 
-incrementa hasta llegar al valor que se fijó como referencia. En este caso el valor de $K$ también es fundamental ya que determina
+forma exponencial ya que no ocurre aporte alguno a la producción.  Por otro lado, en el modelo a lazo cerrado, se elige un subsistema de referencia.
+Es decir, una función que controla las existencias en el inventario. En este caso vemos como la producción incrementa hasta llegar al valor 
+que se fijó como referencia. En este caso el valor de $K$ también es fundamental ya que determina
 en que cantidad de productos se desvía inicialmente la producción antes de estabilizarse. Además, al controlar la variación de la tasa de ventas,
 el valor de $K$ determina la cantidad de productos en que se estabiliza el sistema. Para valores más cercanos a cero, se aproxima al punto
-elegido como referencia. Al aumentarlo, el punto en el que se estabiliza disminuye.
+elegido como referencia. Al aumentarlo, el punto en el que se estabiliza aumenta.\\
+Además, se ven oscilaciones en los primeros días de la simulación realizada controlando la variación de la tasa de ventas. Dichas oscilaciones
+pueden también ser perjudiciales para un sistema de producción ya que pueden significar variaciones en los precios o en las cantidades importadas.
 
 \bibliographystyle{plain}
 \nocite{*}
