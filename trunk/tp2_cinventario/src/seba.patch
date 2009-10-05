@@ -1,0 +1,126 @@
+Index: deposit_simulator2.m
+===================================================================
+--- deposit_simulator2.m	(revision 72)
++++ deposit_simulator2.m	(working copy)
+@@ -11,7 +11,7 @@
+     vopt = odeset ("RelTol", 1e-3, "AbsTol", 1e-3, "NormControl", "on",
+         "MaxStep",1, "Events", @zero_crossing, "InitialStep", 1e-1);
+ #        "MaxStep",1, "InitialStep", 1e-1);
+-    [t2, res] = ode45(@other_lsodee, linspace(0,trex,30), [initial_units, sales_rate], vopt);
++    [t2, res] = ode45(@other_lsodee, linspace(0,trex,100), [initial_units, sales_rate]);#, vopt);
+     
+     x1 = res(:,1);
+     x2 = res(:,2);
+@@ -22,11 +22,11 @@
+ function Xpunto = other_lsodee(t, X)
+     global u;
+     global K;
+-
++	alpha=0.05;
+     x1 = X(1); x2 = X(2);
+ 
+-    xpunto1 = feval(u,t,x1) - x2;
+-    xpunto2 = 6*x1 - K* feval(u,t,x1);
++    xpunto1 = feval(u,t,x1) - alpha*x1;
++    xpunto2 = - K* feval(u,t,x1);
+ 
+     Xpunto = [xpunto1 xpunto2];
+ endfunction
+Index: deposit_simulator.m
+===================================================================
+--- deposit_simulator.m	(revision 72)
++++ deposit_simulator.m	(working copy)
+@@ -7,10 +7,10 @@
+     global u;
+     global K;
+     
+-    vopt = odeset ("RelTol", 1e-3, "AbsTol", 1e-3, "NormControl", "on",
++    vopt = odeset ("NormControl", "on",
+         "MaxStep",1, "Events", @zero_crossing, "InitialStep", 1e-1);
+ #        "MaxStep",1, "InitialStep", 1e-1);
+-    [t2, res] = ode45(@lsodee, linspace(0,trex,40), [initial_units, sales_rate], vopt);
++    [t2, res] = ode45(@lsodee, linspace(0,trex,100), [initial_units, sales_rate]);#, vopt);
+     
+     x1 = res(:,1);
+     x2 = res(:,2);
+Index: lsodee.m
+===================================================================
+--- lsodee.m	(revision 72)
++++ lsodee.m	(working copy)
+@@ -10,10 +10,10 @@
+ function Xpunto = lsodee(t, X)
+     global u;
+     global K;
+-    
++    alpha=0.05;
+     x1 = X(1); x2 = X(2);
+     
+-    xpunto1 = feval(u,t, x1) - x2;
++    xpunto1 = feval(u,t, x1) - alpha*x1;
+     xpunto2 = -K * feval(u,t, x1);
+     
+     Xpunto = [xpunto1 xpunto2];
+Index: home_depot.m
+===================================================================
+--- home_depot.m	(revision 72)
++++ home_depot.m	(working copy)
+@@ -5,17 +5,18 @@
+ K = 0.0052;
+ 
+ global r;
+-function y = my_r(t)
+-    y = 100;
+-endfunction
++#function y = my_r(t)
++#    y = 100;
++#endfunction
+ 
+-r = 'my_r';
++r = 'r_nacho';
+ 
+ global u;
+-u = 'u_not_so_dummy';
++u = 'u_nacho';
+ 
+ j = 1;
+ s = '+o^*-';
++
+ #for K=0.001:.0509:1
+ k_plot.k_1.x = 0:5;
+ 
+@@ -35,7 +36,7 @@
+ if do_two
+ 
+ for K=logspace(0.001,.5,5)-1
+-    [t units sales_rate] = deposit_simulator(20000, 100, 4);
++    [t units sales_rate] = deposit_simulator(0, 0, 50);
+     k_plot = setfield(k_plot, sprintf('k_%d', j),'x',t);
+     k_plot = setfield(k_plot, sprintf('k_%d', j),'y',units);
+     label = sprintf("K = %g",K);
+@@ -52,14 +53,14 @@
+     return
+ endif
+ 
+-function y = my_r(t)
+-    y = 100000;
+-endfunction
++#function y = my_r(t)
++#    y = 100000;
++#endfunction
+ 
+ j = 1;
+ k_plot2.k_1.x = 0:5;
+ for K=logspace(0.001,.5,5)-1
+-    [t units sales_rate] = deposit_simulator2(20000, 100, 19);
++    [t units sales_rate] = deposit_simulator2(0, 0, 50);
+     k_plot2 = setfield(k_plot2, sprintf('k_%d', j),'x',t);
+     k_plot2 = setfield(k_plot2, sprintf('k_%d', j),'y',units);
+     label = sprintf("K = %g",K);
+@@ -72,6 +73,6 @@
+     
+ # Cata experiment
+ #K = 10;
+-[t units sales_rate] = deposit_simulator2(20000, 100, 19);
++[t units sales_rate] = deposit_simulator2(0, 0, 50);
+ plot(t, units, t, sales_rate);
+ 
