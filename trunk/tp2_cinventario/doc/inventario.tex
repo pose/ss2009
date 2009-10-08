@@ -45,16 +45,16 @@ Vázquez, Santiago José\\
 
 \begin{abstract}
 Se estudia el comportamiento del sistema correspondiente al inventario de producción de una empresa. Se plantean los modelos a lazo abierto y
-lazo cerrado y se estudian condiciones de estabilidad de los mismos. Además se propone una adaptación que controla la variación de la tasa
+lazo cerrado y se estudian condiciones de estabilidad de los mismos. Además se propone una adaptación para controlar la variación de la tasa
 de ventas.
 \end{abstract}
 
 \section{Introducción}
 \label{intro_section}
-En nuestro país las huelgas a empresas se realizan median\-te el abandono de las actividades correspondientes a los empleados en protesta. Por otro
-lado, si observamos las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
+En nuestro país las huelgas a empresas se realizan median\-te el cese de las actividades de los empleados en protesta. Por otro
+lado, se observa que las huelgas en países como Japón, vemos que son totalmente contrarias a las que estamos acostumbrados. Los obreros o empleados
 en lugar de suspender su actividad, sobreproducen. Esto genera un exceso de inventario en los depósitos que se torna imposible de almacenar,
-resultando en una pérdida mayor para la empresa. La importancia del control de la cantidad de productos en inventario se manifiesta en este
+resultando en una pérdida mayor para la empresa. La importancia del control de productos en inventario se manifiesta en este
 ejemplo y es nuestra motivación principal en el estudio de este tipo de sistemas. Un antecedente a este trabajo es el realizado por I. Luciani, J. Barreira y
 F. Siviero titulado ``Sistema de Control de Inventario''\cite{iluciani}.\\ 
 En la sección \ref{model_section} se presenta el modelo base (a lazo abierto) utilizado para realizar la simulación inicial. En la sección \ref{inventary_control_section} 
@@ -66,7 +66,7 @@ realizado para este artículo.
 \section{Modelo base}
 \label{model_section}
 
-Para nuestro análisis consideramos una empresa que vende productos manufacturados los cuales son almacenados en un depósito.
+Para nuestro análisis se considera una empresa que vende productos manufacturados los cuales son almacenados en un depósito.
 El inventario de dichos bienes sigue una dinámica que cumple las siguientes propiedades:
 \begin{enumerate}
 \item Los productos son homogéneos. Esto permite poder realizar un mismo proceso para todos ellos.
@@ -102,7 +102,7 @@ se produce ningún producto.
 
 \end{enumerate}
 
-Para realizar la simulación, consideramos $x_{2} = C$, una constante. Es decir, asumiendo que la tasa de ventas se mantiene fija en el tiempo.\\
+Para realizar la simulación, consideramos $x_{2} = C$, una constante. Es decir, asumiendo que la tasa de ventas es invariante en el tiempo.\\
 El modelo planteado en esta sección se denomina a lazo abierto, ya que no se propone realimentación alguna para la entrada del sistema. 
 En la figura \ref{fig:lazo_abierto} podemos observar como evoluciona en este caso la cantidad de productos para el modelo a lazo abierto. 
 Se puede notar un crecimiento indefinido de la cantidad de productos manufacturados que se debe a que las ventas disminuyen con el tiempo pero la 
@@ -116,8 +116,8 @@ produccion es siempre constante. Si $u(t)=0$, las existencias disminuyen hasta l
 \end{figure}
 Esto puede ser perjudicial para una compañia debido a los costos de almacenamiento junto a los costos de producción inmediatos de unidades 
 que no se venden en el corto plazo. Más precisamente, como se puede ver en el sistema, no se venden nunca.\\
-Si observamos la figura \ref{fig:lazo_abierto2} vemos que la tasa de ventas en este caso varía comportándose como una recta de pendiente negativa, 
-es decir, que el sistema tiende a una situación en la cual no se vende nada, como dijimos previamente. Haciendo un análisis de los autovalores 
+Si se observa la figura \ref{fig:lazo_abierto2} vemos que la tasa de ventas en este caso varía comportándose como una recta de pendiente negativa, 
+es decir, que el sistema tiende a una situación en la cual no se vende nada, como se menciona anteriormente. Haciendo un análisis de los autovalores 
 del sistema podemos ver que su parte real es cero y por ende el mismo es inestable. Si alcanza la estabilidad, es alrededor de un punto de equilibrio 
 inestable, es decir que ante una pequeña perturbación pierde estabilidad y oscila. 
 
@@ -131,19 +131,19 @@ inestable, es decir que ante una pequeña perturbación pierde estabilidad y osc
 \section{Controlando el inventario}
 \label{inventary_control_section} 
 Se desea controlar el nivel del inventario tomando como output $y(t)=x_{1}(t)$ y considerando
-un set point de referencia $r(t)$. Es decir, que $u(t)$ queda explicitado como se muestra en \eqref{eq:ut}.
+una función de referencia $r(t)$. Es decir, que $u(t)$ queda explicitado como se muestra en \eqref{eq:ut}.
 
 \begin{equation}
 u(t)= Ke(t) = K(r(t)-y(t))\label{eq:ut}\end{equation}
-Resultando en la adaptación del modelo, ahora a lazo cerrado que se muestra en \eqref{eq:lazo_cerrado}.
+Resultando en la adaptación del modelo, ahora a lazo cerrado, que se muestra en \eqref{eq:lazo_cerrado}.
 
 \begin{equation}
 \dot{x}_1(t) = K(r(t) - x_{1}(t)) - C\label{eq:lazo_cerrado}\end{equation}
 
-A fines de regular el inventario de manera tal que la cantidad de productos tienda a mantenerse constante, definimos $r(t)$ como una función
+A fines de regular el inventario de manera tal que la cantidad de productos tienda a mantenerse constante, se define $r(t)$ como una función
 constante.
 Como se puede ver, esta adaptación del modelo queda completamente controlada por la constante $K$ definida en la sección anterior.  El valor alcanzado en el regimen estable
-es el valor tomado como set point de referencia, en nuestro caso $r(t) = 50$.\\
+es el valor tomado como función (constante) de referencia, en nuestro caso $r(t) = 50$.\\
 Podemos ver entonces que existe relación entre lo que se vende y lo que se produce y que dicha relación se encuentra gobernada por el valor de
 $K$. La definición de dicho parámetro lleva a que el sistema sobreproduzca o no. Como podemos ver en la figura \ref{fig:lazo_cerrado_cant_unidades} para varios valores de $K$, 
 el sistema se estabiliza en la cantidad de productos deseada. Sin embargo existe diferencia en el caso en el que $K$ tiende a cero, y en el que
@@ -157,7 +157,7 @@ se notan como las curvas que no alcanzan a estabilizarse en ningún valor.
 a lazo cerrado.}
 \end{center}
 \end{figure}
-Si ahora obsrevamos la figura \ref{fig:lazo_cerrado_var_tventas1} podemos ver como varía la tasa de ventas en este caso. Vemos que para los casos 
+Si se observa la figura \ref{fig:lazo_cerrado_var_tventas1} se puede apreciar como varía la tasa de ventas en este caso. Vemos que para los casos 
 en que $K$ tiende a cero, la tasa de ventas se estabiliza, cada vez más a largo plazo, en cero.
 % ver más jugos
 
@@ -171,7 +171,7 @@ a lazo cerrado.}
 
 \section{Controlando la tasa de ventas}
 \label{salesrate_control_section}
-Veamos de plantear una adaptación del modelo en donde se controle el variación de la tasa de ventas. Para ello proponemos una ecuación diferencial
+Veamos de plantear una adaptación del modelo en donde se controle el variación de la tasa de ventas. Para ello se propone una ecuación diferencial
 tal que $\dot{x}_{2}$ dependa de la cantidad de productos en inventario. Esto se sustenta en la idea de que la variación de la tasa de unidades
 vendidas depende de que se disponga de dichos bienes para su venta. Por ende, $\dot{x}_{2}$ resulta de la forma explicitada en \eqref{eq:x_2dot}.
 
@@ -179,12 +179,12 @@ vendidas depende de que se disponga de dichos bienes para su venta. Por ende, $\
  \label{eq:x_2dot}
  \frac{dx_{2}}{dt}(t) = 6x_1(t) - Ku(t)
 \end{equation}
-Como podemos ver, el comportamiento del modelo sigue regido por el valor de $K$. En la figura vemos que para determinados valores de $K$ el sistema
-oscila inestablemente, mientras que para otros valores logra estabilizarse en el set point de referencia. Empíricamente se muestra que cuando $0.799 < K < 5.687$ el modelo se comporta de forma estable. 
+Como se puede ver, el comportamiento del modelo sigue regido por el valor de $K$. En la figura se observa que para determinados valores de $K$ el sistema
+oscila inestablemente, mientras que para otros valores logra estabilizarse en el valor tomado como referencia. Empíricamente se muestra que cuando $0.799 < K < 5.687$ el modelo se comporta de forma estable. 
 Es decir, se alcanza el comportamiento que se desea obtener mediante la regulación impuesta.\\
 En la figura \ref{fig:lazo_cerrado_var_tventas2} vemos como para valores de $K$ fuera del rango de estabilidad, el modelo oscila de
 forma inestable y si tomamos los valores dentro de dicho rango, el modelo se comporta de manera estable. Dentro de dicho rango, aumentar el 
-valor de $K$ lleva a que el sistema se estabilice en valores mayores al utilizado como referencia. Por otro lado, si utilizamos un $K$ menor podemos ver como el 
+valor de $K$ lleva a que el sistema se estabilice en valores mayores al utilizado como referencia. Por otro lado, si se utiliza un $K$ menor se puede ver como el 
 modelo se estabiliza cada vez más cercano al establecido por la función de control.
 
 \begin{figure}[h]
@@ -199,16 +199,19 @@ a lazo cerrado. Controlando la variación de la tasa de ventas.}
 
 \section{Resultados y Conclusiones}
 \label{results_and_conclusions_section}
-A lo largo del trabajo se verifican los modelos tanto a lazo cerrado como lazo abierto. Se puede ver el éxito de su uso para modelar un sistema
-de inventario de productos. Al variar el inventario utilizando un modelo a lazo abierto observamos como la cantidad de productos aumenta de
+A lo largo del trabajo se verifican los modelos tanto a lazo cerrado como lazo abierto. Se puede ver que el modelo planteado se adapta al comportamiento de un sistema de producción real. Al variar el inventario utilizando un modelo a lazo abierto observamos como la cantidad de productos aumenta de
 forma lineal ya que las ventas disminuyen hasta ser nulas.  Por otro lado, en el modelo a lazo cerrado, se elige un subsistema de referencia.
 Es decir, una función que controla las existencias en el inventario. En este caso vemos como la producción incrementa hasta llegar al valor 
 que se fijó como referencia. En este caso el valor de $K$ también es fundamental ya que determina
 en que cantidad de productos se estabiliza finalmente la producción. Para valores más cercanos a cero, se aproxima al punto
-elegido como referencia. Al aumentarlo, el punto en el que se estabiliza disminuye. Además, al controlar la variación de la tasa de ventas,
+elegido como referencia. Al aumentarlo, el punto en el que se estabiliza disminuye. También, al controlar la variación de la tasa de ventas,
 el valor de $K$ determina también la cantidad de productos en que se estabiliza el sistema.\\
 Además, se ven oscilaciones en los primeros días de la simulación realizada controlando la variación de la tasa de ventas. Dichas oscilaciones
-pueden también ser perjudiciales para un sistema de producción ya que pueden significar variaciones en los precios o en las cantidades importadas.
+pueden también ser perjudiciales para un sistema de producción ya que pueden significar variaciones en los precios o en las cantidades importadas.\\
+En la práctica, un empresario puede determinar aproximadamente el nivel de stock en el cual se 
+estabilizará el sistema de producción. Esto puede permitir realizar conjeturas y tomar decisiones basándolas en los resultados de la simulación.
+Por ejemplo, a partir de un posible aumento en los precios de los insumos el empresario puede querer afrontar la suba manteniendo el
+mayor nivel de stock posible. 
 
 \bibliographystyle{plain}
 \nocite{*}
