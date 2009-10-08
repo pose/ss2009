@@ -15,6 +15,7 @@ function Xpunto = lsodee(t, X)
     
     xpunto1 = feval(u,t, x1) - x2;
     xpunto2 = -K * feval(u,t, x1);
+
     
     Xpunto = [xpunto1 xpunto2];
 endfunction 

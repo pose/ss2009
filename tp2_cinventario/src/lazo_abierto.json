@@ -1,5 +1,5 @@
 {
-    title: 'Efecto de diferentes valores de K en el stock',
+    title: 'Stock del sistema a lazo abierto',
     axis: {
         x: 'Tiempo (días)',
         y: 'Cantidad de unidades'
@@ -31,6 +31,6 @@
 
     output: {
         type: 'png',
-        filename: 'k_plot.png'
+        filename: 'lazo_abierto.png'
     }
 }

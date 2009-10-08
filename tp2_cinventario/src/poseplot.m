@@ -35,6 +35,7 @@ function res = poseplot(data, config)
             elseif ( isfield(getfield(data,id), 'label')  )
                 s = strcat(s, ';', getfield(data,id).label , ';');
             endif 
+             legend("boxon");
             plot (x, y, s);
         endfor
     endif

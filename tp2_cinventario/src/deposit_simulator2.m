@@ -11,7 +11,7 @@ function [t2 x1 x2] = deposit_simulator(initial_units, sales_rate, trex)
     vopt = odeset ("RelTol", 1e-3, "AbsTol", 1e-3, "NormControl", "on",
         "MaxStep",1, "Events", @zero_crossing, "InitialStep", 1e-1);
 #        "MaxStep",1, "InitialStep", 1e-1);
-    [t2, res] = ode45(@other_lsodee, linspace(0,trex,30), [initial_units, sales_rate], vopt);
+    [t2, res] = ode45(@other_lsodee, linspace(0,trex,60), [initial_units, sales_rate], vopt);
     
     x1 = res(:,1);
     x2 = res(:,2);

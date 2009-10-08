@@ -1,8 +1,8 @@
 {
-    title: 'Efecto de diferentes valores de K en el stock',
+    title: 'Efecto de la variación de K en la tasa de ventas',
     axis: {
         x: 'Tiempo (días)',
-        y: 'Cantidad de unidades'
+        y: 'Ventas (cantidad de unidades/días)'
     },
 
     grid: true,
@@ -31,6 +31,6 @@
 
     output: {
         type: 'png',
-        filename: 'k_plot.png'
+        filename: 'k_plot3.png'
     }
 }
