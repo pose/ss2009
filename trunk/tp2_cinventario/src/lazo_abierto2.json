@@ -1,8 +1,8 @@
 {
-    title: 'Efecto de diferentes valores de K en el stock',
+    title: 'Tasa de ventas sistema a lazo abierto',
     axis: {
         x: 'Tiempo (días)',
-        y: 'Cantidad de unidades'
+        y: 'Cantidad de unidades vendidas (unidades/días)'
     },
 
     grid: true,
@@ -31,6 +31,6 @@
 
     output: {
         type: 'png',
-        filename: 'k_plot.png'
+        filename: 'lazo_abierto2.png'
     }
 }
