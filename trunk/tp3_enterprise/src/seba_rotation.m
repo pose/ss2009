@@ -3,7 +3,7 @@
 # and three rotations xrot, yrot and zrot
 # the function takes xi, yi and zi and applies the rotations to give you
 # XR, YR and ZR, the rotated entry arrays
-function [XR YR ZR] = seba_rotation(X, Y, Z, xrot, y rot, zrot)
+function [XR YR ZR] = seba_rotation(X, Y, Z, xrot, yrot, zrot)
 
 	if rows(X)>1 || rows(Y)>1 || rows(Z)>1
 		error('entry vectors must be column vectors');
@@ -18,7 +18,10 @@ function [XR YR ZR] = seba_rotation(X, Y, Z, xrot, y rot, zrot)
 	YR=zeros(1,columns(Y))';
 	ZR=zeros(1,columns(Z))';
 	for i=1:columns(X)
-		[XR(i) YR(i) ZR(i)]=[X(i) Y(i) Z(i)]*xRotationMatrix*yRotationMatrix*zRotationMatrix;
+		rotatedPoint=[X(i) Y(i) Z(i)]*xRotationMatrix*yRotationMatrix*zRotationMatrix;
+		XR(i)=rotatedPoint(1);
+		YR(i)=rotatedPoint(2);
+		ZR(i)=rotatedPoint(3);
 	endfor
 	
 endfunction

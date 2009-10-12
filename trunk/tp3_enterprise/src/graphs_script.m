@@ -19,5 +19,8 @@ zs=nums(3:columns(nums));
 figure(2);
 plot3(xs,ys,zs,'*');
 
-
+#3d plotting with rotation
+[xs ys zs] = seba_rotation(xs,ys,zs,0,0,pi/2);
+figure(3);
+plot3(xs,ys,zs,'*');
 
