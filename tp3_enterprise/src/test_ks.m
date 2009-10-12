@@ -15,13 +15,14 @@ function ret = test_ks(nums, intervals)
                 frecuencyArray(floor(nums(i)/(1/intervals))+1)++;
         endfor
 
+	#use an array to store D+ values 
 	dPlusArray = zeros(intervals,1)';
 	for i=1:intervals
 		dPlusArray(i)=i/intervals - frecuencyArray(i)/columns(nums);
 	endfor
 
+	#use an array to store D- values
 	dMinusArray = zeros(intervals,1)';
-	
 	for i=1:intervals
 		dMinusArray(i)=frecuencyArray(i)/columns(nums);
 		if i != 1
@@ -29,6 +30,7 @@ function ret = test_ks(nums, intervals)
 		endif
 	endfor
 
+	#response value for kolmogorof-smirnov test
 	ret=max(max(dPlusArray),max(dMinusArray));
 	
 endfunction
