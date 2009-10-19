@@ -25,7 +25,7 @@ function chi = test_chi(numbers,intervals)
 	
 	chi=0;
 	for i=1:columns(frecuencyArray)
-		chi+=pow2(frecuencyArray(i)-expectedValue)/expectedValue;
+		chi+=pow2(frecuencyArray(i)/expectedValue-1)/expectedValue;
 	endfor
 
 endfunction
