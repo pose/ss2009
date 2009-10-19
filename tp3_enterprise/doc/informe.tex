@@ -10,6 +10,8 @@
 \usepackage[table]{xcolor}
 \usepackage{soul}
 
+\newtheorem{theorem}{Teorema}
+
 \title{Banzai Totsugeki} 
 
 \numberofauthors{4}
@@ -82,7 +84,23 @@ de que la muestra provenga de una distribuci\'on uniforme.
 
 A partir del generador de L'Ecuyer se desea obtener un generador de n\'umeros
 pseudoaleatorios distribuidos seg\'un una funci\'on densidad triangular.\\
-EXPLICAR EL ALGORITMO HAY UN TEOREMA LOCO
+Para realizar \'esto se utiliza la t\'ecnica de la transformada inversa.
+
+\begin{figure}
+\begin{theorem}
+\label{theo:1}
+Sea $X$ una variable aleatoria con funci\'on de distribuci\'on $F(x)$
+y se define:
+$$U=F(X)$$
+entonces $U$ es una variable aleatoria uniformemente distribuida en el intervalo $(0,1)$.
+\end{theorem}
+\end{figure}
+
+Dicha t\'ecnica est\'a basada en el teorema \ref{theo:1} y consiste
+en, dado un n\'umero $u$ que es una realizaci\'on de $U\sim\mathcal{U}[0,1]$,
+entonces $x = F^{-1}(u)$ es una realizaci\'on de una VA $X$ con funci\'on
+distribuci\'on $F(x)$.\\
+
 La funci\'on de densidad triangular es \eqref{eq:triangle}. A partir de ella
 podemos obtener la funcio\'on distribuci\'on de probabilidad de $X$
 \eqref{eq:triangleDistribution}.
@@ -113,8 +131,7 @@ Dada
 Hallamos la funci\'on inversa \eqref{eq:inverse}.\\
 
 \begin{equation}
-\label{eq:triangle}
-
+\label{eq:inverse}
 CAMBIAR POR LA INVERSA
 F_{X}(x) =
 \begin{cases}
