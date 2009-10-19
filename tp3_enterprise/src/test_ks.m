@@ -15,16 +15,18 @@ function ret = test_ks(nums, intervals)
                 frecuencyArray(floor(nums(i)/(1/intervals))+1)++;
         endfor
 
+	frecuencyArray = frecuencyArray./columns(nums);
+
 	#use an array to store D+ values 
 	dPlusArray = zeros(intervals,1)';
 	for i=1:intervals
-		dPlusArray(i)=i/intervals - frecuencyArray(i)/columns(nums);
+		dPlusArray(i)=i/intervals - frecuencyArray(i);
 	endfor
 
 	#use an array to store D- values
 	dMinusArray = zeros(intervals,1)';
 	for i=1:intervals
-		dMinusArray(i)=frecuencyArray(i)/columns(nums);
+		dMinusArray(i)=frecuencyArray(i);
 		if i != 1
 			dMinusArray(i)-=(i-1)/intervals;
 		endif
