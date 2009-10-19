@@ -1,0 +1,125 @@
+\documentclass{sig-alternate}
+%\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+%El template pincha con spanish babel
+%\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage[table]{xcolor}
+\usepackage{soul}
+
+\title{Banzai Totsugeki} 
+
+\numberofauthors{4}
+\author{
+\alignauthor
+Pose, Alberto Miguel\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{apose@alu.itba.edu.ar}
+\alignauthor
+Catalano, Juan Ignacio\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{jcatalan@alu.itba.edu.ar}
+\and
+\alignauthor 
+Palombo, Mart\'i­n\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{mpalombo@alu.itba.edu.ar}
+\alignauthor 
+V\'azquez, Santiago Jos\'e\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{savazque@alu.itba.edu.ar}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+ABASTRAEEME
+\end{abstract} 
+
+\newpage
+
+\section{Introducci\'on}
+
+PONER QUE TIENE QUE CUMPLIR CADA METODO indep uniform
+\section{Atacando a L'Ecuyer}
+\label{sec:goingdown}
+
+Se realiza un an\'alisis de PONER EL TIPO DE ANALISIS PARA CADA METODO.
+Se hace una realizaci\'on de $10000$ muestras del generador de L'Ecuyer y se realian dichos tests.
+Cabe destacar que para la realizaci\'on del generador de L'Ecuyer se utilizan las semillas SEMILLAME y 
+se agrupa dicha realizaci\'on en $10$ intervalos de clase.
+
+\subsection{Test Chi Cuadrado}
+\label{sec:chi}
+Se aplica el test de Chi Cuadrado y se obtiene el estad\'istico $\chi_{0}^{2}$=RESULTADO.
+Entonces, para $9$ grados de libertad y una significaci\'on de $\alpha=0.05$ se obtiene
+el valor cr\'itico $\chi_{9,0.05}^{2}=16.92$.
+Como $\chi_{0}^{2}=RESULTADO \geq \chi_{9,0.05}^{2}=16.92$ se REACHAZA/ACEPTA la hip\'otesis $H_{0}$
+de que la muestra provenga de una distribuci\'on uniforme.
+
+\subsection{Test Kolmogorov-Smirnov}
+\label{sec:kolmogorov}
+Se aplica el test de Kolmogorov-Smirnov y se obtiene $D=VALOR$.
+Para un nivel de significaci\'on $\alpha=0.05$ y $10$ intervalos de clase
+se obtiene $D_{0.05}=0.410$. Entonces como $D MAYOR/MENOR D_{\alpha}$
+se ACEPTA/RECHAZA la hip\'otesis $H_{0}$
+de que la muestra provenga de una distribuci\'on uniforme.
+
+
+\section{Transformando a L'Ecuyer}
+\label{sec:triangle}
+
+A partir del generador de L'Ecuyer se desea obtener un generador de n\'umeros
+pseudoaleatorios distribuidos seg\'un una funci\'on densidad triangular.\\
+EXPLICAR EL ALGORITMO HAY UN TEOREMA LOCO
+La funci\'on de densidad triangular es \eqref{eq:triangle}.
+
+\begin{equation}
+\label{eq:triangle}
+f_{X}(x) =
+\begin{cases}
+\frac{2(x-a)}{(b-a)(c-a)} \quad & \text{si } a\leq x \leq b \\
+\frac{2(c-x)}{(c-b)(c-a)} \quad & \text{si } b < x \leq c \\
+0 \quad & \text{en otro caso}
+\end{cases}
+\end{equation}
+
+Hallamos la funci\'on inversa \eqref{eq:inverse}.\\
+
+\begin{equation}
+\label{eq:triangle}
+
+CAMBIAR POR LA INVERSA
+
+f_{X}(x) =
+\begin{cases}
+\frac{2(x-a)}{(b-a)(c-a)} \quad & \text{si } a\leq x \leq b \\
+\frac{2(c-x)}{(c-b)(c-a)} \quad & \text{si } b < x \leq c \\
+0 \quad & \text{en otro caso}
+\end{cases}
+\end{equation}
+
+
+Luego, el algoritmo consiste en COMPLETAR
+
+
+\newpage
+
+\section{Resultados Conclusiones}
+\label{sec:conclusiones}
+
+%PONER QUE CHI SALE DE http://www.wiphala.net/research/manual/statistic/chi_cuadrado.html
+%PONER QUE LOS DATOS DE KOLMOGOROV SE SACAN DE http://www.eridlc.com/onlinetextbook/appendix/table7.htm
+
+\end{document}
