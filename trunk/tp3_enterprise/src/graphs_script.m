@@ -1,26 +1,100 @@
 
+global last_figure;
+last_figure = 0;
+
+function n=next_figure()
+    global last_figure;
+    n=++last_figure;
+    figure(n);
+endfunction
+
 #seeds for lecuyer
 seed1=1;
 seed2=1;
-nums = lecuyer(seed1,seed2,1000);
+nums = lecuyer(seed1,seed2,10000);
+
+#histograma de ecuyer
+
+next_figure();
+
+title(sprintf("Distribucion muestral"));
+
+hist(nums);
+
+title(sprintf("Distribucion muestral uniforme"));
+
+xlabel(sprintf("Clase [n]"));
+ylabel(sprintf("Frecuencia [n]"));
+
+print -dpng histograma_ecuyer.png
+
+#Hacemos esto para que se vea mejor
+nums = lecuyer(seed1,seed2,2000);
 
 #graphic of xn versus xn+1
+
+next_figure();
+
 xs=nums(1:(columns(nums)-1));
 ys=nums(2:columns(nums));
 
-figure(1);
 plot(xs,ys,'*');
 
+title(sprintf("xn versus xn+1"));
+xlabel(sprintf("xn"));
+ylabel(sprintf("xn+1"));
+
+print -dpng ecuyer2D.png 
+
+#triangular
+
+next_figure();
+
+x_triangle = [0:.1:3];
+for i=1:columns(x_triangle)
+    y_triangle(i) = triangle(x_triangle(i),0,1,3);
+endfor
+
+plot(x_triangle,y_triangle);
+
+title(sprintf("Funcion triangular"));
+
+xlabel(sprintf("x"));
+ylabel(sprintf("f(x)"));
+
+print -dpng triangular.png
+
+#Histograma de la triangular
+
+next_figure();
+
+hist(mi_randtraing(lecuyer(3111,53363,10000),0,1,3));
+
+title(sprintf("Distribucion muestral triangular"));
+
+xlabel(sprintf("Clase [n]"));
+ylabel(sprintf("Frecuencia [n]"));
+
+print -dpng histograma_triangular.png
+
 #3d plotting
+
 xs=nums(1:(columns(nums)-2));
 ys=nums(2:columns(nums)-1);
 zs=nums(3:columns(nums));
 
-figure(2);
+next_figure();
 plot3(xs,ys,zs,'*');
 
+title(sprintf("xn versus xn+1 versus xn+2"));
+xlabel (sprintf("xn"));
+ylabel (sprintf("xn+1"));
+zlabel (sprintf("xn+2"));
+
+print -dpng ecuyer3D_1.png 
+
 #3d plotting with rotation
-[xs ys zs] = seba_rotation(xs,ys,zs,0,0,pi/2);
-figure(3);
-plot3(xs,ys,zs,'*');
+#[xs ys zs] = seba_rotation(xs,ys,zs,0,0,pi/2);
+#figure(3);
+#plot3(xs,ys,zs,'*');
 
