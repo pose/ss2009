@@ -7,6 +7,9 @@ function u = lecuyer(s1, s2, n)
 	# m value for generator 2
 	m2=2147483399;
 	
+	s1=mod(s1,m1);
+	s2=mod(s2,m2);
+
 	#seeds validation	
 	if (m1<=s1 || s1<1)
 		error('invalid s1 seed');
