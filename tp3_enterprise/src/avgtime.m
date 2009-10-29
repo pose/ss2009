@@ -4,12 +4,14 @@ function [prom desv] = avgtime(cant)
 	desv=[];
 	prom=[];
 	media=[];
+	tstudent = 2.0930;
 	for j=1:length(cant)
 		for i=1:cant(j)
 			iter = montecarlo(1000);
 			media = [media mean(iter)];
 		endfor
-		prom = [prom mean(media)]; 
-		desv = [desv std(media)];
+		auxmedia = mean(media);
+		prom = [prom auxmedia]; 
+		desv = [desv tstudent*std(media)/sqrt(length(media))];
 	endfor
 endfunction

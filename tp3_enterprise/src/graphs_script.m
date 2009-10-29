@@ -98,3 +98,22 @@ print -dpng ecuyer3D_1.png
 #figure(3);
 #plot3(xs,ys,zs,'*');
 
+next_figure();
+points=300;
+[means desv] = avgtime([1:points]);
+plot([1:points],means);
+title(sprintf("Integral estimada"));
+xlabel(sprintf("Numero de simulaciones"));
+ylabel(sprintf("Tiempo de operacion [hs]"));
+
+print -dpng mean.png
+
+next_figure();
+plot([1:points],desv);
+title(sprintf("Error de estimacion"));
+xlabel(sprintf("Numero de simulaciones"));
+ylabel(sprintf("Desvio [hs]"));
+
+print -dpng desv.png
+
+
