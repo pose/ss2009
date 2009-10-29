@@ -212,6 +212,52 @@ Los resultados obtenidos se pueden observar en la figura \ref{fig:triangle}.
 \caption{Histograma de los n\'umeros obtenidos agrupados en 10 intervalos de clase}
 \end{figure}
 
+%TODO cambiar este titulo de mierda
+\section{PARTE2}
+
+\begin{tabular}{|c|c|}
+ \hline
+  C\'amara de Dilitio & $X_{1}~$Uniforme [20,50] horas \\
+\hline
+  C\'amara Redundante & $X_{2}~$Uniforme [5,12] horas \\
+\hline
+  Propulsor Babor & $X_{3}~$Exponencial $T_{3}=240$ horas \\
+\hline
+  Propulsor Estribor & $X_{4}~$Exponencial $T_{4}=240$ horas \\
+\hline
+  N\'ucleo WARP & $X_{5}~$Lineal creciente [12,72] horas \\
+\hline
+\end{tabular}
+
+\begin{equation}
+f_{X_1}(x) =
+\begin{cases}
+\frac{1}{30} & x \in [20,50] \\
+0 & x \notin [20, 50]
+\end{cases}
+\end{equation}
+\begin{equation}
+f_{X_2}(x) =
+\begin{cases}
+\frac{1}{7} & x \in [5,12] \\
+0 & x \notin [5,12]
+\end{cases}
+\end{equation}
+\begin{equation}
+f_{X_3, X_4}(x) =
+  \begin{cases}
+    \frac{1}{240} e^{-\frac{t}{240}} & t > 0 \\
+    0 & t < 0
+  \end{cases}
+\end{equation}
+\begin{equation}
+f_{X_5}(x) =
+\begin{cases}
+\frac{x}{1800} - \frac{1}{150} & x \in [12,72] \\
+0 & x \notin [12,72]
+\end{cases}
+\end{equation}
+
 \newpage
 
 \section{Resultados Conclusiones}
