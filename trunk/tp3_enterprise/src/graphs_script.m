@@ -93,14 +93,48 @@ zlabel (sprintf("xn+2"));
 
 print -dpng ecuyer3D_1.png 
 
+next_figure();
+
 #3d plotting with rotation
-#[xs ys zs] = seba_rotation(xs,ys,zs,0,0,pi/2);
+[xs2 ys2 zs2] = seba_rotation(xs,ys,zs,0,0,pi/2);
 #figure(3);
-#plot3(xs,ys,zs,'*');
+plot3(xs2,ys2,zs2,'*');
+
+title(sprintf("xn versus xn+1 versus xn+2 rotado en z 90 grados"));
+xlabel (sprintf("xn"));
+ylabel (sprintf("xn+1"));
+zlabel (sprintf("xn+2"));
+
+print -dpng ecuyer3D_z90.png 
+
+#3d plotting with rotation
+[xs2 ys2 zs2] = seba_rotation(xs,ys,zs,0,pi/2,0);
+#figure(3);
+plot3(xs2,ys2,zs2,'*');
+
+title(sprintf("xn versus xn+1 versus xn+2 rotado en y 90 grados"));
+xlabel (sprintf("xn"));
+ylabel (sprintf("xn+1"));
+zlabel (sprintf("xn+2"));
+
+print -dpng ecuyer3D_y90.png 
+
+#3d plotting with rotation
+[xs2 ys2 zs2] = seba_rotation(xs,ys,zs,pi/2,0,0);
+#figure(3);
+plot3(xs2,ys2,zs2,'*');
+
+title(sprintf("xn versus xn+1 versus xn+2 rotado en x 90 grados"));
+xlabel (sprintf("xn"));
+ylabel (sprintf("xn+1"));
+zlabel (sprintf("xn+2"));
+
+print -dpng ecuyer3D_x90.png 
+
 
 next_figure();
-points=300;
-[means desv] = avgtime([1:points]);
+points=56;
+[means desv err] = avgtime([1:points]);
 plot([1:points],means);
 title(sprintf("Integral estimada"));
 xlabel(sprintf("Numero de simulaciones"));
@@ -109,10 +143,10 @@ ylabel(sprintf("Tiempo de operacion [hs]"));
 print -dpng mean.png
 
 next_figure();
-plot([1:points],desv);
+plot([1:points],err.*100);
 title(sprintf("Error de estimacion"));
 xlabel(sprintf("Numero de simulaciones"));
-ylabel(sprintf("Desvio [hs]"));
+ylabel(sprintf("Error relativo porcentual"));
 
 print -dpng desv.png
 
