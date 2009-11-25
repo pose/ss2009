@@ -1,0 +1,88 @@
+\documentclass{sig-alternate}
+%\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+%El template pincha con spanish babel
+%\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage[table]{xcolor}
+\usepackage{soul}
+
+\newtheorem{theorem}{Teorema}
+
+\title{Que bien que est\'a esa cola} 
+
+\numberofauthors{4}
+\author{
+\alignauthor
+Pose, Alberto Miguel\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{apose@alu.itba.edu.ar}
+\alignauthor
+Catalano, Juan Ignacio\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{jcatalan@alu.itba.edu.ar}
+\and
+\alignauthor 
+Palombo, Mart\'in\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{mpalombo@alu.itba.edu.ar}
+\alignauthor 
+V\'azquez, Santiago Jos\'e\\
+       \affaddr{Instituto Tecnol\'ogico de Buenos Aires}\\
+       \affaddr{Buenos Aires, Argentina}\\
+       \email{savazque@alu.itba.edu.ar}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Se estudia el modelo de cola M/M/1. ABSTRAEME
+\end{abstract} 
+
+\newpage
+
+\section{Introducci\'on}
+
+Se analiza el modelo de Cola simple mediante la simulaci\'on por eventos discretos.
+La estructura din\'amica de dicha cola se la indica como M/M/1/$\infty$/FIFO, o simplemente M/M/1.
+En este modelo, se asume que los clientes llegan al sistema mediante un proceso de Poisson con una tasa
+media de $\lambda$ [clientes/hora] y el servidor atiende a cada cliente con tiempo de servicio exponencialmente
+distribuido con media 1/$\mu$. \\
+Si el servidor est\'a desocupado y llega un cliente, entonces este se sirve inmediatamente. Si el servidor est\'a
+ocupado, entonces el cliente que llega entra en cola.
+
+PRESENTAR SECCIONES
+
+\section{Atacando a L'Ecuyer}
+\label{sec:goingdown}
+
+\newpage
+
+\section{Resultados y Conclusiones}
+\label{sec:conclusiones}
+CONCLUIME
+
+% TODO ver si corresponde
+% \begin{thebibliography}{10}
+% \bibitem{chiTable} Tabla $\chi^{2}$.
+% \begin{verbatim}
+% http://www.wiphala.net/research/manual/
+% statistic/chi_cuadrado.html
+% \end{verbatim}
+% \bibitem{KSTable} Tabla Kolmogorov-Smirnov.
+% \begin{verbatim}
+% http://www.eridlc.com/onlinetextbook/
+% appendix/table7.htm
+% \end{verbatim} 
+% \bibitem{TStudentTable} Tabla T Student. \begin{verbatim}www.elosiodelosantos.com/sergiman/archivos/tablat.xls\end{verbatim}
+% \end{thebibliography}
+\end{document}
