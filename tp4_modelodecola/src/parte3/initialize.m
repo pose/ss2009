@@ -46,3 +46,4 @@ area_server_status = 0.0;
 % es eliminado de la consideracion.
 time_next_event(1) = time + expon(mean_interarrival);
 time_next_event(2) = 1.0e+030;
+time_next_event(3) = 1.0e+030;

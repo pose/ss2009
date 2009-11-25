@@ -36,6 +36,6 @@ time_last_event       = time;
 area_num_in_q = area_num_in_q + num_in_q * time_since_last_event;
 
 % Actualiza el area bajo la curva de la funcio de servidor-ocupado
-area_server_status = area_server_status + server_status * time_since_last_event;
+area_server_status = area_server_status + server_status1 * time_since_last_event;
 
 return;
