@@ -30,7 +30,7 @@ global total_of_delays;
 	if ( num_in_q == 0)
 		% La cola esta vacia entonces, pone el servidor en libre
 		server_status2      = IDLE;
-		time_next_event(2) = 1.0e+30;
+		time_next_event(3) = 1.0e+30;
 	else
 		% La cola no esta vacia, entonces decrementa el numero de
 		%  clientes en cola.

@@ -36,10 +36,11 @@ timfile = fopen('mm1.tim','w');
 num_events = 3;
 
 % Lee el archivo de entrada
-xdata = fscanf(inpfile,'%f %f %f',[1 3]);
+xdata = fscanf(inpfile,'%f %f %f %f',[1 4]);
 mean_interarrival   = xdata(1);
-mean_service        = xdata(2);
-num_delays_required = xdata(3);
+mean_service1        = xdata(2);
+mean_service2        = xdata(3);
+num_delays_required = xdata(4);
  
 
 % Escribe los encabezados de los reportes y parametros de entrada
@@ -60,7 +61,7 @@ initialize();
 
 % Corre la simulacion
 while ( num_custs_delayed < num_delays_required )
-	fprintf(timfile, "%16.3f %d %d\n",time,num_in_q,server_status);
+	fprintf(timfile, "%16.3f %d %d %d\n",time,num_in_q,server_status1,server_status2);
 	% Determina el proximo evento
 	timing();
 	
