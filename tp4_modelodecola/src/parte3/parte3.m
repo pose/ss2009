@@ -2,12 +2,19 @@ function ret = parte3()
 
 	mm1;
 	ret=[getclientmean];
-	for i=1:20
+	
+	error=1;
+	while(error > 0.05)
 		mm1;
 
 		num = getclientmean; 
 
 		ret= [ret num];
-	endfor
+
+		%chequear el calculo del error
+		error = std(ret)/mean(ret);
+	
+
+	endwhile
 	
 endfunction
