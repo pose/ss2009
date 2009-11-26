@@ -2,7 +2,7 @@
 % Proposito:     Simula una cola M/M/1
 %
 % Declaracion de constantes y variables:
-clear all
+%clear all
 
 global Q_LIMIT = 100;
 global BUSY    = 1;
