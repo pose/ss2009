@@ -23,7 +23,7 @@
 %
 % Autor: Alejandro Diaz
 % Declaracion de constantes y variables:
-function [rho, relativeError, meanQueueLength] = mm1(lambda, mu, amount)
+function [rho, relativeError, meanQueueWait] = mm1(lambda, mu, amount)
 
 %clear all
 
@@ -54,7 +54,7 @@ mean_interarrival = lambda;
 mean_service = 1/mu;
 num_delays_required = amount;
 
-maxSize = 100;
+maxSize = 200;
 
 rho = 0.0;
 %TOLEEEEE
@@ -64,11 +64,12 @@ relativeError = zeros(1, maxSize);
 relativeError(1) = 1.0;
 relativeError(2) = 1.0;
 
-queueLength = 0.0;
-queueLengths = zeros(1, maxSize);
-meanQueueLength = 0.0;
+queueWait = 0.0;
+queueWaits = zeros(1, maxSize);
+meanQueueWait = 0.0;
 
 %
+
 Q_LIMIT = maxSize; % 100;
 
 BUSY    = 1;
@@ -105,21 +106,26 @@ while( (relativeError(i) > tole) && (i < maxSize) )
                 %break;
         end
     end
-    queueLength = area_num_in_q / time;
-    % store the currente length value ...
-    queueLengths(i-1) = queueLength;
-    % calculate the mean of the queue length ...
-    meanQueueLength = mean(queueLengths(1:i-1));
-    if(i > 2)
-        %student's t analysis (t_s = 1.6) 
-	auxtrust = 2*1.6*std(queueLengths(1:i-1))/sqrt(i-1);
-	relativeError(i) = 2*auxtrust/meanQueueLength;
-        %relativeError(i) = std(queueLengths(1:i-1)) / meanQueueLength;
+    queueWait = total_of_delays / num_custs_delayed;
+    queueWaits(i-1) = queueWait;
+    meanQueueWait = mean(queueWaits(1:i-1));
+    if (i > 2)
+      auxtrust = 2*1.6*std(queueWaits(1:i-1))/sqrt(i-1);
+      relativeError(i)=2*auxtrust/meanQueueWait;
     end
-    initialize();  
+    initialize();
+    %queueLength = area_num_in_q / time;
+    % store the currente length value ...
+    %queueLengths(i-1) = queueLength;
+    % calculate the mean of the queue length ...
+    %meanQueueLength = mean(queueLengths(1:i-1));
+    %if(i > 2)
+        %student's t analysis (t_s = 1.6) 
+%	auxtrust = 2*1.6*std(queueLengths(1:i-1))/sqrt(i-1);
+%	relativeError(i) = 2*auxtrust/meanQueueLength;
+        %relativeError(i) = std(queueLengths(1:i-1)) / meanQueueLength;
+%    end
+%    initialize();  
 end
 relativeError = relativeError(1:i);
 endfunction
-
-
-
