@@ -74,7 +74,7 @@ IDLE    = 0;
 % Especifica el numero de eventos
 num_events = 2;
 
-rho = mean_service/mean_interarrival;
+rho = mean_interarrival/mean_service;
 
 % Inicializa la simulacion
 initialize();
