@@ -122,14 +122,29 @@ CREO QUE SE DEBE A QUE LA VARIANZA TIENE A RHO DANDO VUELTAS PERO NO ME ANIMARIA
 \subsection{Time is on my side}
 \label{sec:parte2}
 
-La expresión analítica del tiempo medio de espera para un cliente que está en una cola MM1 se define en  \eqref{eq:wq}. Se puede ver la gráfica representada para 10 puntos en \ref{fig:teowq}
+La expresión analítica del tiempo medio de espera para un cliente que está en una cola MM1 se define en  \eqref{eq:wq}.Por otra parte, la expresión de su varianza se define en \eqref{eq:wqvar}. Se puede ver la gráfica representada para 10 puntos en \ref{fig:teowq} donde se ve claramente el comportamiento asintótico hacia el valor 1 (donde alcanza la singularidad).
 
 \begin{equation}
 \label{eq:wq}
-  W_q = E (T)= \frac{1}{\mu-\lambda}
+  W_q = E (T_q)= \frac{1}{\mu-\lambda}
 \end{equation}
 
-Por otra parte, los resultados obtenidos empíricamente de $W_q$ se pueden observar en \ref{fig:empwq}. Una comparación de los dos resultados se puede ver en \ref{fig:teovsempwq}.
+\begin{equation}
+\label{eq:wqvar}
+  Var(T_q) = \frac{\rho(2-\rho)}{\mu^2(1-\rho^2)}
+\end{equation}
+
+Por otra parte, los resultados obtenidos empíricamente de $W_q$ se pueden observar en \ref{fig:empwq}. Allí vemos como para las 20 corridas de 200 simulaciones se aprecian los efectos de bordes finitos para la proximidad al valor 1 (que tiene asociado 16 unidades de tiempo). Una comparación de los dos resultados se puede observar más claramente en \ref{fig:teovsempwq}.
+
+A medida que las probabilidades de $\mu$ y de $\lambda$ convergen al mismo valor suceden varios fenómenos: 
+\begin{enumerate}
+\item Intuitivamente, la probabilidad que llegue un usuario $\lambda$ hace que lleguen usuarios casi a la misma velocidad que se van $\mu$. En este hipotético caso, esto se traduce en que el sistema a largo plazo se comiencen a acumular usuarios en la cola. Resultando en que no se llegue a dar abasto a atenderlos. Por lo que tiene sentido pensar que el tiempo de permanencia en la cola empiece a crecer.
+\item Viendo el resultado analítico se observar que la esperanza del tiempo en cola tiende a infinito al igual que su varianza. De esta forma, podemos concluir que el sistema se comportará de manera inestable. Si bien en la práctica no tiene sentido de hablar de tiempo infinito, se puede pensar como un colapso del servicio.
+\item Como se mencionó anteriormente, el motivo por el cual en el gráfico \ref{fig:empwq} no se nota la divergencia es debido al efecto que se corrió un número finito de veces y con un número finito de personas. 
+\item Cuando se acerca al valor de divergencia (o sea $\rho=1$), la fórmula \ref{eq:wqvar}  comienza a crecer. Esto indica que cuanto mayor sea la diferencia entre $\mu$ y $\lambda$ (siempre que $\rho < 1$ porque sino eso implicaría inestabilidad) mayor será la varianza. Esto se traduce en que la esperanza tendrá menos volatilidad a medida que $\lambda$ sea mucho menor a $\mu$. En un caso práctico, nos asegura que si nuestro tiempo de servicio es bueno sería probabilísticamente insignificante la posibilidad de que el servicio se sature. A medida que el servicio empeora, o se vuelve más ineficiente, se somete a un mayor riesgo a ser saturado.
+
+
+\end{enumerate}
 
 \begin{figure}[ht]
 \begin{center}
