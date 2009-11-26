@@ -1,5 +1,5 @@
-load means.mat;
-load errors.mat;
+[a b]=parte3;
+
 xs=[1:length(a)];
 
 plot(xs,a);
