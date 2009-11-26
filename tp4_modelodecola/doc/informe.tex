@@ -78,7 +78,7 @@ de clientes en el sistema crece indefinidamente.
 
 \subsection{A nadie le gusta perder tiempo haciendo una cola}
 \label{sec:parte1}
-El promedio temporal de clientes en la cola $L_q$ se define en \eqref{eq:lQ}.
+El promedio de clientes en la cola $L_q$ se define en \eqref{eq:lQ}.
 
 \begin{equation}
 \label{eq:lQ}
@@ -119,8 +119,36 @@ CREO QUE SE DEBE A QUE LA VARIANZA TIENE A RHO DANDO VUELTAS PERO NO ME ANIMARIA
 
 \newpage
 
-\subsection{PARTE2}
+\subsection{Time is on my side}
 \label{sec:parte2}
+
+La expresión analítica del tiempo medio de espera para un cliente que está en una cola MM1 se define en  \eqref{eq:wq}. Se puede ver la gráfica representada para 10 puntos en \ref{fig:teowq}
+
+\begin{equation}
+\label{eq:wq}
+  W_q = E (T)= \frac{1}{\mu-\lambda}
+\end{equation}
+
+Por otra parte, los resultados obtenidos empíricamente de $W_q$ se pueden observar en \ref{fig:empwq}. Una comparación de los dos resultados se puede ver en \ref{fig:teovsempwq}.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=8cm]{queueWaitTheoretical}
+\caption{\label{fig:teowq} Tiempo de espera en cola te\'orico de los clientes en funci\'on de $\rho$}
+\end{center}
+\end{figure}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=8cm]{queueWaitEmpirical}
+\caption{\label{fig:empwq} Tiempo de espera en cola empírico de los clientes en funci\'on de $\rho$}
+\end{center}
+\end{figure}
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=8cm]{queueWaitCompare}
+\caption{\label{fig:teovsempwq} Tiempo de espera en cola te\'orico y empírico de los clientes en funci\'on de $\rho$}
+\end{center}
+\end{figure}
 
 \section{Inclusi\'on de un nuevo servidor}
 \label{sec:mm2}
