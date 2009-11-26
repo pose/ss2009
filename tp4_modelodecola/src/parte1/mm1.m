@@ -21,7 +21,7 @@
 %
 % Autor: Alejandro Diaz
 % Declaracion de constantes y variables:
-function [dRho, dRelError, mean_L] = mm1(meanVals)
+function [rho, meanQueueLength] = mm1(lambda, mu, amount)
 
 %clear all
 
@@ -46,75 +46,44 @@ global time_last_event;
 global time_next_event;
 global total_of_delays;
 
-iMaxSize = 1500; % max. size of the arrays (buffer size) ...
 
-iNClients = 100; % number of clients (standard value) ...
-dRho = 0.0; % traffic intensity value of the system ...
-dError = 0.05; % break condition ...
+%Set parameters
+mean_interarrival = lambda;
+mean_service = mu;
+num_delays_required = amount;
 
-dRelError = zeros(1, iMaxSize); % array of all relative errors of the given system ...
-dRelError(1) = 1.0; % initialization (first value) ...
-dRelError(2) = 1.0;
+maxSize = 1500;
 
-L = 0.0; % current length of queue ...
-a_L = zeros(1, iMaxSize); % array to save all current queue length ...
-mean_L = 0.0; % mean of all queue length a_L ...
-%dConf = 0.0; % confidence interval value ...
+rho = 0.0;
+%TOLEEEEE
+tole = 0.05;
+
+relativeError = zeros(1, maxSize);
+relativeError(1) = 1.0;
+relativeError(2) = 1.0;
+
+queueLength = 0.0;
+queueLengths = zeros(1, maxSize);
+meanQueueLength = 0.0;
 
 %
-Q_LIMIT = iMaxSize; % 100;
+Q_LIMIT = maxSize; % 100;
 BUSY    = 1;
 IDLE    = 0;
 
 % Especifica el numero de eventos
 num_events = 2;
 
-if(~isempty(meanVals))
-    mean_interarrival   = meanVals(1); % mean of arrival time (lambda) ...
-    mean_service        = meanVals(2); % mean of service time (mu) ...
-    num_delays_required = iNClients; % using std. 
-    
-    % calculate the traffic densitiy ...
-%     f_lambda = 1.0/mean_interarrival;
-%     f_mu = 1.0/mean_service;
-%     dRho = f_lambda/f_mu;
-    dRho = mean_service/mean_interarrival;
-else
-    % Abre los archivos I/O
-    inpfile = fopen('mm1.inp','r');
-    outfile = fopen('mm1.out','w');
-    timfile = fopen('mm1.tim','w');
-
-    % Lee el archivo de entrada
-    xdata = fscanf(inpfile,'%f %f %f',[1 3]);
-    mean_interarrival   = xdata(1);
-    mean_service        = xdata(2);
-    num_delays_required = xdata(3);
-
-    % Escribe los encabezados de los reportes y parametros de entrada
-    fprintf(outfile,'Sistema de cola de servidor simple\n\n');
-    fprintf(outfile,'Tiempo medio entre arribos %11.3f minutos\n\n',mean_interarrival);
-    fprintf(outfile,'Tiempo medio de servicio   %11.3f minutos\n\n',mean_service);
-    fprintf(outfile,'Numero de clientes         %14d\n\n', num_delays_required);
-
-    fprintf(timfile,'Series de tiempo producidas por mm1.m \n');
-    fprintf(timfile,'3\n');
-    fprintf(timfile,'time\n');
-    fprintf(timfile,'longitud de la cola\n');
-    fprintf(timfile,'ocupacion del servidor (OCUPADO=1,LIBRE=0)\n');
-end
+rho = mean_service/mean_interarrival;
 
 % Inicializa la simulacion
 initialize();
 
-iCount = 1;
-% print initial relative error ...
-%fprintf('rel. error(%d): %f\n', iCount, dRelError(iCount));
+i = 1;
 
 %% simulate the queue:
-while( (dRelError(iCount) > dError) && (iCount < iMaxSize) )
-    % count up ...
-    iCount = iCount + 1;
+while( (relativeError(i) > tole) && (i < maxSize) )
+    i = i + 1;
     
     % Corre la simulacion
     while ( num_custs_delayed < num_delays_required )
@@ -137,44 +106,26 @@ while( (dRelError(iCount) > dError) && (iCount < iMaxSize) )
         end
 
     end
-    %L = area_num_in_q / time; % false ...
-    L = (area_num_in_q + area_server_status) / time; % correct ...
+    queueLength = area_num_in_q / time;
     % store the currente length value ...
-    a_L(iCount-1) = L; % CHECK ...
+    queueLengths(i-1) = queueLength;
       
     % calculate the mean of the queue length ...
-    mean_L = mean(a_L(1:iCount-1));
+    meanQueueLength = mean(queueLengths(1:i-1));
 
-    % calculate the confidence interval ...
-    %dConf = std(a_L(1:iCount)) / sqrt(length(a_L(1:iCount)));
- 
-    % calculate the relative error ...
-    %dRelError(iCount) = 1.6*dConf / mean_L;
-    if(iCount > 2)
-        %dRelError(iCount) = 1.6*std(a_L(1:iCount-1)) / (mean_L*sqrt(iCount)); % makes the simulation more accurate ...
-        dRelError(iCount) = std(a_L(1:iCount-1)) / mean_L; % makes the simulation more accurate ...
+    if(i > 2)
+        relativeError(i) = std(queueLengths(1:i-1)) / meanQueueLength
     end
-        
-    % print the current relative error ...
-    %fprintf('rel. error(%d): %f\n', iCount, dRelError(iCount));
-    %fprintf('rel. error(%d): %f,  STD(a_L):  %f, mean_L: %f  L: %f\n', ...
-    %           iCount, dRelError(iCount), std(a_L(1:iCount-1)), mean_L, L);
 
     initialize();  
 end
 
-fprintf('\ntotal steps: %d\n', iCount);
+fprintf('\ntotal steps: %d\n', i);
 
 % cut the array at the count position (all data behind are zero) ...
-dRelError = dRelError(1:iCount);
+relativeError = relativeError(1:i);
 
-if(isempty(meanVals))
-    % Invoca al generador de reportes y fin de la simulacion
-    report(outfile);
-    fclose(inpfile);
-    fclose(outfile);
-    fclose(timfile);
-end
+endfunction
 
 
 
