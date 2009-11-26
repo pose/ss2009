@@ -21,7 +21,7 @@
 %
 % Autor: Alejandro Diaz
 % Declaracion de constantes y variables:
-function [rho, meanQueueLength] = mm1(lambda, mu, amount)
+function [rho, relativeError, meanQueueLength] = mm1(lambda, mu, amount)
 
 %clear all
 
@@ -49,7 +49,7 @@ global total_of_delays;
 
 %Set parameters
 mean_interarrival = lambda;
-mean_service = mu;
+mean_service = 1/mu;
 num_delays_required = amount;
 
 maxSize = 1500;
@@ -74,7 +74,7 @@ IDLE    = 0;
 % Especifica el numero de eventos
 num_events = 2;
 
-rho = mean_interarrival/mean_service;
+rho = mean_service * mean_interarrival;
 
 % Inicializa la simulacion
 initialize();
@@ -114,7 +114,13 @@ while( (relativeError(i) > tole) && (i < maxSize) )
     meanQueueLength = mean(queueLengths(1:i-1));
 
     if(i > 2)
-        relativeError(i) = std(queueLengths(1:i-1)) / meanQueueLength
+
+        %student's t analysis (t_s = 1.6)
+        
+		auxtrust = 2*1.6*std(queueLengths(1:i-1))/sqrt(i-1);
+		relativeError(i) = 2*auxtrust/meanQueueLength;
+
+        %relativeError(i) = std(queueLengths(1:i-1)) / meanQueueLength;
     end
 
     initialize();  
