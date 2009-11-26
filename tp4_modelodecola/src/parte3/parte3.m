@@ -4,7 +4,7 @@ function [ret err] = parte3()
 	ret=[getclientmean];
 	
 	error=1;
-	err=[];
+	err=[1];
 	while(error > 0.05)
 		mm1;
 
