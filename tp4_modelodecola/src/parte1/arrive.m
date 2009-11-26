@@ -36,7 +36,7 @@ if ( server_status == BUSY )
 	 % Chequea si no se excede la cantidad de clientes en cola
 	 if ( num_in_q > Q_LIMIT )
 	 	% La cola alcanzo su limite, entonces para la simulacion
-	 	fprintf(outfile, "\nOverflow de la cola a los %f minutos", time);
+	 	%fprintf(outfile, "\nOverflow de la cola a los %f minutos", time);
 		return;
 	end
 	% Hay lugar en la cola, entonces almacena el tiempo de llegada del
