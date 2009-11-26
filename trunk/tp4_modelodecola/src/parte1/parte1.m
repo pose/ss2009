@@ -1,7 +1,7 @@
     format long;
     rand("seed",5);
 
-	cantSimulations = 3;
+	cantSimulations = 20;
 
 	lambda = zeros(1,cantSimulations);
 	mu = zeros(1,cantSimulations);
@@ -14,11 +14,8 @@
         mu(i) = cantSimulations / i;
 	endfor
 	for i = 1 : cantSimulations
-		[rho, relativeError, meanQueueLength_i] = mm1(lambda(i),mu(i),100);
+		[rho, relativeError, meanQueueLength_i] = mm1(lambda(i),mu(i),500);
 
-        relativeError(end)
-
-		% add the empirc mean value to the array ...
 		meanQueueLength(i) = meanQueueLength_i;
 		rhos(i) = rho;
 		
@@ -31,19 +28,31 @@
 
     plot(rhos,meanQueueLength);
 
-    title(sprintf("Promedio temporal de clientes en cola en funcion de la intensidad de trafico"));
+    title(sprintf("Promedio temporal de clientes en cola en funcion de la intensidad de trafico computado de manera empirica"));
     xlabel(sprintf("rho"));
     ylabel(sprintf("clientes"));
 
-    print -dpng queueVSrho.png 
+    print -dpng queueEmpiricVSrho.png 
 
     figure(2);
 
-    plot(rhos,theoreticalMeanQueueLength,"o;Promedio temporal teorico",rhos,meanQueueLength , "*;Promedio temporal empirico");
+    plot(rhos,theoreticalMeanQueueLength);
+
+    title(sprintf("Promedio temporal de clientes en cola en funcion de la intensidad de trafico computado de manera teorica"));
+    xlabel(sprintf("rho"));
+    ylabel(sprintf("clientes"));
+
+    print -dpng queueTheoreticalVSrho.png 
+
+    figure(3);
+
+    plot(rhos,theoreticalMeanQueueLength,"-");
+    hold on;
+    plot(rhos,meanQueueLength,"-o");
 
     title (sprintf("Promedio temporal empirico y teorico en funcion de la intensidad de trafico"));
     xlabel (sprintf("rhos"));
     ylabel ("clientes");
 
-    print -dpng teorivoVSempirico.png
-
+    print -dpng teoricoVSempirico.png
+    hold off;
