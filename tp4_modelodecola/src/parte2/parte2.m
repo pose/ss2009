@@ -1,7 +1,7 @@
     format long;
     rand("seed",9);
 
-	cantSimulations = 20;
+	cantSimulations = 10;
 
 	lambda = zeros(1,cantSimulations);
 	mu = zeros(1,cantSimulations);
@@ -13,8 +13,8 @@
           mu(i) = cantSimulations / i;
 	endfor
 	for i = 1 : cantSimulations
-	  [rho, relativeError, meanQueueTime_i] = mm1(lambda(i),mu(i),500);
-	  meanQueueLength(i) = meanQueueTime_i;
+	  [rho, relativeError, meanQueueWait_i] = mm1(lambda(i),mu(i),500);
+	  meanQueueWait(i) = meanQueueWait_i;
 	  rhos(i) = rho;
 	  theoreticalMeanQueueTime(i) = rho/(mu(i) - lambda(i));
 	endfor
@@ -22,7 +22,7 @@
     % Plot the results
 
     figure(1);
-
+ 
     plot(rhos,meanQueueWait);
 
     title(sprintf("Tiempo medio de espera en cola por cliente computado de manera empirica"));
