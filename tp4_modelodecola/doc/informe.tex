@@ -62,14 +62,68 @@ En este modelo, se asume que los clientes llegan al sistema mediante un proceso 
 media de $\lambda$ [clientes/hora] y el servidor atiende a cada cliente con tiempo de servicio exponencialmente
 distribuido con media 1/$\mu$. \\
 Si el servidor est\'a desocupado y llega un cliente, entonces este se sirve inmediatamente. Si el servidor est\'a
-ocupado, entonces el cliente que llega entra en cola.
+ocupado, entonces el cliente que llega entra en cola. \\
+En la secci\'on \ref{sec:mm1} se analiza el modelo de cola M/M/1. Primero, haciendo referencia al
+promedio temporal de clientes en la cola en la secci\'on \ref{sec:parte1} y luego
+NOSECOMOSELLAMA en la secci\'on \ref{sec:parte2}.
+En la secci\'on \ref{sec:mm2} SEBA PONE QUE PASA ACA.
 
-PRESENTAR SECCIONES
+\section{Nos gustan las colas chiquitas}
+\label{sec:mm1}
 
-\section{SECCIONAME}
+Se comienza analizando el modelo de cola M/M/1.
+Se llama $\rho = \dfrac{\mu}{\lambda}$ a la intensidad de tráfico para el sistema M/M/1.
+Se asume que $\rho < 1$. Esto resulta razonable, ya que si $\rho \geq 1$, el sistema se vueve inestable y la cantidad
+de clientes en el sistema crece indefinidamente.
+
+\subsection{A nadie le gusta perder tiempo haciendo una cola}
 \label{sec:parte1}
-                                                                ́
+El promedio temporal de clientes en la cola $L_q$ se define en \eqref{eq:lQ}.
+
+\begin{equation}
+\label{eq:lQ}
+L_q = \dfrac{1}{T} \int_{0}^{T} q(t) dt
+\end{equation}
+
+Se estima $L_q$ en funci\'on de $\rho$. Fijando $\rho$ se realizan simulaciones para estimar $L_q$
+con un error menor al $5\%$. Los resultados se muestran en la figura \ref{fig:meanQueue}, cabe destacar
+que sucede lo l\'ogico; al aumentar la intensidad de tr\'afico aumenta la cantidad de clientes en cola.\\
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=8cm]{queueEmpiricVSrho}
+\caption{\label{fig:meanQueue} Promedio temporal emp\'irico de clientes en la cola en funci\'on de $\rho$}
+\end{center}
+\end{figure}
+
+Se comparan los resultados obtenidos con el valor te\'orico de $L_q$ el cual se ense\~na en \eqref{eq:lQTheoretical}
+
+\begin{equation}
+\label{eq:lQTheoretical}
+L_q = \dfrac{\rho^{2}}{1 - \rho}
+\end{equation}
+
+Los resultados de dicha comparacion se observan en la figura \ref{fig:meanQueueVS}. Se observa que ambas curvas
+son casi id\'enticas salvo para los grandes valores de $\rho$ en los cuales se produce una diferencia dr\'astica.
+Esto se debe a que para esos casos la simulaci\'on no finaliza al alcanzar un error menor al $5\%$ sino que finaliza
+porque alcanza el tope m\'aximo de iteraciones a realizar ($2000$). \'Esto nos dice que para grandes valores de $\rho$
+se hace m\'as dif\'icil lograr una buena aproximaci\'on al promedio temporal de clientes en la cola.
+CREO QUE SE DEBE A QUE LA VARIANZA TIENE A RHO DANDO VUELTAS PERO NO ME ANIMARIA
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=8cm]{teoricoVSempirico}
+\caption{\label{fig:meanQueueVS} COmparaci\'on del promedio temporal emp\'irico y te\'orico de clientes en la cola en funci\'on de $\rho$}
+\end{center}
+\end{figure}
+
 \newpage
+
+\subsection{PARTE2}
+\label{sec:parte2}
+
+\section{PARTE3}
+\label{sec:mm2}
 
 \section{Resultados y Conclusiones}
 \label{sec:conclusiones}
