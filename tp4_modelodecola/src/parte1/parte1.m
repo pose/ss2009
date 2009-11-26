@@ -28,7 +28,7 @@
 
     plot(rhos,meanQueueLength);
 
-    title(sprintf("Promedio temporal de clientes en cola en funcion de la intensidad de trafico computado de manera empirica"));
+    title(sprintf("Promedio empirico de clientes en cola en funcion de la intensidad de trafico"));
     xlabel(sprintf("rho"));
     ylabel(sprintf("clientes"));
 
@@ -38,7 +38,7 @@
 
     plot(rhos,theoreticalMeanQueueLength);
 
-    title(sprintf("Promedio temporal de clientes en cola en funcion de la intensidad de trafico computado de manera teorica"));
+    title(sprintf("Promedio teorico de clientes en cola en funcion de la intensidad de trafico"));
     xlabel(sprintf("rho"));
     ylabel(sprintf("clientes"));
 
@@ -46,9 +46,9 @@
 
     figure(3);
 
-    plot(rhos,theoreticalMeanQueueLength,"-");
+    plot(rhos,theoreticalMeanQueueLength,"-;Teorico;");
     hold on;
-    plot(rhos,meanQueueLength,"-o");
+    plot(rhos,meanQueueLength,"-o;Empirico;");
 
     title (sprintf("Promedio temporal empirico y teorico en funcion de la intensidad de trafico"));
     xlabel (sprintf("rhos"));
