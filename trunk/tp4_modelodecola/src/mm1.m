@@ -41,10 +41,10 @@ num_delays_required = xdata(3);
  
 
 % Escribe los encabezados de los reportes y parametros de entrada
-fprintf(outfile,'Sistema de cola de servidor simple\n\n');
-fprintf(outfile,'Tiempo medio entre arribos %11.3f minutos\n\n',mean_interarrival);
-fprintf(outfile,'Tiempo medio de servicio   %11.3f minutos\n\n',mean_service);
-fprintf(outfile,'Numero de clientes         %14d\n\n', num_delays_required);
+fprintf(outfile,'Sistema de cola de servidor simple\n');
+fprintf(outfile,'Tiempo medio entre arribos %11.3f minutos\n',mean_interarrival);
+fprintf(outfile,'Tiempo medio de servicio   %11.3f minutos\n',mean_service);
+fprintf(outfile,'Numero de clientes         %14d\n', num_delays_required);
 
 fprintf(timfile,'Series de tiempo producidas por mm1.m \n');
 fprintf(timfile,'3\n');
