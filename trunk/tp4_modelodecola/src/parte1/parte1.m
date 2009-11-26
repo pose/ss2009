@@ -1,7 +1,7 @@
     format long;
     rand("seed",5);
 
-	cantSimulations = 20;
+	cantSimulations = 15;
 
 	lambda = zeros(1,cantSimulations);
 	mu = zeros(1,cantSimulations);
@@ -14,7 +14,7 @@
         mu(i) = cantSimulations / i;
 	endfor
 	for i = 1 : cantSimulations
-		[rho, relativeError, meanQueueLength_i] = mm1(lambda(i),mu(i),500);
+		[rho, relativeError, meanQueueLength_i] = mm1(lambda(i),mu(i),1000);
 
 		meanQueueLength(i) = meanQueueLength_i;
 		rhos(i) = rho;
