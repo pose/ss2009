@@ -54,7 +54,7 @@ mean_interarrival = lambda;
 mean_service = 1/mu;
 num_delays_required = amount;
 
-maxSize = 200;
+maxSize = 100;
 
 rho = 0.0;
 %TOLEEEEE
