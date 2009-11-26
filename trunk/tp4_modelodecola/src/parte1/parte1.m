@@ -19,7 +19,7 @@
 		meanQueueLength(i) = meanQueueLength_i;
 		rhos(i) = rho;
 		
-		theoreticalMeanQueueLength(i) = rho/(mu(i) - lambda(i));
+		theoreticalMeanQueueLength(i) = (rho * rho)/(1 - rho);
 	endfor
 
     % Plot the results
