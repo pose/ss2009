@@ -52,7 +52,7 @@ mean_interarrival = lambda;
 mean_service = 1/mu;
 num_delays_required = amount;
 
-maxSize = 1500;
+maxSize = 2000;
 
 rho = 0.0;
 %TOLEEEEE
@@ -126,9 +126,6 @@ while( (relativeError(i) > tole) && (i < maxSize) )
     initialize();  
 end
 
-fprintf('\ntotal steps: %d\n', i);
-
-% cut the array at the count position (all data behind are zero) ...
 relativeError = relativeError(1:i);
 
 endfunction
