@@ -50,7 +50,7 @@ V\'azquez, Santiago Jos\'e\\
 
 \begin{abstract}
 
-En el presente art\'i�culo se simula un sistema de cola simple utilizando los modelos de tipo M/M/1 y M/M/2.
+En el presente art\'iculo se simula un sistema de cola simple utilizando los modelos de tipo M/M/1 y M/M/2.
 Se analizan los tiempos medios de espera en la cola y la longitud de la misma.
 \end{abstract}
 
@@ -149,20 +149,20 @@ se ve claramente el comportamiento asint\'otico hacia el valor 1 (donde alcanza 
 \end{equation}
 
 Por otra parte, los resultados obtenidos emp\'iricamente de $W_q$ se pueden observar en \ref{fig:empwq}.
-All\'a� vemos como para las 20 corridas de 200 simulaciones se aprecian los efectos de bordes finitos para
+All\'a vemos como para las 20 corridas de 200 simulaciones se aprecian los efectos de bordes finitos para
 la proximidad al valor 1 (que tiene asociado 16 unidades de tiempo).
 Una comparaci\'on de los dos resultados se puede observar m\'as claramente en \ref{fig:teovsempwq}.
 
 A medida que las probabilidades de $\mu$ y de $\lambda$ convergen al mismo valor suceden varios fen\'omenos: 
 \begin{enumerate}
 \item Intuitivamente, la probabilidad que llegue un usuario $\lambda$ hace que lleguen usuarios casi a la misma velocidad que se van $\mu$. En este hipotético caso, esto se traduce en que el sistema a largo plazo se comiencen a acumular usuarios en la cola. Resultando en que no se llegue a dar abasto a atenderlos. Por lo que tiene sentido pensar que el tiempo de permanencia en la cola empiece a crecer.
-\item Viendo el resultado anal\'i�tico se observar que la esperanza del tiempo en cola tiende a infinito al igual que su varianza. De esta forma, podemos concluir que el sistema se comportará de manera inestable. Si bien en la práctica no tiene sentido de hablar de tiempo infinito, se puede pensar como un colapso del servicio.
+\item Viendo el resultado anal\'itico se observar que la esperanza del tiempo en cola tiende a infinito al igual que su varianza. De esta forma, podemos concluir que el sistema se comportará de manera inestable. Si bien en la práctica no tiene sentido de hablar de tiempo infinito, se puede pensar como un colapso del servicio.
 \item Como se mencion\'o anteriormente, el motivo por el cual en el gr\'afico \ref{fig:empwq} no se nota la divergencia es debido al efecto que se corrió un número finito de veces y con un número finito de personas. 
 \item Cuando se acerca al valor de divergencia (o sea $\rho=1$), la f\'ormula \ref{eq:wqvar}  comienza a crecer.
 Esto indica que cuanto mayor sea la diferencia entre $\mu$ y $\lambda$ (siempre que $\rho < 1$ porque sino eso
-implicar\'i�a inestabilidad) mayor ser\'a la varianza.
+implicar\'ia inestabilidad) mayor ser\'a la varianza.
 Esto se traduce en que la esperanza tendr\'a menos volatilidad a medida que $\lambda$ sea mucho menor a $\mu$.
-En un caso pr\'actico, nos asegura que si nuestro tiempo de servicio es bueno ser\'a probabil\'i�sticamente
+En un caso pr\'actico, nos asegura que si nuestro tiempo de servicio es bueno ser\'a probabil\'isticamente
 insignificante la posibilidad de que el servicio se sature.
 A medida que el servicio empeora, o se vuelve m\'as ineficiente, se somete a un mayor riesgo a ser saturado.
 
