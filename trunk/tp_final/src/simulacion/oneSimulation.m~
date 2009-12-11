@@ -7,7 +7,7 @@ format long;
 rand('seed',1000);
 
 %50 Hs
-[mean_time xx yy zz all_ql all_t] = simulate(0.6, 3000 );
+[mean_time xx yy all_ql all_t] = simulate(0.6, 3000 );
 
 figure(1);
 plot(all_t,all_ql(:,1));

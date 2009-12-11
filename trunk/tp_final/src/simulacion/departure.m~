@@ -13,7 +13,7 @@
 %  - dep_event_type Tipo de evento de salida de este servidor
 %  - qds         Tiempo acumulado de espera en la cola
 
-function [ss tne ql dt taq qds] = departure(ql, ss, tne, dt, taq, dep_event_type, qds)
+function [ss tne ql dt taq] = departure(ql, ss, tne, dt, taq, dep_event_type qds)
 
 	% Constantes
 	BUSY    = 1;

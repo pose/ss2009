@@ -14,7 +14,7 @@
 %  - devent_type Tipo de evento de salida de este servidor
 
 function [tne_depart ql taq ss dt qds] = \
-	arrival(time, ss, ql, taq, dt, tne_depart, devent_type, qds)
+	arrival(time, ss, ql, taq, dt, tne_depart, devent_type)
 
 	% Constantes
 	BUSY    = 1;
