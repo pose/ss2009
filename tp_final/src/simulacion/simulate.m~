@@ -156,6 +156,6 @@ end
 printf('Mean Time %d %d es %d\n',sum(dt),num_clients, sum(dt) / num_clients);
 printf('Espera en las colas %d %d %d \n',all_delay(1),all_delay(2),all_delay(3));
 printf('Ocupacion de los ERs %f %f %f \n',mean_ss(2),mean_ss(3),mean_ss(4));
-printf('Longitud media de las colas %f %f %f \n',mean_ql(1),mean_ql(2),mean_ql(3));
+printf('Longitud media de las colas %f %f %f \n',mean_ql(2),mean_ql(3),mean_ql(4));
 fflush(1);
 end
