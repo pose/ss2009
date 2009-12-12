@@ -21,6 +21,8 @@ f = transpose(ercop(:,2));
 marcas = transpose(ercop(:,1));
 n = sum(f);
 
+teorico = normal_pdf(marcas,  1.05000000000000,  0.148918918918919)
+
 % Como asumimos que los datos provienen de una distribucion 
 % normal, estimamos la media y la varianza.
 media_est = marcas * f'/n
@@ -58,13 +60,13 @@ print -deps -mono cola_ST.eps
 %__gnuplot_set__ output "../graficos/histograma_e3.eps";
 %replot;
 %closeplot;
-
 % Calculamos el estadistico chi cuadrado
 chi_est = 0;
-for i=1:length(f)
-    chi_est = chi_est + ((teorico(i) - f(i))^2 / teorico(i));
+printf("tabla chi:\n");
+for i=1:clases
+	printf("%d|%f|%f|%f|%f|%f\n",i,f(i),teorico(i),teorico(i) - f(i), (teorico(i) - f(i))^2, ( ( teorico(i) - f(i) )^2 / teorico(i) ) );
+	chi_est = chi_est + ((teorico(i) - f(i))^2 / teorico(i));
 end
-chi_est
 
 % Calculamos el valor de chi por tablas
 chi_tabla = chisquare_inv(1 - significacion, length(f) - 3)
@@ -76,6 +78,9 @@ else
 	printf("No puedo decir que no sean de una distribucion normal.\n");
 end
 
+%KS
+D = test_ks(f, teorico)
+
 % Calculamos los quantiles para el plot Q-Q
 ercop(:,1)
 quantil_muestra = sort(ercop2);
@@ -83,6 +88,7 @@ quantil_teorico = normal_inv( (((1:n) - 0.5) / n), 0, 1);
 
 
 % Graficamos el plot q-q
+
 %__gnuplot_set__ terminal unknown;
 figure(1);
 plot(quantil_muestra, quantil_teorico, "@");
