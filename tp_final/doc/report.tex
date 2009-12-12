@@ -11,21 +11,77 @@
 \input{report_title.tex}
 
 \section{Punto (a)}
-Se modelaron los intervalos de tiempos entre arribos y el tiempo de servicio de ER a partir de los datos provistos en los archivos históricos \verb|arriboscop| y \verb|ercop| respectivamente. Para ello, se graficaron los histogramas correspondientes. En la Figura \ref{fig:hist_arriboscop} vemos el histograma correspondiente a los intervalos de tiempos entre arribos. Para la elección de los intervalos de clase se utilizó el criterio de Nuñez. Como podemos ver intuitivamente, la distribución de los datos en este caso es una triangular. En la Figura \ref{fig:hist_servicios} podemos ver el histograma correspondiente a los tiempos de servicios de ER. De nuevo, intuitivamente podemos ver que la distribución en este caso es una exponencial. Para verificar nuestras hipótesis ejecutamos el test $\chi^2$ sobre dichos datos y pudimos confirmar ambas distribuciones.
+Se modelaron los intervalos de tiempos entre arribos y el tiempo de servicio de ER a partir de los datos provistos en los archivos históricos \verb|arriboscop| y \verb|ercop| respectivamente. Para ello, se graficaron los histogramas correspondientes. En la Figura \ref{fig:hist_arriboscop} vemos el histograma correspondiente a los intervalos de tiempos entre arribos. Para la elección de los intervalos de clase se utilizó el criterio de Nuñez. Como podemos ver intuitivamente, la distribución de los datos en este caso es una exponencial. En la Figura \ref{fig:hist_servicios} podemos ver el histograma correspondiente a los tiempos de servicios de ER. De nuevo, intuitivamente podemos ver que la distribución en este caso es una triangular.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm]{../src/parteA/hist_arribos.eps}
+\includegraphics[width=12cm]{../src/parteA/hist_arribos.eps}
 \caption{\label{fig:hist_arriboscop} Histograma correspondiente a los intervalos de tiempos entre arribos.}
 \end{center}
 \end{figure}
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm]{../src/parteA/hist_servicios.eps}
+\includegraphics[width=12cm]{../src/parteA/hist_servicios.eps}
 \caption{\label{fig:hist_servicios} Histograma correspondiente a los tiempos de servicios de ER.}
 \end{center}
 \end{figure}
+
+Se utilizaron los test de  $\chi^2$ y de KS para verificar que las distribuciones son las indicadas previamente. Las tablas correspondientes a los tests realizados para verificar la distribución exponencial de los tiempos de servicios de ER, se ven en la Figura \ref{tab:chi_table} y la Figura \ref{fig:ks_table}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{l*{6}{c}r}
+\hline
+Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_i}$\\
+\hline
+1&512.000000&483.209027&-28.790973&828.920123&1.715448\\
+2&239.000000&249.533949&10.533949&110.964084&0.444685\\
+3&131.000000&128.861814&-2.138186&4.571839&0.035479\\
+4&48.000000&66.545523&18.545523&343.936416&5.168438\\
+5&26.000000&34.364770&8.364770&69.969378&2.036079\\
+6&18.000000&17.746309&-0.253691&0.064359&0.003627\\
+7&17.000000&9.164371&-7.835629&61.397088&6.699542\\
+8&5.000000&4.732572&-0.267428&0.071518&0.015112\\
+9&2.000000&2.443947&0.443947&0.197089&0.080644\\
+10&1.000000&1.262079&0.262079&0.068685&0.054422\\
+11&0.000000&0.651750&0.651750&0.424778&0.651750\\
+12&1.000000&0.336570&-0.663430&0.440139&1.307719\\
+\hline
+\end{tabular}
+\caption{\label{tab:chi_table} Cómputos para el test $\chi^2$.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{l|l*{12}{c}r}
+\hline
+$x_i$&0.512000&0.239000&0.131000&0.048000&0.026000&0.018000\\
+$i/n$&0.483764&0.733585&0.862594&0.929216&0.963621&0.981387\\
+$\frac{i}{n} - x_i$&-0.028236&0.494585&0.731594&0.881216&0.937621&0.963387\\
+$x_i - \frac{i-1}{n}$&0.512000&0.155667&-0.035667&-0.202000&-0.307333&-0.398667\\
+\hline
+\end{tabular}
+\caption{\label{tab:chi_table} Cómputos para el test $KS$. Intervalos del 1 al 6.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{l|l*{12}{c}r}
+\hline
+$x_i$&0.017000&0.005000&0.002000&0.001000&0.000000&0.001000\\
+$i/n$&0.990562&0.995300&0.997747&0.999011&0.999663&1.000000\\
+$\frac{i}{n} - x_i$&0.973562&0.990300&0.995747&0.998011&0.999663&0.999000\\
+$x_i - \frac{i-1}{n}$&-0.483000&-0.578333&-0.664667&-0.749000&-0.833333&-0.915667\\
+\hline
+\end{tabular}
+\caption{\label{tab:ks_table} Cómputos para el test $KS$. Intervalos del 7 al 12.}
+\end{center}
+\end{figure}
+
+Además, se utilizaron los teste de TAKA para verificar la distribución triangular de los tiempos de servicio de ER. TABLAS, ETC.
 
 \section{Punto (b)}
 Las colas del sistema se denominan como se muestra en la Figura \ref{fig:events_diagram}. Como podemos ver, quedan
@@ -51,6 +107,8 @@ Como asumimos que la salida de una sección y paso a la próxima se realiza inst
 \caption{\label{fig:events_diagram} Diagrama de estados del sistema.}
 \end{center}
 \end{figure}
+
+
 
 \section{Punto (d)}
 
