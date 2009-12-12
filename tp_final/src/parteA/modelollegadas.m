@@ -46,6 +46,7 @@ hold on;
 bar(marcas, f);
 xlabel("Tiempos entre arribos al sistema [h]");
 ylabel("Frecuancia absoluta");
+title("Arribos versus modelo");
 plot(t, z, ";Modelo;");
 print -deps -mono arribos_vs_model.eps 
 hold off;
@@ -84,13 +85,14 @@ figure(3);
 clf;
 hold on;
 plot(quantil_muestra, quantil_teorico, '@');
-print -deps -mono qqplot_arribos.eps 
 
 n = 0:dt:1;
 
 plot(n, n); 
 xlabel("Cuantiles de la muestra");
 ylabel("Cuantiles del modelo teorico");
+title("Plot QQ de los datos estandarizados");
+print -deps -mono qqplot_arribos.eps 
 
 % Aplicamos el test KS.
 
@@ -102,6 +104,9 @@ n = length(arriboscop);
 figure(4);
 clf;
 hist(arriboscop, 12);
+xlabel("Intervalos de clase");
+ylabel("Cantidad de arribos");
+title("Histograma del tiempo entre arribo de unidades");
 [f marcas] = hist(arriboscop, clases);
 print -deps -mono hist_arribos.eps 
 
