@@ -1,0 +1,12 @@
+# Created by Octave 3.2.0, Fri Dec 11 08:24:40 2009 ART <savazque@labu96.unix.lab.>
+# name: ercop
+# type: matrix
+# rows: 7
+# columns: 2
+ 0.25 2
+ 0.5 4
+ 0.75 6
+ 1 8
+ 1.25 10
+ 1.5 6
+ 1.70 2
