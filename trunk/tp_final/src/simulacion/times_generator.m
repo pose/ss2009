@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Archivo: times.m
+% Archivo: times_generator.m
 % Dado el tipo de evento retorna el intervalo de tiempo en el que debe volver
 % a ocurrir dicho evento, haciendo una realizacion de la variable aleatoria
 % que lo modela.
 
 %TODO salvo el caso 2 y 6 hay que cambiar todos los tiempos - El de los E es triangular
 %y el de 1 parece exponencial
-function ret = times(event_type)
+function ret = times_generator(event_type)
 	switch(event_type)
 		case 1 % Tiempo entre arrbos a R
 			ret = expon(8.2202);

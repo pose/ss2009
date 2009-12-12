@@ -2,6 +2,7 @@
 % Archivo manySimulations.m
 % Computa el punto d).
 
+format long;
 rand('seed', 1000);
 
 %50 Hs
@@ -19,3 +20,10 @@ inv = norminv(1-alpha/2);
 semi = inv*sqrt(var(just_mean(1:i))/(i));
 fprintf(stdout, 'Semiamplitud del intervalo de confianza para alpha = %g: %g\n',
 		alpha, semi);
+
+just_mean(1) = means(1);
+
+for i=1:10
+	fprintf(stdout, 'Tiempo medio del cliente en el sistema %d: %g\n',
+		i, just_mean(i));	
+end

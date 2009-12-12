@@ -25,7 +25,7 @@ function [tne_depart ql taq ss dt qds] = \
 		taq(ql) = time;	% Guardar tiempo de arribo
 	else
 		ss = BUSY;
-		service_time = times(devent_type); % Programar partida
+		service_time = times_generator(devent_type); % Programar partida
 		tne_depart = time + service_time;
 		dt += service_time;                % Actualizar demora
 	end

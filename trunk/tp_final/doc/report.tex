@@ -13,23 +13,23 @@
 \section{Punto (a)}
 Se modelaron los intervalos de tiempos entre arribos y el tiempo de servicio de ER a partir de los datos provistos en los archivos históricos \verb|arriboscop| y \verb|ercop| respectivamente. Para ello, se graficaron los histogramas correspondientes. En la Figura \ref{fig:hist_arriboscop} vemos el histograma correspondiente a los intervalos de tiempos entre arribos. Para la elección de los intervalos de clase se utilizó el criterio de Nuñez. Como podemos ver intuitivamente, la distribución de los datos en este caso es una exponencial. En la Figura \ref{fig:hist_servicios} podemos ver el histograma correspondiente a los tiempos de servicios de ER. De nuevo, intuitivamente podemos ver que la distribución en este caso es una triangular.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=12cm]{../src/parteA/hist_arribos.eps}
 \caption{\label{fig:hist_arriboscop} Histograma correspondiente a los intervalos de tiempos entre arribos.}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=12cm]{../src/parteA/hist_servicios.eps}
 \caption{\label{fig:hist_servicios} Histograma correspondiente a los tiempos de servicios de ER.}
 \end{center}
 \end{figure}
 
-Se utilizaron los test de  $\chi^2$ y de KS para verificar que las distribuciones son las indicadas previamente. Las tablas correspondientes a los tests realizados para verificar la distribución exponencial de los tiempos de servicios de ER, se ven en la Figura \ref{tab:chi_table} y la Figura \ref{fig:ks_table}
+Se utilizaron los test de  $\chi^2$ y de KS para verificar que las distribuciones son las indicadas previamente. Las tablas correspondientes a los tests realizados para verificar la distribución exponencial de los tiempos de servicios de ER, se ven en las Figuras \ref{tab:chi_table}, \ref{tab:ks_table_first} y \ref{tab:ks_table_second}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \begin{tabular}{l*{6}{c}r}
 \hline
@@ -53,7 +53,7 @@ Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \begin{tabular}{l|l*{12}{c}r}
 \hline
@@ -63,11 +63,11 @@ $\frac{i}{n} - x_i$&-0.028236&0.494585&0.731594&0.881216&0.937621&0.963387\\
 $x_i - \frac{i-1}{n}$&0.512000&0.155667&-0.035667&-0.202000&-0.307333&-0.398667\\
 \hline
 \end{tabular}
-\caption{\label{tab:chi_table} Cómputos para el test $KS$. Intervalos del 1 al 6.}
+\caption{\label{tab:ks_table_first} Cómputos para el test $KS$. Intervalos del 1 al 6.}
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \begin{tabular}{l|l*{12}{c}r}
 \hline
@@ -77,7 +77,7 @@ $\frac{i}{n} - x_i$&0.973562&0.990300&0.995747&0.998011&0.999663&0.999000\\
 $x_i - \frac{i-1}{n}$&-0.483000&-0.578333&-0.664667&-0.749000&-0.833333&-0.915667\\
 \hline
 \end{tabular}
-\caption{\label{tab:ks_table} Cómputos para el test $KS$. Intervalos del 7 al 12.}
+\caption{\label{tab:ks_table_second} Cómputos para el test $KS$. Intervalos del 7 al 12.}
 \end{center}
 \end{figure}
 
@@ -101,7 +101,7 @@ Como asumimos que la salida de una sección y paso a la próxima se realiza inst
  E = \{IUI, IER, IST, OST\}
 \]
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=12cm]{./states.eps}
 \caption{\label{fig:events_diagram} Diagrama de estados del sistema.}
@@ -112,8 +112,127 @@ Como asumimos que la salida de una sección y paso a la próxima se realiza inst
 
 \section{Punto (d)}
 
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/cola_UI.eps}
+\caption{\label{fig:cola_UI} Longitud de la cola de la Unidad de Inspecci\'on a lo largo de la simulaci\'on.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/cola_ER.eps}
+\caption{\label{fig:cola_ER} Longitud de la cola de las Estaciones de Reparaci\'on a lo largo de la simulaci\'on.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/cola_ST.eps}
+\caption{\label{fig:cola_ST} Longitud de la cola del Sector de Testeo a lo largo de la simulaci\'on.}
+\end{center}
+\end{figure}
+
 \section{Punto (e)}
 
+\begin{table}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+  N\'umero de simulaci\'on & Tiempo medio por cliente en el sistema(minutos) \\
+\hline
+  1 & 8850.7 \\
+\hline
+  2 & 8684.89 \\
+\hline
+  3 & 8660.13 \\
+\hline
+  4 & 7632.51 \\
+\hline
+  5 & 7907.32 \\
+\hline
+  6 & 7322.04 \\
+\hline
+  7 & 7238.49 \\
+\hline
+  8 & 6073.77 \\
+\hline
+  9 & 7246.47 \\
+\hline
+  10 & 8052.25 \\
+\hline
+\end{tabular}
+\caption{\label{tab:mean_sistem_time} Tiempo medio del cliente en el sistema para distintas simulaciones}
+\end{table} 
+
+PONERLO COPADOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Estimaci\'on del tiempo medio por cliente en el sistema: $7766.86 /pm 1571.57$ con un nivel de significaci\'on del 5\%.
+
+
 \section{Punto (f)}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/tp_UI.eps}
+\caption{\label{fig:tp_UI} Tiempo promedio en la cola de la Unidad de Inspecci\'on en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/tp_ER.eps}
+\caption{\label{fig:tp_ER} Tiempo promedio en la cola de las Estaciones de Reparaci\'on en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/tp_ST.eps}
+\caption{\label{fig:tp_ST} Tiempo promedio en la cola del Sector de Testeo en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER1.eps}
+\caption{\label{fig:ss_ER1} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 1 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER2.eps}
+\caption{\label{fig:ss_ER2} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 2 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER3.eps}
+\caption{\label{fig:ss_ER3} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 3 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ql_UI.eps}
+\caption{\label{fig:ql_UI} Longitud promedio de la cola de la Unidad de Inspecci\'on en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ql_ER.eps}
+\caption{\label{fig:ql_ER} Longitud promedio de la cola de las Estaciones de Reparaci\'on en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ql_ST.eps}
+\caption{\label{fig:ql_ST} Longitud promedio de la cola del Sector de Testeo en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
 
 \end{document}
