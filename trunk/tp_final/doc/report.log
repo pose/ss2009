@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2009.6.22)  12 DEC 2009 16:04
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2009.6.22)  12 DEC 2009 18:11
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -282,7 +282,11 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks21
 \verbatim@line=\toks22
 \verbatim@in@stream=\read2
-) (./report.aux)
+) (./report.aux
+
+LaTeX Warning: Label `tab:chi_table' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -297,8 +301,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
-
-(./report_title.tex
+ (./report_title.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -308,29 +311,55 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 File: ../src/parteA/hist_arribos.eps Graphic file (type eps)
  <../src/parteA/hist_arribos.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 18--19
- [] 
- []
-
 File: ../src/parteA/hist_servicios.eps Graphic file (type eps)
+
 <../src/parteA/hist_servicios.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 25--26
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:ks_table' on page 1 undefined on input line 30.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (19.06615pt too wide) in paragraph at lines 58--66
  [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[1] [2]
-File: ./states.eps Graphic file (type eps)
- <./states.eps> [3] (./report.aux) ) 
-Here is how much of TeX's memory you used:
- 964 strings out of 95087
- 11036 string characters out of 1183278
- 59470 words of memory out of 1500000
- 4167 multiletter control sequences out of 10000+50000
- 6868 words of font info for 25 fonts, out of 1200000 for 2000
- 28 hyphenation exceptions out of 8191
- 25i,5n,19p,908b,281s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on report.dvi (4 pages, 4712 bytes).
+Overfull \hbox (22.39948pt too wide) in paragraph at lines 72--80
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1]
+File: ./states.eps Graphic file (type eps)
+ <./states.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2] [3] [4] (./report.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 969 strings out of 95087
+ 11100 string characters out of 1183278
+ 64470 words of memory out of 1500000
+ 4171 multiletter control sequences out of 10000+50000
+ 7176 words of font info for 26 fonts, out of 1200000 for 2000
+ 28 hyphenation exceptions out of 8191
+ 25i,9n,19p,784b,281s stack positions out of 5000i,500n,6000p,200000b,5000s
+
+Output written on report.dvi (5 pages, 8300 bytes).
