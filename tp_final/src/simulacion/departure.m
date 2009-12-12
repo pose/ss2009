@@ -26,7 +26,7 @@ function [ss tne ql dt taq qds] = departure(ql, ss, tne, dt, taq, dep_event_type
 		ss = IDLE;
 		tne = MAX_INT;
 	else	% Atender nuevo cliente
-		service_time = times(dep_event_type);
+		service_time = times_generator(dep_event_type);
 		tne = time + service_time;
 		delay = time - taq(1);
 		dt += delay + service_time;

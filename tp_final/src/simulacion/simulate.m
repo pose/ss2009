@@ -8,7 +8,7 @@
 %Retorna
 %	mean_time tiempo medio de un cliente en el sistema
 %	all_delay tiempo medio espera de los clientes en cada cola
-%	all_ss ocupacion media de cada servidor
+%	mean_ss ocupacion media de cada servidor
 %	all_ql longitud de la cola en los instantes contenidos en all_t
 %	all_t instantes en los que se registra la longitud de la cola
 
@@ -30,7 +30,7 @@ num_events = 6;        % Numero de eventos
 
 %[ Ra Rd E1d E2d E3d STd]
 tne = ones(1, 6) * MAX_INT;    % Lista de eventos
-tne(1) = time + times(1);       % Primer arribo
+tne(1) = time + times_generator(1);       % Primer arribo
 
 taq{1,3} = zeros(0);    % Tiempos de llegada a cada cola por cliente
 
@@ -55,7 +55,7 @@ while ( time < max_time || norm(ql) > 0 || norm(ss) > 0)
 		[tne(2) ql(1) taq{1} ss(1) dt(1) qds(1)] = arrival(time, \
 			ss(1), ql(1), taq{1}, dt(1), tne(2), 2, qds(1));
 		if (time <= max_time)  % Programa prox arribo
-			tne(1) = time + times(1);
+			tne(1) = time + times_generator(1);
 		else
 			tne(1) = MAX_INT;
 		end
@@ -75,10 +75,10 @@ while ( time < max_time || norm(ql) > 0 || norm(ss) > 0)
 				ql(2)++;
 				taq{2}(ql(2)) = time;	% Guardar tiempo de arribo
 			else
-				[x ns] = min(ss(2:4));  % Busco caja disponible
+				[x ns] = min(ss(2:4));  % Busco ER disponible
 				ns = ns + 1; 
 				ss(ns) = BUSY;
-				service_time = times(ns+1);   % Programa partida
+				service_time = times_generator(ns+1);   % Programa partida
 				tne(ns+1) = time + service_time;
 				dt(ns+1) += service_time;	% Actualiza demora
 			end
@@ -112,10 +112,10 @@ while ( time < max_time || norm(ql) > 0 || norm(ss) > 0)
 				ql(2)++;
 				taq{2}(ql(2)) = time;	% Guardar tiempo de arribo
 			else
-				[x ns] = min(ss(2:4));  % Busco caja disponible
+				[x ns] = min(ss(2:4));  % Busco ER disponible
 				ns = ns + 1; 
 				ss(ns) = BUSY;
-				service_time = times(ns+1);   % Programa partida
+				service_time = times_generator(ns+1);   % Programa partida
 				tne(ns+1) = time + service_time;
 				dt(ns+1) += service_time;	% Actualiza demora
 			end
@@ -153,9 +153,9 @@ for i = 1:columns(real_ql)
     mean_ql(i) = sum(real_ql(:,i)') / time;
 end
 
-printf('Mean Time %d %d es %d\n',sum(dt),num_clients, sum(dt) / num_clients);
-printf('Espera en las colas %d %d %d \n',all_delay(1),all_delay(2),all_delay(3));
-printf('Ocupacion de los ERs %f %f %f \n',mean_ss(2),mean_ss(3),mean_ss(4));
-printf('Longitud media de las colas %f %f %f \n',mean_ql(1),mean_ql(2),mean_ql(3));
-fflush(1);
+%printf('Mean Time %d %d es %d\n',sum(dt),num_clients, sum(dt) / num_clients);
+%printf('Espera en las colas %d %d %d \n',all_delay(1),all_delay(2),all_delay(3));
+%printf('Ocupacion de los ERs %f %f %f \n',mean_ss(2),mean_ss(3),mean_ss(4));
+%printf('Longitud media de las colas %f %f %f \n',mean_ql(1),mean_ql(2),mean_ql(3));
+%fflush(1);
 end
