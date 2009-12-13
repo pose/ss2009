@@ -13,11 +13,14 @@ function ret = times_generator(event_type)
 		case 2 % Tiempo de servicio en R
 			ret = unif(10, 20);
 		case 3 % Tiempo de servicio en en E1
-			ret = triangle(0,1.25,1.81);
+			ret = normal(1.05,0.148918918918919); 
+			%ret = triangle(0,1.25,1.81);
 		case 4 % Tiempo de servicio en E2
-			ret = triangle(0,1.25,1.81);
+			ret = normal(1.05,0.14815);
+			%ret = triangle(0,1.25,1.81);
 		case 5 % Tiempo de servicio en E3
-			ret = triangle(0,1.25,1.81);
+			ret = normal(1.05,0.14815);
+			%ret = triangle(0,1.25,1.81);
 		case 6 % Tiempo de servicio en ST
 			ret = expon(40);
 		otherwise
