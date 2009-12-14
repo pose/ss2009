@@ -206,6 +206,20 @@ Estimaci\'on del tiempo medio por cliente en el sistema: $7927.73 /pm 1592$ con 
 
 \section{Punto (f)}
 
+Se vari\'a la probabilidad $p$ de que una unidad pase el testeo del Sector de Testeo entre 0 y 1 con un paso de $0.05$.
+Para cada uno de estos 20 valores de $p$ se realizan 10 simulaciones. En cada simulaci\'on se estima el tiempo
+promedio en cada cola de una unidad, la longitud media de cada cola, y la ocupaci\'on media de cada ER en funci\'on de $p$.
+Dichas estimaciones se muestran en las figuras \ref{fig:tp_UI}, \ref{fig:tp_ER}, \ref{fig:tp_ST} para los promedios en cada cola de
+una unidad; las figuras \ref{fig:ql_UI}, \ref{fig:ql_ER}, \ref{fig:ql_ST} para la longitud media de cada cola; y las figuras
+\ref{fig:ss_ER1}, \ref{fig:ss_ER2}, \ref{fig:ss_ER3} para la ocupaci\'on media de cada ER.
+
+Que la mayor ocupaci\'on del servidor ocurra en la Estaci\'on de Reparaci\'on 1 es un detalle de implementaci\'on. Esto se debe a
+que se asigna el cliente a la primer ER libre. Se observa como el tiempo de un cliente en las colas
+ER y ST decrece al aumentar la probabilidad de pasar el test de la ST. \'Esto es esperable, ya que a mayor probabilidad de pasar por
+ST, menos clientes regresan a la cola ER. Un an\'alisis similar se puede realizar observando la longitud de ambas colas. Sin embargo,
+vemos como variar $p$ no afecta la cola UI, lo cual tambi\'en es de esperar ya que dicha probabilidad no juega ning\'un rol en ese
+momento.
+
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=15cm]{./img/tp_UI.eps}
@@ -229,27 +243,6 @@ Estimaci\'on del tiempo medio por cliente en el sistema: $7927.73 /pm 1592$ con 
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=15cm]{./img/ss_ER1.eps}
-\caption{\label{fig:ss_ER1} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 1 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
-\end{center}
-\end{figure}
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=15cm]{./img/ss_ER2.eps}
-\caption{\label{fig:ss_ER2} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 2 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
-\end{center}
-\end{figure}
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=15cm]{./img/ss_ER3.eps}
-\caption{\label{fig:ss_ER3} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 3 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
-\end{center}
-\end{figure}
-
-\begin{figure}[ht]
-\begin{center}
 \includegraphics[width=15cm]{./img/ql_UI.eps}
 \caption{\label{fig:ql_UI} Longitud promedio de la cola de la Unidad de Inspecci\'on en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
 \end{center}
@@ -266,6 +259,27 @@ Estimaci\'on del tiempo medio por cliente en el sistema: $7927.73 /pm 1592$ con 
 \begin{center}
 \includegraphics[width=15cm]{./img/ql_ST.eps}
 \caption{\label{fig:ql_ST} Longitud promedio de la cola del Sector de Testeo en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER1.eps}
+\caption{\label{fig:ss_ER1} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 1 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER2.eps}
+\caption{\label{fig:ss_ER2} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 2 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=15cm]{./img/ss_ER3.eps}
+\caption{\label{fig:ss_ER3} Ocupaci\'on promedio de la Estaci\'on de Reparaci\'on 3 en funci\'on de la probabilidad de pasar el test del Sector de Testeo.}
 \end{center}
 \end{figure}
 
