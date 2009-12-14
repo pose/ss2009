@@ -27,7 +27,8 @@ Se modelaron los intervalos de tiempos entre arribos y el tiempo de servicio de 
 \end{center}
 \end{figure}
 
-Se utilizaron los test de  $\chi^2$ y de KS para verificar que las distribuciones son las indicadas previamente. Las tablas correspondientes a los tests realizados para verificar la distribución exponencial de los tiempos de servicios de ER, se ven en las Tablas \ref{tab:chi_table}, \ref{tab:ks_table_first} y \ref{tab:ks_table_second}. El test $\chi^2$ arrojó un valor de $18.213$ que implica un nivel de significación de $5\%$. Para el de KS, obtuvimos un valor de $0.99966$. Se verifica la distribución ya que es mayor a $0.375$, que es el valor obtenido de tabla para un nivel de significación como el especificado anteriormente y 12 intervalos.
+Se utilizaron los test de  $\chi^2$ y el Gráfico QQ para verificar que las distribuciones son las indicadas previamente. La tabla corresponde al test realizado para verificar la distribución exponencial de los tiempos entre arribos, se ve en la Tabla \ref{tab:chi_table}. El test $\chi^2$ arrojó un valor de $18.213$ que implica un nivel de significación de $5\%$. 
+%Para el de KS, obtuvimos un valor de $0.99966$. Se verifica la distribución ya que es mayor a $0.375$, que es el valor obtenido de tabla para un nivel de significación como el especificado anteriormente y 12 intervalos.
 
 \begin{table}[ht]
 \begin{center}
@@ -53,33 +54,33 @@ Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_
 \end{center}
 \end{table}
 
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{l|l*{12}{c}r}
-\hline
-$x_i$&0.512000&0.239000&0.131000&0.048000&0.026000&0.018000\\
-$i/n$&0.483764&0.733585&0.862594&0.929216&0.963621&0.981387\\
-$\frac{i}{n} - x_i$&-0.028236&0.494585&0.731594&0.881216&0.937621&0.963387\\
-$x_i - \frac{i-1}{n}$&0.512000&0.155667&-0.035667&-0.202000&-0.307333&-0.398667\\
-\hline
-\end{tabular}
-\caption{\label{tab:ks_table_first} Cómputos para el test $KS$. Intervalos del 1 al 6. Para la distribución exponencial}
-\end{center}
-\end{table}
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabular}{l|l*{12}{c}r}
+%\hline
+%$x_i$&0.512000&0.239000&0.131000&0.048000&0.026000&0.018000\\
+%$i/n$&0.483764&0.733585&0.862594&0.929216&0.963621&0.981387\\
+%$\frac{i}{n} - x_i$&-0.028236&0.494585&0.731594&0.881216&0.937621&0.963387\\
+%$x_i - \frac{i-1}{n}$&0.512000&0.155667&-0.035667&-0.202000&-0.307333&-0.398667\\
+%\hline
+%\end{tabular}
+%\caption{\label{tab:ks_table_first} Cómputos para el test $KS$. Intervalos del 1 al 6. Para la distribución exponencial}
+%\end{center}
+%\end{table}
 
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{l|l*{12}{c}r}
-\hline
-$x_i$&0.017000&0.005000&0.002000&0.001000&0.000000&0.001000\\
-$i/n$&0.990562&0.995300&0.997747&0.999011&0.999663&1.000000\\
-$\frac{i}{n} - x_i$&0.973562&0.990300&0.995747&0.998011&0.999663&0.999000\\
-$x_i - \frac{i-1}{n}$&-0.483000&-0.578333&-0.664667&-0.749000&-0.833333&-0.915667\\
-\hline
-\end{tabular}
-\caption{\label{tab:ks_table_second} Cómputos para el test $KS$. Intervalos del 7 al 12. Para la distribución exponencial}
-\end{center}
-\end{table}
+%\begin{table}[ht]
+%\begin{center}
+%\begin{tabular}{l|l*{12}{c}r}
+%\hline
+%$x_i$&0.017000&0.005000&0.002000&0.001000&0.000000&0.001000\\
+%$i/n$&0.990562&0.995300&0.997747&0.999011&0.999663&1.000000\\
+%$\frac{i}{n} - x_i$&0.973562&0.990300&0.995747&0.998011&0.999663&0.999000\\
+%$x_i - \frac{i-1}{n}$&-0.483000&-0.578333&-0.664667&-0.749000&-0.833333&-0.915667\\
+%\hline
+%\end{tabular}
+%\caption{\label{tab:ks_table_second} Cómputos para el test $KS$. Intervalos del 7 al 12. Para la distribución exponencial}
+%\end{center}
+%\end{table}
 
 Además, se utilizó el test de $\chi^2$ para verificar la distribución normal de los tiempos de servicio de ER. Las tablas correspondientes a los tests realizados para verificar la distribución normal de los tiempos de servicios de ER, se ven en las Tablas \ref{tab:chi_table_norm} y \ref{tab:ks_table_norm}. El test $\chi^2$ arrojó un valor de $1.56995$ que implica un nivel de significación de $5\%$. Para el de KS, obtuvimos un valor de 0.94737. Se verifica la distribución ya que es mayor a $0.486$, que es el valor obtenido de tabla para un nivel de significación de 0.05 y 7 intervalos.
 
