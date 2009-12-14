@@ -27,7 +27,7 @@ Se modelaron los intervalos de tiempos entre arribos y el tiempo de servicio de 
 \end{center}
 \end{figure}
 
-Se utilizaron los test de  $\chi^2$ y el Gráfico QQ para verificar que las distribuciones son las indicadas previamente. La tabla corresponde al test realizado para verificar la distribución exponencial de los tiempos entre arribos, se ve en la Tabla \ref{tab:chi_table}. El test $\chi^2$ arrojó un valor de $18.213$ que implica un nivel de significación de $5\%$. 
+Se utilizaron los test de  $\chi^2$ y el Gráfico QQ para verificar que las distribuciones son las indicadas previamente. La tabla corresponde al test realizado para verificar la distribución exponencial de los tiempos entre arribos, se ve en la Tabla \ref{tab:chi_table}. El test $\chi^2$ arrojó un valor de $18.213$ que implica un nivel de significación de $5\%$. El resultado del gráfico QQ sobre esta distribución, se puede ver en la Figura  \ref{fig:qq_arribos}
 %Para el de KS, obtuvimos un valor de $0.99966$. Se verifica la distribución ya que es mayor a $0.375$, que es el valor obtenido de tabla para un nivel de significación como el especificado anteriormente y 12 intervalos.
 
 \begin{table}[ht]
@@ -54,6 +54,12 @@ Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_
 \end{center}
 \end{table}
 
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=12cm]{./qqplot_arribos.eps}
+\caption{\label{fig:qq_arribos} Gráfico QQ para la distribución exponencial.}
+\end{center}
+\end{figure}
 %\begin{table}[ht]
 %\begin{center}
 %\begin{tabular}{l|l*{12}{c}r}
@@ -82,7 +88,7 @@ Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_
 %\end{center}
 %\end{table}
 
-Además, se utilizó el test de $\chi^2$ para verificar la distribución normal de los tiempos de servicio de ER. Las tablas correspondientes a los tests realizados para verificar la distribución normal de los tiempos de servicios de ER, se ven en las Tablas \ref{tab:chi_table_norm} y \ref{tab:ks_table_norm}. El test $\chi^2$ arrojó un valor de $1.56995$ que implica un nivel de significación de $5\%$. Para el de KS, obtuvimos un valor de 0.94737. Se verifica la distribución ya que es mayor a $0.486$, que es el valor obtenido de tabla para un nivel de significación de 0.05 y 7 intervalos.
+Además, se utilizó el test de $\chi^2$ para verificar la distribución normal de los tiempos de servicio de ER. La tabla correspondientes al test realizado para verificar la distribución normal de los tiempos de servicios de ER, se ven en la Tabla \ref{tab:chi_table_norm}. %El test $\chi^2$ arrojó un valor de $1.56995$ que implica un nivel de significación de $5\%$. 
 
 
 \begin{table}[ht]
@@ -104,19 +110,19 @@ Clase& $O_i$ & $E_i$  & $O_i - E_i$ & $(O_i - E_i)^2$ & $\frac{(O_i - E_i)^2}{E_
 \end{center}
 \end{table}
 
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{l|l*{12}{c}r}
-\hline
-$x_i$&0.052632&0.105263&0.157895&0.210526&0.263158&0.157895&0.052632\\
-$i/n$&0.032249&0.128636&0.320630&0.575598&0.801380&0.934690&1.000000\\
-$\frac{i}{n} - x_i$&-0.020383&0.023373&0.162735&0.365072&0.538222&0.776795&0.947368\\
-$x_i - \frac{i-1}{n}$&0.052632&-0.037594&-0.127820&-0.218045&-0.308271&-0.556391&-0.804511\\
-\hline
-\end{tabular}
-\caption{\label{tab:ks_table_norm} Cómputos para el test $KS$. Para la distribución normal}
-\end{center}
-\end{table}
+% \begin{table}[ht]
+% \begin{center}
+% \begin{tabular}{l|l*{12}{c}r}
+% \hline
+% $x_i$&0.052632&0.105263&0.157895&0.210526&0.263158&0.157895&0.052632\\
+% $i/n$&0.032249&0.128636&0.320630&0.575598&0.801380&0.934690&1.000000\\
+% $\frac{i}{n} - x_i$&-0.020383&0.023373&0.162735&0.365072&0.538222&0.776795&0.947368\\
+% $x_i - \frac{i-1}{n}$&0.052632&-0.037594&-0.127820&-0.218045&-0.308271&-0.556391&-0.804511\\
+% \hline
+% \end{tabular}
+% \caption{\label{tab:ks_table_norm} Cómputos para el test $KS$. Para la distribución normal}
+% \end{center}
+% \end{table}
 
 \section{Punto (b)}
 Las colas del sistema se denominan como se muestra en la Figura \ref{fig:events_diagram}. Como podemos ver, quedan

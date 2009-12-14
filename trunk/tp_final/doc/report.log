@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2009.4.11)  13 DEC 2009 23:00
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2009.6.22)  13 DEC 2009 23:49
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -311,100 +311,98 @@ File: ../src/parteA/hist_arribos.eps Graphic file (type eps)
 File: ../src/parteA/hist_servicios.eps Graphic file (type eps)
 
 <../src/parteA/hist_servicios.eps>
-Overfull \hbox (75.5107pt too wide) in paragraph at lines 109--117
- [] 
- []
-
-[1]
+File: ./qqplot_arribos.eps Graphic file (type eps)
+ <./qqplot_arribos.eps> [1]
 File: ./states.eps Graphic file (type eps)
  <./states.eps>
 File: ./img/cola_UI.eps Graphic file (type eps)
- <./img/cola_UI.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 152--153
+
+<./img/cola_UI.eps>
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 158--159
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--157
+Underfull \hbox (badness 10000) in paragraph at lines 155--163
 
  []
 
 [2] [3]
 File: ./img/cola_ER.eps Graphic file (type eps)
  <./img/cola_ER.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 160--161
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 166--167
  [] 
  []
 
 File: ./img/cola_ST.eps Graphic file (type eps)
 <./img/cola_ST.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 167--168
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 173--174
  [] 
  []
 
 [4]
 File: ./img/tp_UI.eps Graphic file (type eps)
  <./img/tp_UI.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 224--225
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 231--232
  [] 
  []
 
 File: ./img/tp_ER.eps Graphic file (type eps)
 <./img/tp_ER.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 231--232
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 238--239
  [] 
  []
 
 File: ./img/tp_ST.eps Graphic file (type eps)
 <./img/tp_ST.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 238--239
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 245--246
  [] 
  []
 
 File: ./img/ql_UI.eps Graphic file (type eps)
 <./img/ql_UI.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 245--246
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 252--253
  [] 
  []
 
 File: ./img/ql_ER.eps Graphic file (type eps)
 <./img/ql_ER.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 252--253
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 259--260
  [] 
  []
 
 File: ./img/ql_ST.eps Graphic file (type eps)
 <./img/ql_ST.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 259--260
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 266--267
  [] 
  []
 
 File: ./img/ss_ER1.eps Graphic file (type eps)
 <./img/ss_ER1.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 266--267
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 273--274
  [] 
  []
 
 File: ./img/ss_ER2.eps Graphic file (type eps)
 <./img/ss_ER2.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 273--274
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 280--281
  [] 
  []
 
 File: ./img/ss_ER3.eps Graphic file (type eps)
 <./img/ss_ER3.eps>
-Overfull \hbox (81.79134pt too wide) in paragraph at lines 280--281
+Overfull \hbox (81.79134pt too wide) in paragraph at lines 287--288
  [] 
  []
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] (./report.aux) ) 
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 1009 strings out of 95087
- 11597 string characters out of 1183278
- 66470 words of memory out of 1500000
- 4199 multiletter control sequences out of 10000+50000
+ 1011 strings out of 95087
+ 11632 string characters out of 1183278
+ 65470 words of memory out of 1500000
+ 4200 multiletter control sequences out of 10000+50000
  6868 words of font info for 25 fonts, out of 1200000 for 2000
  28 hyphenation exceptions out of 8191
- 25i,9n,19p,1078b,285s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 25i,9n,19p,1078b,342s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on report.dvi (17 pages, 18880 bytes).
+Output written on report.dvi (18 pages, 18176 bytes).
